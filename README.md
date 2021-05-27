@@ -1,0 +1,2 @@
+# Decidim::DecidimLanding
+

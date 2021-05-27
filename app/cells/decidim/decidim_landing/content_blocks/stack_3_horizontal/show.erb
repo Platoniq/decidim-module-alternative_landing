@@ -1,0 +1,20 @@
+<section class="extended stack-3-horizontal home-section">
+  <div class="stack-3-horizontal__container">
+    <div class="row">
+      <h1 class="text-highlight heading1">
+        <%= decidim_sanitize translated_title %>
+      </h1>
+    </div>
+    <% 1.upto(3) do |x| %>
+      <div class="row">
+        <div class="column large-2">
+          <%= image_tag image(x) %>
+        </div>
+        <div class="column large-10">
+          <div><%= decidim_sanitize translated_body(x) %></div>
+          <div><%= translated_link(x) %></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
