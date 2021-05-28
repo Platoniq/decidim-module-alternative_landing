@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/decidim_landing/test/shared_examples/config_examples"
+require "decidim/alternative_landing/test/shared_examples/config_examples"
 
 describe "Visit the home page", type: :system, perform_enqueued: true do
   let(:organization) { create :organization, available_locales: [:en] }

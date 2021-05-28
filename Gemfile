@@ -4,11 +4,10 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-# We need to keep version here for Appraisal compatibility
-DECIDIM_VERSION = "0.24"
+DECIDIM_VERSION = "0.24.2"
 
 gem "decidim", DECIDIM_VERSION
-gem "decidim-decidim_landing", path: "."
+gem "decidim-alternative_landing", path: "."
 
 gem "bootsnap", "~> 1.4"
 

@@ -1,0 +1,63 @@
+<section class="alternative-landing stack-vertical">
+  <div class="row">
+    <h1 class="heading1">
+      <%= decidim_sanitize translated_title %>
+    </h1>
+  </div>
+  <div class="row">
+    <div class="stack">
+      <% 1.upto(3) do |x| %>
+        <div class="stack-item">
+          <div class="stack-image">
+            <%= image_tag image(x) %>
+          </div>
+          <ul class="stack-tags tags">
+            <li>
+              <%= translated_tag(x, classes: "") %>
+            </li>
+          </ul>
+          <div class="stack-body">
+            <%= decidim_sanitize translated_body(x) %>
+          </div>
+          <div class="stack-link">
+            <%= translated_link(x, classes: "button button--sc expanded") %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<style>
+  .stack-vertical .stack {
+    display: flex;
+    gap: 1em;
+  }
+
+  .stack-vertical .stack-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1em;
+    gap: 1em;
+  }
+
+  .stack-vertical .stack-tags {
+    margin: 0;
+  }
+
+  .stack-vertical .stack-tags li {
+    margin: 0;
+  }
+
+  .stack-vertical .stack-item img {
+    min-height: 15em;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: 50em) {
+    .stack-vertical .stack {
+      flex-direction: column;
+    }
+  }
+</style>

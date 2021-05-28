@@ -1,0 +1,57 @@
+<section class="alternative-landing cover-full" style="background-image:url(<%= background_image %>);">
+  <div class="row">
+    <div class="columns large-6 cover-text">
+      <h1 class="cover-title heading1">
+        <%= decidim_sanitize translated_title %>
+      </h1>
+      <div class="cover-body">
+        <%== translated_body %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cover-full {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--secondary);
+    background-blend-mode: luminosity;
+
+    color: white;
+  }
+
+  .cover-full .cover-body {
+    font-size: 1.25em;
+  }
+
+  .cover-full .cover-text {
+    background-color: rgba(var(--secondary-rgb), 0.7);
+    padding: 2rem;
+  }
+
+  .alternative-landing {
+    padding: 5em;
+  }
+
+  .alternative-landing .heading1 {
+    font-size: 4em;
+  }
+  
+  @media screen and (max-width: 50em) {
+    .alternative-landing {
+      padding: 1em;
+    }
+
+    .alternative-landing .heading1 {
+      font-size: 3em;
+    }
+  }
+
+  .navbar {
+    margin-bottom: -50px;
+    background: rgba(0,0,0,0.3);
+    position: relative;
+  }
+</style>

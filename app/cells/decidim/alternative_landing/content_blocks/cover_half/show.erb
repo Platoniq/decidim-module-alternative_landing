@@ -1,0 +1,51 @@
+<section class="alternative-landing cover-half">
+  <div class="cover-text">
+    <h1 class="cover-title heading1">
+      <%= decidim_sanitize translated_title %>
+    </h1>
+    <div class="cover-body">
+      <%== translated_body %>
+    </div>
+    <%== translated_link(classes: "button button--sc primary") %>
+  </div>
+  <div class="cover-image" style="background-image:url(<%= background_image %>);">
+  </div>
+</section>
+
+<style>
+  .cover-half {
+    display: grid;
+    /* grid-template-columns: 40% 60%; */
+    grid-template-columns: 40em 1fr;
+  }
+
+  .cover-half .cover-image {
+    grid-column: 2;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--primary);
+    background-blend-mode: luminosity;
+  }
+
+  .cover-half .cover-body {
+    font-size: 1.25em;
+  }
+
+  .cover-half .cover-text {
+    padding: 3em;
+  }
+
+  @media screen and (max-width: 50em) {
+  .cover-half {
+    display: block;
+  }
+  .cover-half .cover-image {
+    min-height: 50vh;
+  }
+  .cover-half .cover-text {
+    padding: 1em;
+  }
+}
+
+</style>

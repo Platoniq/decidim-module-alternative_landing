@@ -1,5 +1,5 @@
 {
-  "name": "decidim-module-decidim_landing",
+  "name": "decidim-module-alternative_landing",
   "version": "0.6.5",
   "description": "Mods and tweaks for Decidim",
   "main": "index.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Platoniq/decidim-module-decidim_landing.git"
+    "url": "git+https://github.com/Platoniq/decidim-module-alternative_landing.git"
   },
   "keywords": [
     "decidim"
@@ -20,9 +20,9 @@
   "author": "ivan@platoniq.net",
   "license": "AGPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/Platoniq/decidim-module-decidim_landing/issues"
+    "url": "https://github.com/Platoniq/decidim-module-alternative_landing/issues"
   },
-  "homepage": "https://github.com/Platoniq/decidim-module-decidim_landing#readme",
+  "homepage": "https://github.com/Platoniq/decidim-module-alternative_landing#readme",
   "stylelint": {
     "rules": {
       "at-rule-empty-line-before": [

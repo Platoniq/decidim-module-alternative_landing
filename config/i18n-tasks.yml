@@ -4,7 +4,7 @@ base_locale: en
 locales: [en]
 
 ignore_unused:
-  - "decidim.components.decidim_landing.name"
+  - "decidim.components.alternative_landing.name"
 
 ignore_missing:
   - decidim.participatory_processes.scopes.global

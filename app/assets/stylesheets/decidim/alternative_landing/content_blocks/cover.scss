@@ -1,0 +1,14 @@
+.cover-full {
+  min-height: calc(100vh - 122px);
+}
+
+.cover-half {
+  min-height: calc(100vh - 122px);
+
+  display: grid;
+  grid-template-columns: 40% 60%;
+
+  .cover-text {
+    padding: 3em;
+  }
+}

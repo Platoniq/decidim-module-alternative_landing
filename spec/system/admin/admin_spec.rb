@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/decidim_landing/test/shared_examples/config_examples"
+require "decidim/alternative_landing/test/shared_examples/config_examples"
 
 describe "Visit the admin page", type: :system do
   let(:organization) { create :organization, rich_text_editor_in_public_views: rte_enabled }
@@ -14,20 +14,20 @@ describe "Visit the admin page", type: :system do
   before do
     allow(Decidim).to receive(:version).and_return(version)
     disabled_features.each do |feature|
-      allow(Decidim::DecidimLanding.config).to receive(feature).and_return(:disabled)
+      allow(Decidim::AlternativeLanding.config).to receive(feature).and_return(:disabled)
     end
 
     switch_to_host(organization.host)
     login_as admin, scope: :user
     visit decidim_admin.root_path
-    click_link "Decidim landing"
+    click_link "Alternative Landing"
   end
 
   include_examples "javascript config vars"
 
   context "when manages tweaks" do
     it "renders the admin page" do
-      expect(page).to have_content("Decidim landing")
+      expect(page).to have_content("Alternative Landing")
     end
   end
 
