@@ -4,7 +4,7 @@
       <%= decidim_sanitize translated_title %>
     </h1>
     <% 1.upto(4) do |item_number| %>
-      <div class="tile tile-<%= x %>" style="background-image:url(<%= background_image(item_number) %>);">
+      <div class="tile tile-<%= item_number %>" style="background-image:url(<%= background_image(item_number) %>);">
         <div class="tile-body">
           <h2><%= decidim_sanitize translated_title(item_number) %></h2>
           <div><%= decidim_sanitize translated_body(item_number) %></div>
