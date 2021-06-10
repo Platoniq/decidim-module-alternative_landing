@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/alternative_landing/test/shared_examples/config_examples"
 
 describe "Visit the home page", type: :system, perform_enqueued: true do
   let(:organization) { create :organization, available_locales: [:en] }
@@ -15,5 +14,20 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
     expect(page).to have_content("Home")
   end
 
-  include_examples "javascript config vars"
+  context "when there are active alternative landing content blocks" do
+    let!(:content_block_1) { create(:cover_full_block, organization: organization) }
+    let!(:content_block_2) { create(:cover_half_block, organization: organization) }
+    let!(:content_block_3) { create(:stack_horizontal_block, organization: organization) }
+
+    before do
+      visit decidim.root_path
+    end
+
+    it "renders them" do
+      expect(page).to have_selector(".alternative-landing")
+      expect(page).to have_selector(".alternative-landing.cover-full")
+      expect(page).to have_selector(".alternative-landing.cover-half")
+      expect(page).to have_selector(".alternative-landing.stack-horizontal")
+    end
+  end
 end
