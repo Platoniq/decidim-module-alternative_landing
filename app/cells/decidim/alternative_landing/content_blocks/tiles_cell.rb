@@ -4,18 +4,18 @@ module Decidim
   module AlternativeLanding
     module ContentBlocks
       class TilesCell < BaseCell
-        def translated_title(x = nil)
-          return translated_attribute(model.settings.title) unless x
+        def translated_title(item_number = nil)
+          return translated_attribute(model.settings.title) if item_number.blank?
 
-          translated_attribute(model.settings.send("title_#{x}"))
+          translated_attribute(model.settings.send("title_#{item_number}"))
         end
 
-        def translated_body(x)
-          translated_attribute(model.settings.send("body_#{x}"))
+        def translated_body(item_number)
+          translated_attribute(model.settings.send("body_#{item_number}"))
         end
 
-        def background_image(x)
-          model.images_container.send("background_image_#{x}").big.url
+        def background_image(item_number)
+          model.images_container.send("background_image_#{item_number}").big.url
         end
       end
     end

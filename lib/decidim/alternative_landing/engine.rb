@@ -63,14 +63,14 @@ module Decidim
           content_block.settings do |settings|
             settings.attribute :title, type: :text, translated: true
 
-            1.upto(3).map do |x|
-              settings.attribute :"body_#{x}", type: :text, translated: true
-              settings.attribute :"link_text_#{x}", type: :text, translated: true
-              settings.attribute :"link_url_#{x}", type: :text, translated: true
+            1.upto(3).map do |item_number|
+              settings.attribute :"body_#{item_number}", type: :text, translated: true
+              settings.attribute :"link_text_#{item_number}", type: :text, translated: true
+              settings.attribute :"link_url_#{item_number}", type: :text, translated: true
             end
           end
 
-          content_block.images = 1.upto(3).map { |x| { name: :"image_#{x}", uploader: "Decidim::HomepageImageUploader" } }
+          content_block.images = 1.upto(3).map { |item_number| { name: :"image_#{item_number}", uploader: "Decidim::HomepageImageUploader" } }
 
           content_block.default!
         end
@@ -83,16 +83,16 @@ module Decidim
           content_block.settings do |settings|
             settings.attribute :title, type: :text, translated: true
 
-            1.upto(3).map do |x|
-              settings.attribute :"body_#{x}", type: :text, translated: true
-              settings.attribute :"link_text_#{x}", type: :text, translated: true
-              settings.attribute :"link_url_#{x}", type: :text, translated: true
-              settings.attribute :"tag_text_#{x}", type: :text, translated: true
-              settings.attribute :"tag_url_#{x}", type: :text, translated: true
+            1.upto(3).map do |item_number|
+              settings.attribute :"body_#{item_number}", type: :text, translated: true
+              settings.attribute :"link_text_#{item_number}", type: :text, translated: true
+              settings.attribute :"link_url_#{item_number}", type: :text, translated: true
+              settings.attribute :"tag_text_#{item_number}", type: :text, translated: true
+              settings.attribute :"tag_url_#{item_number}", type: :text, translated: true
             end
           end
 
-          content_block.images = 1.upto(3).map { |x| { name: :"image_#{x}", uploader: "Decidim::HomepageImageUploader" } }
+          content_block.images = 1.upto(3).map { |item_number| { name: :"image_#{item_number}", uploader: "Decidim::HomepageImageUploader" } }
 
           content_block.default!
         end
@@ -105,13 +105,13 @@ module Decidim
           content_block.settings do |settings|
             settings.attribute :title, type: :text, translated: true
 
-            1.upto(4).map do |x|
-              settings.attribute :"title_#{x}", type: :text, translated: true
-              settings.attribute :"body_#{x}", type: :text, translated: true
+            1.upto(4).map do |item_number|
+              settings.attribute :"title_#{item_number}", type: :text, translated: true
+              settings.attribute :"body_#{item_number}", type: :text, translated: true
             end
           end
 
-          content_block.images = 1.upto(4).map { |x| { name: :"background_image_#{x}", uploader: "Decidim::HomepageImageUploader" } }
+          content_block.images = 1.upto(4).map { |item_number| { name: :"background_image_#{item_number}", uploader: "Decidim::HomepageImageUploader" } }
 
           content_block.default!
         end
@@ -124,12 +124,12 @@ module Decidim
           content_block.public_name_key = "decidim.content_blocksalternative_landing..#{name}.name"
 
           content_block.settings do |settings|
-            attributes.each do |name, options|
-              settings.attribute name, options
+            attributes.each do |attribute_name, options|
+              settings.attribute attribute_name, options
             end
           end
 
-          content_block.images = images.map { |name, uploader| { name: name, uploader: uploader } } if images.any?
+          content_block.images = images.map { |attribute_name, uploader| { name: attribute_name, uploader: uploader } } if images.any?
 
           content_block.default! if default
         end
