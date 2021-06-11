@@ -49,9 +49,19 @@
     }
   }
 
-  .navbar {
-    margin-bottom: -50px;
-    background: rgba(0,0,0,0.3);
+  .navbar.transparent {
+    background-color: rgba(0,0,0,0.3);
     position: relative;
+    margin-bottom: -50px;
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const coverFull = $(".alternative-landing.cover-full");
+
+    if (coverFull.is("#content section:first-of-type")) {
+      $(".navbar").addClass("transparent");
+    }
+  });
+</script>
