@@ -69,4 +69,63 @@ FactoryBot.define do
       content_block.save!
     end
   end
+
+  factory :stack_vertical_block, parent: :alternative_landing_content_block do
+    manifest_name { :stack_vertical }
+
+    settings do
+      item_settings = {}
+
+      1.upto(3).map do |item_number|
+        item_settings[:"body_#{item_number}"] = Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.paragraph }
+        item_settings[:"link_text_#{item_number}"] = Decidim::Faker::Localized.word
+        item_settings[:"link_url_#{item_number}"] = Decidim::Faker::Localized.literal("https://decidim.org")
+        item_settings[:"tag_text_#{item_number}"] = Decidim::Faker::Localized.word
+        item_settings[:"tag_url_#{item_number}"] = Decidim::Faker::Localized.literal("https://decidim.org")
+      end
+
+      item_settings.merge(
+        {
+          title: generate_localized_title
+        }
+      )
+    end
+
+    after(:create) do |content_block, _evaluator|
+      1.upto(3).each do |item_number|
+        image = Rack::Test::UploadedFile.new(Decidim::Dev.test_file("city.jpeg", "image/jpeg"), "image/jpeg")
+        content_block.images_container.send(:"image_#{item_number}=", image)
+      end
+
+      content_block.save!
+    end
+  end
+
+  factory :tiles_block, parent: :alternative_landing_content_block do
+    manifest_name { :tiles }
+
+    settings do
+      item_settings = {}
+
+      1.upto(4).map do |item_number|
+        item_settings[:"title_#{item_number}"] = generate_localized_title
+        item_settings[:"body_#{item_number}"] = Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.paragraph }
+      end
+
+      item_settings.merge(
+        {
+          title: generate_localized_title
+        }
+      )
+    end
+
+    after(:create) do |content_block, _evaluator|
+      1.upto(4).each do |item_number|
+        background_image = Rack::Test::UploadedFile.new(Decidim::Dev.test_file("city.jpeg", "image/jpeg"), "image/jpeg")
+        content_block.images_container.send(:"background_image_#{item_number}=", background_image)
+      end
+
+      content_block.save!
+    end
+  end
 end
