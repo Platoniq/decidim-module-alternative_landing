@@ -1,14 +1,14 @@
 <% form.fields_for :settings, form.object.settings do |settings_fields| %>
   <%= settings_fields.translated :text_field, :title, label: t(".title") %>
 
-    <% 1.upto(3) do |x| %>
+    <% 1.upto(3) do |item_number| %>
       <div class="grid-x">
         <div class="large-6 p-xs">
-          <%= settings_fields.translated :text_area, :"body_#{x}", rows: 5, label: t(".body_n", n: x) %>
+          <%= settings_fields.translated :text_area, :"body_#{item_number}", rows: 5, label: t(".body_n", item_number: item_number) %>
         </div>
         <div class="large-6 p-xs">
-          <%= settings_fields.translated :text_field, :"link_text_#{x}", label: t(".link_text_n", n: x) %>
-          <%= settings_fields.translated :text_field, :"link_url_#{x}", label: t(".link_url_n", n: x) %>
+          <%= settings_fields.translated :text_field, :"link_text_#{item_number}", label: t(".link_text_n", item_number: item_number) %>
+          <%= settings_fields.translated :text_field, :"link_url_#{item_number}", label: t(".link_url_n", item_number: item_number) %>
         </div>
       </div>
     <% end %>
@@ -16,9 +16,9 @@
 
 <% form.fields_for :images, form.object.images do |images_fields| %>
   <div class="grid-x">
-    <% 1.upto(3) do |x| %>
+    <% 1.upto(3) do |item_number| %>
       <div class="large-4 p-xs">
-        <%= images_fields.upload :"image_#{x}", label: t(".image_n", n: x) %>
+        <%= images_fields.upload :"image_#{item_number}", label: t(".image_n", item_number: item_number) %>
       </div>
     <% end %>
   </div>

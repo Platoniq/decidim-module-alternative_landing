@@ -20,25 +20,25 @@ en:
         stack_horizontal:
           name: Stack 3 (Horizontal)
         stack_horizontal_settings_form:
-          body_n: 'Body for item #%{n}'
-          image_n: 'Image for item #%{n}'
-          link_text_n: 'Link text for item #%{n}'
-          link_url_n: 'Link URL for item #%{n}'
+          body_n: 'Body for item #%{item_number}'
+          image_n: 'Image for item #%{item_number}'
+          link_text_n: 'Link text for item #%{item_number}'
+          link_url_n: 'Link URL for item #%{item_number}'
           title: Title
         stack_vertical:
           name: Stack 3 (Vertical)
         stack_vertical_settings_form:
-          body_n: 'Body for item #%{n}'
-          image_n: 'Image for item #%{n}'
-          link_text_n: 'Link text for item #%{n}'
-          link_url_n: 'Link URL for item #%{n}'
-          tag_text_n: 'Tag text for item #%{n}'
-          tag_url_n: 'Tag URL for item #%{n}'
+          body_n: 'Body for item #%{item_number}'
+          image_n: 'Image for item #%{item_number}'
+          link_text_n: 'Link text for item #%{item_number}'
+          link_url_n: 'Link URL for item #%{item_number}'
+          tag_text_n: 'Tag text for item #%{item_number}'
+          tag_url_n: 'Tag URL for item #%{item_number}'
           title: Title
         tiles:
           name: Tiles
         tiles_settings_form:
-          background_image_n: 'Background image for item #%{n}'
-          body_n: 'Body #%{n}'
+          background_image_n: 'Background image for item #%{item_number}'
+          body_n: 'Body #%{item_number}'
           title: Title
-          title_n: 'Title #%{n}'
+          title_n: 'Title #%{item_number}'

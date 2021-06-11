@@ -8,20 +8,20 @@ module Decidim
           translated_attribute(model.settings.title)
         end
 
-        def translated_body(x)
-          translated_attribute(model.settings.send("body_#{x}"))
+        def translated_body(item_number)
+          translated_attribute(model.settings.send("body_#{item_number}"))
         end
 
-        def translated_link(x, classes: "")
-          link_to translated_attribute(model.settings.send("link_text_#{x}")), translated_attribute(model.settings.send("link_url_#{x}")), class: classes
+        def translated_link(item_number, classes: "")
+          link_to translated_attribute(model.settings.send("link_text_#{item_number}")), translated_attribute(model.settings.send("link_url_#{item_number}")), class: classes
         end
 
-        def translated_tag(x, classes: "")
-          link_to translated_attribute(model.settings.send("tag_text_#{x}")), translated_attribute(model.settings.send("tag_url_#{x}")), class: classes
+        def translated_tag(item_number, classes: "")
+          link_to translated_attribute(model.settings.send("tag_text_#{item_number}")), translated_attribute(model.settings.send("tag_url_#{item_number}")), class: classes
         end
 
-        def image(x)
-          model.images_container.send("image_#{x}").big.url
+        def image(item_number)
+          model.images_container.send("image_#{item_number}").big.url
         end
       end
     end

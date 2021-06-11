@@ -5,17 +5,17 @@
     </h1>
   </div>
   <div class="row">
-    <% 1.upto(3) do |x| %>
+    <% 1.upto(3) do |item_number| %>
       <div class="stack-item">
         <div class="stack-image">
-          <%= image_tag image(x) %>
+          <%= image_tag image(item_number) %>
         </div>
         <div class="stack-body">
           <div>
-            <%= decidim_sanitize translated_body(x) %>
+            <%= decidim_sanitize translated_body(item_number) %>
           </div>
           <div class="stack-link">
-            <%= translated_link(x, classes: "button button--sc secondary expanded") %>
+            <%= translated_link(item_number, classes: "button button--sc secondary expanded") %>
           </div>
         </div>
       </div>
@@ -60,7 +60,7 @@
     .stack-horizontal .stack-item {
       flex-direction: column;
     }
-    
+
     .stack-horizontal .stack-image {
       width: 100%;
     }

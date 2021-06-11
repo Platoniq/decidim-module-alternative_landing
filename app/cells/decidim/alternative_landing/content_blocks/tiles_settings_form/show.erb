@@ -2,10 +2,10 @@
   <%= settings_fields.translated :text_field, :title, label: t(".title") %>
 
   <div class="grid-x">
-    <% 1.upto(4) do |x| %>
+    <% 1.upto(4) do |item_number| %>
       <div class="large-3 p-xs">
-        <%= settings_fields.translated :text_field, :"title_#{x}", label: t(".title_n", n: x) %>
-        <%= settings_fields.translated :text_area, :"body_#{x}", rows: 3, label: t(".body_n", n: x) %>
+        <%= settings_fields.translated :text_field, :"title_#{item_number}", label: t(".title_n", item_number: item_number) %>
+        <%= settings_fields.translated :text_area, :"body_#{item_number}", rows: 3, label: t(".body_n", item_number: item_number) %>
       </div>
     <% end %>
   </div>
@@ -13,9 +13,9 @@
 
 <% form.fields_for :images, form.object.images do |images_fields| %>
   <div class="grid-x">
-    <% 1.upto(4) do |x| %>
+    <% 1.upto(4) do |item_number| %>
       <div class="large-3 p-xs">
-        <%= images_fields.upload :"background_image_#{x}", label: t(".background_image_n", n: x) %>
+        <%= images_fields.upload :"background_image_#{item_number}", label: t(".background_image_n", item_number: item_number) %>
       </div>
     <% end %>
   </div>

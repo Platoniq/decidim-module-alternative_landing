@@ -6,21 +6,21 @@
   </div>
   <div class="row">
     <div class="stack">
-      <% 1.upto(3) do |x| %>
+      <% 1.upto(3) do |item_number| %>
         <div class="stack-item">
           <div class="stack-image">
-            <%= image_tag image(x) %>
+            <%= image_tag image(item_number) %>
           </div>
           <ul class="stack-tags tags">
             <li>
-              <%= translated_tag(x, classes: "") %>
+              <%= translated_tag(item_number, classes: "") %>
             </li>
           </ul>
           <div class="stack-body">
-            <%= decidim_sanitize translated_body(x) %>
+            <%= decidim_sanitize translated_body(item_number) %>
           </div>
           <div class="stack-link">
-            <%= translated_link(x, classes: "button button--sc expanded") %>
+            <%= translated_link(item_number, classes: "button button--sc expanded") %>
           </div>
         </div>
       <% end %>
