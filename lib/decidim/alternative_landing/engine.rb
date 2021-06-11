@@ -34,8 +34,6 @@ module Decidim
           end
 
           content_block.images = [{ name: :background_image, uploader: "Decidim::HomepageImageUploader" }]
-
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:homepage, :cover_half) do |content_block|
@@ -51,8 +49,6 @@ module Decidim
           end
 
           content_block.images = [{ name: :background_image, uploader: "Decidim::HomepageImageUploader" }]
-
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:homepage, :stack_horizontal) do |content_block|
@@ -71,8 +67,6 @@ module Decidim
           end
 
           content_block.images = 1.upto(3).map { |item_number| { name: :"image_#{item_number}", uploader: "Decidim::HomepageImageUploader" } }
-
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:homepage, :stack_vertical) do |content_block|
@@ -93,8 +87,6 @@ module Decidim
           end
 
           content_block.images = 1.upto(3).map { |item_number| { name: :"image_#{item_number}", uploader: "Decidim::HomepageImageUploader" } }
-
-          content_block.default!
         end
 
         Decidim.content_blocks.register(:homepage, :tiles) do |content_block|
@@ -112,8 +104,6 @@ module Decidim
           end
 
           content_block.images = 1.upto(4).map { |item_number| { name: :"background_image_#{item_number}", uploader: "Decidim::HomepageImageUploader" } }
-
-          content_block.default!
         end
       end
 
