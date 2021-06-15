@@ -1,10 +1,22 @@
 ---
-
 base_locale: en
+data:
+  yaml:
+    write:
+      # do not wrap lines at 80 characters
+      line_width: -1
 locales: [en]
-
-ignore_unused:
-  - "decidim.components.alternative_landing.name"
-
+search:
+  paths:
+    - "./app/cells"
+    - "./app/views"
+    - "./lib"
+  relative_roots:
+    - "app/cells"
+  exclude:
+    - "app/assets"
+  strict: false
 ignore_missing:
-  - decidim.participatory_processes.scopes.global
+  - "decidim.alternative_landing.content_blocks.*"
+ignore_unused:
+  - "decidim.alternative_landing.content_blocks.*"
