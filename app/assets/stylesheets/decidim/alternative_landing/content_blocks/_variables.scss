@@ -1,0 +1,8 @@
+@include foundation-global-styles;
+
+$navbar-transparent-color: rgba(0, 0, 0, 0.3);
+$alternative-color-1: var(--primary);
+$alternative-color-2: var(--secondary);
+$alternative-color-2-transparent: rgba(var(--secondary-rgb), 0.7);
+
+$gap: 1em;

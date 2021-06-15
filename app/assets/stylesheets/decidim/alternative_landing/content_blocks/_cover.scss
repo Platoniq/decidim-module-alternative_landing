@@ -1,0 +1,60 @@
+@import "variables";
+
+@mixin cover-background-image($color) {
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: luminosity;
+  background-color: $color;
+  min-height: 100vh;
+}
+
+.cover-full,
+.cover-half {
+  .cover-body {
+    font-size: 1.25em;
+  }
+}
+
+.cover-full {
+  color: white;
+
+  @include cover-background-image($alternative-color-2);
+
+  .cover-text {
+    background-color: $alternative-color-2-transparent;
+    padding: $gap * 2;
+  }
+}
+
+.cover-half {
+  display: grid;
+  grid-template-columns: 40em 1fr;
+
+  .cover-image {
+    grid-column: 2;
+
+    @include cover-background-image($alternative-color-1);
+  }
+
+  .cover-text {
+    padding: $gap * 3;
+  }
+
+  @include breakpoint(medium down) {
+    display: block;
+
+    .cover-image {
+      min-height: 50vh;
+    }
+
+    .cover-text {
+      padding: $gap;
+    }
+  }
+}
+
+.navbar.transparent {
+  background-color: $navbar-transparent-color;
+  position: relative;
+  margin-bottom: -50px;
+}

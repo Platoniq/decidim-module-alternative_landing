@@ -1,0 +1,17 @@
+@import "variables";
+
+.alternative-landing {
+  padding: 5em;
+
+  .heading1 {
+    font-size: 4em;
+  }
+
+  @include breakpoint(medium down) {
+    padding: $gap;
+
+    .heading1 {
+      font-size: 3em;
+    }
+  }
+}
