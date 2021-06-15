@@ -135,7 +135,7 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
       it "renders all elements" do
         within ".alternative-landing.tiles-4" do
           within ".tiles" do
-            within ".tile-title" do
+            within ".tile-heading" do
               expect(page).to have_i18n_content(tiles_block.settings.title)
             end
 
