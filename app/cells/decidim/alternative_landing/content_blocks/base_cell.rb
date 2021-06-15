@@ -6,10 +6,11 @@ module Decidim
       class BaseCell < Decidim::ViewModel
         include Decidim::SanitizeHelper
         include Decidim::TranslationsHelper
-        include Decidim::NeedsSnippets
+
+        delegate :snippets, to: :controller
 
         def show
-          snippets.add(:head, stylesheet_link_tag("decidim/alternative_landing/application"))
+          snippets.add(:alternative_landing, stylesheet_link_tag("decidim/alternative_landing/application"))
           super
         end
       end
