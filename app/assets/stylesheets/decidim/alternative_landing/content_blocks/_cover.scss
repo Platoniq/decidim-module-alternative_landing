@@ -1,0 +1,77 @@
+.cover-full {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--secondary);
+  background-blend-mode: luminosity;
+
+  color: white;
+}
+
+.cover-full .cover-body {
+  font-size: 1.25em;
+}
+
+.cover-full .cover-text {
+  background-color: rgba(var(--secondary-rgb), 0.7);
+  padding: 2rem;
+}
+
+.alternative-landing {
+  padding: 5em;
+}
+
+.alternative-landing .heading1 {
+  font-size: 4em;
+}
+
+@media screen and (max-width: 50em) {
+  .alternative-landing {
+    padding: 1em;
+  }
+
+  .alternative-landing .heading1 {
+    font-size: 3em;
+  }
+}
+
+.navbar.transparent {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: relative;
+  margin-bottom: -50px;
+}
+
+.cover-half {
+  display: grid;
+  /* grid-template-columns: 40% 60%; */
+  grid-template-columns: 40em 1fr;
+}
+
+.cover-half .cover-image {
+  grid-column: 2;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--primary);
+  background-blend-mode: luminosity;
+}
+
+.cover-half .cover-body {
+  font-size: 1.25em;
+}
+
+.cover-half .cover-text {
+  padding: 3em;
+}
+
+@media screen and (max-width: 50em) {
+  .cover-half {
+    display: block;
+  }
+  .cover-half .cover-image {
+    min-height: 50vh;
+  }
+  .cover-half .cover-text {
+    padding: 1em;
+  }
+}
