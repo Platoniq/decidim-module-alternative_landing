@@ -19,18 +19,17 @@
     min-height: 4em;
     padding: $gap;
 
-    .tile-title {
-      grid-column: span 3;
-      background: $alternative-color-2;
-      margin: 0;
-    }
-
     .tile-body {
       max-width: 20em;
       background: $alternative-color-1;
       padding: $gap;
     }
 
+    &-heading {
+      grid-column: span 3;
+      background: $alternative-color-2;
+      margin: 0;
+    }
     &-1 {
       grid-column: span 2;
       grid-row: 2;
