@@ -1,77 +1,60 @@
-.cover-full {
-  min-height: 100vh;
+@import "variables";
+
+@mixin cover-background-image($color) {
   background-size: cover;
   background-position: center;
-  background-color: var(--secondary);
   background-blend-mode: luminosity;
+  background-color: $color;
+  min-height: 100vh;
+}
 
+.cover-full,
+.cover-half {
+  .cover-body {
+    font-size: 1.25em;
+  }
+}
+
+.cover-full {
   color: white;
-}
 
-.cover-full .cover-body {
-  font-size: 1.25em;
-}
+  @include cover-background-image($alternative-color-2);
 
-.cover-full .cover-text {
-  background-color: rgba(var(--secondary-rgb), 0.7);
-  padding: 2rem;
-}
-
-.alternative-landing {
-  padding: 5em;
-}
-
-.alternative-landing .heading1 {
-  font-size: 4em;
-}
-
-@media screen and (max-width: 50em) {
-  .alternative-landing {
-    padding: 1em;
+  .cover-text {
+    background-color: $alternative-color-2-transparent;
+    padding: $gap * 2;
   }
-
-  .alternative-landing .heading1 {
-    font-size: 3em;
-  }
-}
-
-.navbar.transparent {
-  background-color: rgba(0, 0, 0, 0.3);
-  position: relative;
-  margin-bottom: -50px;
 }
 
 .cover-half {
   display: grid;
-  /* grid-template-columns: 40% 60%; */
   grid-template-columns: 40em 1fr;
-}
 
-.cover-half .cover-image {
-  grid-column: 2;
-  min-height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-color: var(--primary);
-  background-blend-mode: luminosity;
-}
+  .cover-image {
+    grid-column: 2;
 
-.cover-half .cover-body {
-  font-size: 1.25em;
-}
+    @include cover-background-image($alternative-color-1);
+  }
 
-.cover-half .cover-text {
-  padding: 3em;
-}
+  .cover-text {
+    padding: $gap * 3;
+  }
 
-@media screen and (max-width: 50em) {
-  .cover-half {
+  @include breakpoint(medium down) {
     display: block;
+
+    .cover-image {
+      min-height: 50vh;
+    }
+
+    .cover-text {
+      padding: $gap;
+    }
   }
-  .cover-half .cover-image {
-    min-height: 50vh;
-  }
-  .cover-half .cover-text {
-    padding: 1em;
-  }
+}
+
+.navbar.transparent {
+  background-color: $navbar-transparent-color;
+  position: relative;
+  margin-bottom: -50px;
 }

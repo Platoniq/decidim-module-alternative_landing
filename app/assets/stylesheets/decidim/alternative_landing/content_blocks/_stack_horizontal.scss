@@ -1,48 +1,52 @@
-.stack-horizontal .stack-item {
-  border: 1px solid black;
-  padding: 1em;
-  margin: 1em auto;
+@import "variables";
 
-  display: flex;
-  gap: 1em;
-}
+.stack-horizontal {
+  .stack-item {
+    border: 1px solid black;
+    padding: $gap;
+    margin: $gap auto;
 
-.stack-horizontal .stack-image img {
-  object-fit: cover;
-  min-height: 10em;
-}
-
-.stack-horizontal .stack-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.stack-horizontal .stack-image {
-  padding: 0;
-  min-width: 25%;
-  width: 25%;
-}
-
-.stack-horizontal .stack-link .button {
-  max-width: 15em;
-  margin: 0;
-  float: right;
-}
-
-@media screen and (max-width: 50em) {
-  .stack-horizontal .stack-item {
-    flex-direction: column;
+    display: flex;
+    gap: $gap;
   }
 
-  .stack-horizontal .stack-image {
+  .stack-image img {
+    object-fit: cover;
+    min-height: 10em;
+  }
+
+  .stack-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
   }
 
-  .stack-horizontal .stack-link .button {
-    margin: 1em auto 0;
-    max-width: none;
-    float: none;
+  .stack-image {
+    padding: 0;
+    min-width: 25%;
+    width: 25%;
+  }
+
+  .stack-link .button {
+    max-width: 15em;
+    margin: 0;
+    float: right;
+  }
+
+  @include breakpoint(medium down) {
+    .stack-item {
+      flex-direction: column;
+    }
+
+    .stack-image {
+      width: 100%;
+    }
+
+    .stack-link .button {
+      margin: $gap auto 0;
+      max-width: none;
+      float: none;
+    }
   }
 }
