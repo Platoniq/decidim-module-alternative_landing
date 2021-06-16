@@ -23,6 +23,7 @@ def initialize_process_group_content_blocks
 
       content_block.settings do |settings|
         settings.attribute :body, type: :text, translated: true, editor: true
+        settings.attribute :columns, type: :integer, default: 6
       end
     end
   end

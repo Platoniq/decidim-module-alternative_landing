@@ -21,6 +21,8 @@ en:
           name: Process Group Information
         extra_information_settings_form:
           body: Body
+          columns: Columns
+          columns_help: Number of columns (from 1 to 12) that this text spans
         extra_title:
           name: Title, description and links (Extra)
         extra_title_settings_form:

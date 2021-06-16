@@ -7,6 +7,10 @@ module Decidim
         def translated_body
           translated_attribute(model.settings.body)
         end
+
+        def columns
+          model.settings.columns
+        end
       end
     end
   end
