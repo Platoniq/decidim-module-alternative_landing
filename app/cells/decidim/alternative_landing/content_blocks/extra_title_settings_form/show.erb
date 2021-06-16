@@ -1,0 +1,18 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <div class="callout primary">
+    <%== t(".help") %>
+  </div>
+  <% 1.upto(5) do |item_number| %>
+    <div class="grid-x">
+      <div class="medium-12 large-5 p-xs">
+        <%= settings_fields.translated :text_field, :"link_text_#{item_number}", label: t(".link_text", item_number: item_number) %>
+      </div>
+      <div class="medium-12 large-5 p-xs">
+        <%= settings_fields.text_field :"link_url_#{item_number}", label: t(".link_url", item_number: item_number) %>
+      </div>
+      <div class="medium-12 large-2 p-xs">
+        <%= settings_fields.text_field :"link_icon_name_#{item_number}", label: t(".link_icon_name", item_number: item_number) %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

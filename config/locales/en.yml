@@ -17,6 +17,17 @@ en:
           link_text: Link text
           link_url: Link url
           title: Title
+        extra_information:
+          name: Process Group Information
+        extra_information_settings_form:
+          body: Body
+        extra_title:
+          name: Title, description and links (Extra)
+        extra_title_settings_form:
+          help: 'You can check the available icons <a target="_blank" href="https://decidim-design.herokuapp.com/public/library/pattern-library#patternIcons">here</a>'
+          link_text: 'Link text for item #%{item_number}'
+          link_url: 'Link url for item #%{item_number}'
+          link_icon_name: 'Link icon for item #%{item_number}'
         stack_horizontal:
           name: Stack 3 (Horizontal)
         stack_horizontal_settings_form:
