@@ -33,7 +33,7 @@ module Decidim
             settings.attribute :body, type: :text, translated: true, editor: true
           end
 
-          content_block.images = [{ name: :background_image, uploader: "Decidim::HomepageImageUploader" }]
+          content_block.images = [{ name: :background_image, uploader: "Decidim::AlternativeLanding::CoverImageUploader" }]
         end
 
         Decidim.content_blocks.register(:homepage, :cover_half) do |content_block|
@@ -48,7 +48,7 @@ module Decidim
             settings.attribute :link_url, type: :text, translated: true
           end
 
-          content_block.images = [{ name: :background_image, uploader: "Decidim::HomepageImageUploader" }]
+          content_block.images = [{ name: :background_image, uploader: "Decidim::AlternativeLanding::CoverImageUploader" }]
         end
 
         Decidim.content_blocks.register(:homepage, :stack_horizontal) do |content_block|
@@ -66,7 +66,7 @@ module Decidim
             end
           end
 
-          content_block.images = 1.upto(3).map { |item_number| { name: :"image_#{item_number}", uploader: "Decidim::HomepageImageUploader" } }
+          content_block.images = 1.upto(3).map { |item_number| { name: :"image_#{item_number}", uploader: "Decidim::AlternativeLanding::ItemImageUploader" } }
         end
 
         Decidim.content_blocks.register(:homepage, :stack_vertical) do |content_block|
@@ -86,7 +86,7 @@ module Decidim
             end
           end
 
-          content_block.images = 1.upto(3).map { |item_number| { name: :"image_#{item_number}", uploader: "Decidim::HomepageImageUploader" } }
+          content_block.images = 1.upto(3).map { |item_number| { name: :"image_#{item_number}", uploader: "Decidim::AlternativeLanding::ItemImageUploader" } }
         end
 
         Decidim.content_blocks.register(:homepage, :tiles) do |content_block|
@@ -103,7 +103,7 @@ module Decidim
             end
           end
 
-          content_block.images = 1.upto(4).map { |item_number| { name: :"background_image_#{item_number}", uploader: "Decidim::HomepageImageUploader" } }
+          content_block.images = 1.upto(4).map { |item_number| { name: :"background_image_#{item_number}", uploader: "Decidim::AlternativeLanding::ItemImageUploader" } }
         end
       end
 

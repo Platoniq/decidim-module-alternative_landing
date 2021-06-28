@@ -21,7 +21,7 @@ module Decidim
         end
 
         def image(item_number)
-          model.images_container.send("image_#{item_number}").big.url
+          model.images_container.send("image_#{item_number}").square.url
         end
       end
     end
