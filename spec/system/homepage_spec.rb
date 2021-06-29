@@ -26,6 +26,7 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
     let!(:meetings_component) { create(:component, manifest_name: "meetings", organization: organization) }
     let!(:blog_posts) { create_list(:post, 6, component: blogs_component) }
     let!(:meetings) { create_list(:meeting, 6, :upcoming, component: meetings_component) }
+    let!(:sorted_meetings) { meetings.sort_by(&:start_time).reverse }
 
     before do
       visit decidim.root_path
@@ -180,10 +181,10 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
         within ".alternative-landing.upcoming-meetings" do
           expect(page).to have_i18n_content(upcoming_meetings_block.settings.title, upcase: true)
           expect(page).to have_i18n_content(upcoming_meetings_block.settings.link_text, upcase: true)
-          meetings.last(3).each do |meeting|
+          sorted_meetings.last(3).each do |meeting|
             expect(page).to have_i18n_content(meeting.title)
           end
-          meetings.first(3).each do |meeting|
+          sorted_meetings.first(3).each do |meeting|
             expect(page).not_to have_i18n_content(meeting.title)
           end
         end
