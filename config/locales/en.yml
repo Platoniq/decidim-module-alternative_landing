@@ -18,13 +18,14 @@ en:
           link_url: Link url
           title: Title
         latest_blog_posts:
-          blog_id: Blog ID
+          name: Latest blog posts
+        latest_blog_posts_settings_form:
+          all: Show posts from any blog
+          component_id: Blog component
           count: Number of items
-          info: Only posts from '%{blog}' in '%{space}' will be shown. You can change
-            it with the selector below.
+          info: Only posts from '%{component}' in '%{space}' will be shown. You can change it with the selector below.
           link_text: Link text
           link_url: Link URL
-          name: Latest blog posts
           title: Title
         stack_horizontal:
           name: Stack 3 (Horizontal)
@@ -51,3 +52,13 @@ en:
           body_n: 'Body #%{item_number}'
           title: Title
           title_n: 'Title #%{item_number}'
+        upcoming_meetings:
+          name: Upcoming meetings
+        upcoming_meetings_settings_form:
+          all: Show meetings from any space
+          component_id: Meetings component
+          count: Number of items
+          info: Only meetings from '%{component}' in '%{space}' will be shown. You can change it with the selector below.
+          link_text: Link text
+          link_url: Link URL
+          title: Title
