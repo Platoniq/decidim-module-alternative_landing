@@ -1,4 +1,4 @@
-<section class="wrapper-home upcoming-meetings home-section">
+<section class="alternative-landing upcoming-meetings">
   <div class="row">
     <h3 class="section-heading">
       <%= section_title %>
@@ -6,40 +6,7 @@
     </h3>
     <div class="row small-up-1 medium-up-2 mediumlarge-up-3 large-up-3 card-grid">
       <% meetings.each do |meeting| %>
-        <div class="column">
-          <div class="card card--meeting">
-            <% if meeting.photos.first.present? %>
-              <%= link_to resource_locator(meeting).path do %>
-                <%= image_tag meeting.photos.first.url, class: "card__image" %>
-              <% end %>
-            <% end %>
-            <div class="card__content">
-              <div class="card__header">
-                <%= link_to resource_locator(meeting).path, class: "card__link" do %>
-                  <h3 class="card__title">
-                    <%= translated_attribute meeting.title %>
-                  </h3>
-                <% end %>
-              </div>
-              <div class="card__text">
-                <% meeting_description = strip_tags(present(meeting).description.gsub("<br>", "\s")) %>
-                <%= truncate(meeting_description, length: 140, omission: "..." , escape: false) %>
-              </div>
-            </div>
-            <div class="card__icondata">
-              <ul class="card-data">
-                <li class="card-data__item">
-                  <%= icon "datetime", class: "icon--big" %>
-                </li>
-                <li class="card-data__item">
-                  <span class="time">
-                    <%= l meeting.start_time, format: "%a %d %B %H:%M" %>
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <%= cell "decidim/meetings/meeting", meeting %>
       <% end %>
     </div>
   </div>
