@@ -26,10 +26,10 @@ en:
         extra_title:
           name: Title, description and links (Extra)
         extra_title_settings_form:
-          help: 'You can check the available icons <a target="_blank" href="https://decidim-design.herokuapp.com/public/library/pattern-library#patternIcons">here</a>'
+          help: You can check the available icons <a target="_blank" href="https://decidim-design.herokuapp.com/public/library/pattern-library#patternIcons">here</a>
+          link_icon_name: 'Link icon for item #%{item_number}'
           link_text: 'Link text for item #%{item_number}'
           link_url: 'Link url for item #%{item_number}'
-          link_icon_name: 'Link icon for item #%{item_number}'
         latest_blog_posts:
           name: Latest blog posts
           title: Latest blog posts
