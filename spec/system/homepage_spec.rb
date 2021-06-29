@@ -48,8 +48,6 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
             end
           end
         end
-
-        expect(page).to have_selector(".navbar.transparent")
       end
     end
 
@@ -78,7 +76,7 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
           1.upto(3) do |item_number|
             within ".stack-item:nth-of-type(#{item_number})" do
               within ".stack-image" do
-                expect(page.find("img")[:src]).to match(/#{stack_horizontal_block.images_container.send(:"image_#{item_number}").big.url}/)
+                expect(page.find("img")[:src]).to match(/#{stack_horizontal_block.images_container.send(:"image_#{item_number}").landscape.url}/)
               end
 
               within ".stack-body" do
@@ -105,7 +103,7 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
           1.upto(3) do |item_number|
             within ".stack-item:nth-of-type(#{item_number})" do
               within ".stack-image" do
-                expect(page.find("img")[:src]).to match(/#{stack_vertical_block.images_container.send(:"image_#{item_number}").big.url}/)
+                expect(page.find("img")[:src]).to match(/#{stack_vertical_block.images_container.send(:"image_#{item_number}").square.url}/)
               end
 
               within ".stack-tags" do
@@ -140,7 +138,7 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
             end
 
             1.upto(4) do |item_number|
-              expect(page.find(".tile-#{item_number}")[:style]).to match(/#{tiles_block.images_container.send(:"background_image_#{item_number}").big.url}/)
+              expect(page.find(".tile-#{item_number}")[:style]).to match(/#{tiles_block.images_container.send(:"background_image_#{item_number}").landscape.url}/)
 
               within ".tile-#{item_number}" do
                 within ".tile-body" do
