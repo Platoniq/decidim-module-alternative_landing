@@ -3,7 +3,7 @@
 module Decidim
   module AlternativeLanding
     module ContentBlocks
-      class StackVerticalSettingsFormCell < Decidim::ViewModel
+      class StackVerticalSettingsFormCell < BaseCell
         alias form model
       end
     end

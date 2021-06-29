@@ -3,7 +3,7 @@
 module Decidim
   module AlternativeLanding
     module ContentBlocks
-      class StackHorizontalSettingsFormCell < BaseCell
+      class LatestBlogPostsSettingsFormCell < BaseCell
         alias form model
       end
     end

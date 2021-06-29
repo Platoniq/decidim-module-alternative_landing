@@ -1,0 +1,19 @@
+<section class="alternative-landing upcoming-meetings">
+  <div class="row">
+    <h3 class="section-heading">
+      <%= section_title %>
+      <%= section_link %>
+    </h3>
+    <div class="row small-up-1 medium-up-2 mediumlarge-up-3 large-up-3 card-grid">
+      <% meetings.each do |meeting| %>
+        <%= cell "decidim/meetings/meeting", meeting %>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<script>
+$(document).ready(() => {
+  $(".card--meeting .card__text").find("img, iframe").remove()
+})
+</script>

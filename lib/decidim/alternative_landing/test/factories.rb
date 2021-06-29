@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require "decidim/core/test/factories"
+require "decidim/blogs/test/factories"
+require "decidim/meetings/test/factories"
 
 FactoryBot.define do
   factory :alternative_landing_content_block, parent: :content_block do
@@ -126,6 +128,30 @@ FactoryBot.define do
       end
 
       content_block.save!
+    end
+  end
+
+  factory :latest_blog_posts_block, parent: :alternative_landing_content_block do
+    manifest_name { :latest_blog_posts }
+
+    settings do
+      {
+        title: generate_localized_title,
+        link_text: Decidim::Faker::Localized.word,
+        link_url: Decidim::Faker::Localized.literal("https://decidim.org")
+      }
+    end
+  end
+
+  factory :upcoming_meetings_block, parent: :alternative_landing_content_block do
+    manifest_name { :upcoming_meetings }
+
+    settings do
+      {
+        title: generate_localized_title,
+        link_text: Decidim::Faker::Localized.word,
+        link_url: Decidim::Faker::Localized.literal("https://decidim.org")
+      }
     end
   end
 end
