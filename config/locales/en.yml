@@ -19,6 +19,7 @@ en:
           title: Title
         latest_blog_posts:
           name: Latest blog posts
+          title: Latest blog posts
         latest_blog_posts_settings_form:
           all: Show posts from any blog
           component_id: Blog component
@@ -54,6 +55,7 @@ en:
           title_n: 'Title #%{item_number}'
         upcoming_meetings:
           name: Upcoming meetings
+          title: Upcoming meetings
         upcoming_meetings_settings_form:
           all: Show meetings from any space
           component_id: Meetings component

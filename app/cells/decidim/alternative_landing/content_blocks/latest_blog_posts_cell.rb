@@ -47,7 +47,7 @@ module Decidim
         end
 
         def section_title
-          translated_attribute model.settings.title
+          translated_attribute(model.settings.title).presence || t(".title")
         end
 
         def section_link
