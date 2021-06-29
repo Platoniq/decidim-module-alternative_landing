@@ -1,0 +1,14 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <%= settings_fields.translated :text_field, :title, label: t(".title") %>
+  <%= settings_fields.translated :text_field, :link_text, label: t(".link_text") %>
+  <%= settings_fields.translated :text_field, :link_url, label: t(".link_url") %>
+  <%= settings_fields.number_field :count, label: t(".count") %>
+
+  <% if component %>
+    <p class="callout secondary">
+      <%= t(".info", component: translated_attribute(component.name), space: translated_attribute(component.participatory_space.title)) %>
+    </p>
+  <% end %>
+
+  <%= settings_fields.select :component_id, available_components("blogs") %>
+<% end %>

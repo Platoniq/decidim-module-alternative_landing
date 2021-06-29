@@ -3,7 +3,7 @@
 module Decidim
   module AlternativeLanding
     module ContentBlocks
-      class TilesSettingsFormCell < Decidim::ViewModel
+      class TilesSettingsFormCell < BaseCell
         alias form model
       end
     end

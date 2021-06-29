@@ -3,7 +3,7 @@
 module Decidim
   module AlternativeLanding
     module ContentBlocks
-      class CoverFullSettingsFormCell < Decidim::ViewModel
+      class CoverFullSettingsFormCell < BaseCell
         alias form model
       end
     end
