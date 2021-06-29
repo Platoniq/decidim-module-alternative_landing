@@ -4,12 +4,12 @@ en:
     alternative_landing:
       content_blocks:
         calendar:
-          name: Calendar
           filters:
-            meeting: Meeting
-            debate: Debate
-            participatory_step: Participatory Process
             consultation: Consultation
+            debate: Debate
+            meeting: Meeting
+            participatory_step: Participatory Process
+          name: Calendar
         cover_full:
           name: Cover (Full)
         cover_full_settings_form:
