@@ -1,0 +1,108 @@
+@import "variables";
+@import "foundation";
+
+$meeting: var(--success) !default;
+$debate: var(--primary) !default;
+$consultation: var(--warning) !default;
+$participatory_step: var(--secondary) !default;
+
+.fc-button-primary {
+  @include button-style(var(--secondary), var(--secondary), white);
+  border-color: transparent;
+  text-transform: uppercase;
+  font-size: 90%;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+
+  &:disabled {
+    @include button-hollow;
+    color: $body-font-color;
+    border-color: $body-font-color;
+  }
+
+  &:hover {
+    filter: brightness(95%);
+    border-color: transparent;
+  }
+}
+
+.fc-button-primary.disabled,
+.fc-button-primary.disabled:hover,
+.fc-button-primary[disabled]:hover,
+.fc-button-primary.disabled:focus,
+.fc-button-primary[disabled]:focus {
+  border-color: var(--secondary);
+  color: var(--secondary);
+}
+
+#calendar {
+  .fc-title {
+    margin-left: 5px;
+  }
+
+  .fc-scroller {
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+  }
+
+  .fc-day-number {
+    display: block;
+    float: none;
+    text-align: center;
+  }
+
+  .fc-day-top {
+    background-color: #ededed;
+  }
+
+  .fc-today {
+    background-color: #fcf8e3 !important;
+  }
+
+  td {
+    border-color: #ccc !important;
+  }
+
+  .fc-today {
+    background-color: #f0f3b6;
+  }
+
+  .fc-content-skeleton td {
+    background-color: #fff;
+  }
+}
+
+.calendar-filters {
+  .meeting {
+    @include button-style($meeting, $meeting, white);
+    &.hollow {
+      color: $meeting;
+      border-color: $meeting;
+      @include button-hollow;
+    }
+  }
+  .debate {
+    @include button-style($debate, $debate, white);
+    &.hollow {
+      color: $debate;
+      border-color: $debate;
+      @include button-hollow;
+    }
+  }
+  .consultation {
+    @include button-style($consultation, $consultation, white);
+    &.hollow {
+      color: $consultation;
+      border-color: $consultation;
+      @include button-hollow;
+    }
+  }
+  .participatory_step {
+    @include button-style($participatory_step, $participatory_step, white);
+    &.hollow {
+      color: $participatory_step;
+      border-color: $participatory_step;
+      @include button-hollow;
+    }
+  }
+}

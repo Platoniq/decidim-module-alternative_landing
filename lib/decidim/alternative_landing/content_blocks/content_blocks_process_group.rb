@@ -26,5 +26,10 @@ def initialize_process_group_content_blocks
         settings.attribute :columns, type: :integer, default: 6
       end
     end
+
+    Decidim.content_blocks.register(:participatory_process_group_homepage, :calendar) do |content_block|
+      content_block.cell = "decidim/alternative_landing/content_blocks/calendar"
+      content_block.public_name_key = "decidim.alternative_landing.content_blocks.calendar.name"
+    end
   end
 end

@@ -3,6 +3,13 @@ en:
   decidim:
     alternative_landing:
       content_blocks:
+        calendar:
+          name: Calendar
+          filters:
+            meeting: Meeting
+            debate: Debate
+            participatory_step: Participatory Process
+            consultation: Consultation
         cover_full:
           name: Cover (Full)
         cover_full_settings_form:
