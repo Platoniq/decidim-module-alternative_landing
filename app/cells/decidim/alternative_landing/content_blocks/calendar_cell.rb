@@ -41,7 +41,7 @@ module Decidim
           @events = []
           models.map do |model|
             model
-              .where(model.attribute_names.include? "decidim_component_id" ? { component: components } : { decidim_participatory_process_id: participatory_processes })
+              .where(model.attribute_names.include?("decidim_component_id") ? { component: components } : { decidim_participatory_process_id: participatory_processes.pluck(:id) })
               .map { |obj| @events << present(obj) if obj.organization == current_organization && present(obj).start }
           end
           @events
