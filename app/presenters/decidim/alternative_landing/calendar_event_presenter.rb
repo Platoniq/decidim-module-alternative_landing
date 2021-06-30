@@ -16,7 +16,7 @@ module Decidim
       end
 
       def color
-        EVENT_TYPE_COLORS[type.to_s]
+        EVENT_TYPE_COLORS[type.to_sym]
       end
 
       def full_id
