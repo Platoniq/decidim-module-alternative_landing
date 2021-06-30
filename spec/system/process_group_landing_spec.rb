@@ -7,17 +7,9 @@ describe "Visit a process group's landing page", type: :system, perform_enqueued
   let!(:participatory_process_group) { create :participatory_process_group, :with_participatory_processes, organization: organization }
   let!(:processes) { participatory_process_group.participatory_processes }
 
-  let!(:title_block) do
-    create(
-      :content_block,
-      organization: organization,
-      scope_name: :participatory_process_group_homepage,
-      scoped_resource_id: participatory_process_group.id,
-      manifest_name: :title
-    )
-  end
-
   context "when there are active alternative landing content blocks" do
+    let!(:extra_title_block) { create(:extra_title_block, organization: organization, scoped_resource_id: participatory_process_group.id) }
+    let!(:extra_information_block) { create(:extra_information_block, organization: organization, scoped_resource_id: participatory_process_group.id) }
     let!(:calendar_block) { create(:calendar_block, organization: organization, scoped_resource_id: participatory_process_group.id) }
     let!(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: processes.first) }
     let!(:meeting) { create(:meeting, start_time: Time.zone.now, end_time: Time.zone.now + 1.hour, component: meetings_component) }
@@ -29,6 +21,24 @@ describe "Visit a process group's landing page", type: :system, perform_enqueued
 
     it "renders them" do
       expect(page).to have_selector(".alternative-landing.calendar")
+    end
+
+    describe "extra title block" do
+      it "renders all elements" do
+        within ".alternative-landing.extra-title" do
+          expect(page).to have_i18n_content(extra_title_block.settings.link_text_1)
+          expect(page).to have_selector("[href='#{extra_title_block.settings.link_url_1}']")
+          expect(page).to have_selector(".icon--instagram")
+        end
+      end
+    end
+
+    describe "extra information block" do
+      it "renders all elements" do
+        within ".alternative-landing.extra-information" do
+          expect(page).to have_i18n_content(extra_information_block.settings.body)
+        end
+      end
     end
 
     describe "calendar block" do
