@@ -5,10 +5,11 @@ en:
       content_blocks:
         calendar:
           filters:
-            consultation: Consultation
             debate: Debate
+            election: Election
             meeting: Meeting
-            participatory_step: Participatory Process
+            participatory_process_step: Participatory Process
+            survey: Survey
           name: Calendar
         cover_full:
           name: Cover (Full)

@@ -2,36 +2,26 @@
 
 module Decidim
   module AlternativeLanding
-    class EventPresenter < SimpleDelegator
-      def color
-        case __getobj__.class.name
-        when "Decidim::ParticipatoryProcessStep"
-          "var(--secondary)"
-        when "Decidim::Meetings::Meeting"
-          "var(--success)"
-        when "Decidim::Debates::Debate"
-          "var(--primary)"
-        when "Decidim::Consultation"
-          "var(--warning)"
-        end
-      end
+    class CalendarEventPresenter < SimpleDelegator
+      EVENT_TYPE_COLORS = {
+        debate: "var(--primary)",
+        election: "var(--warning)",
+        meeting: "var(--success)",
+        participatory_process_step: "var(--secondary)",
+        survey: "var(--alert)"
+      }.freeze
 
       def type
-        case __getobj__.class.name
-        when "Decidim::ParticipatoryProcessStep"
-          "participatory_step"
-        when "Decidim::Meetings::Meeting"
-          "meeting"
-        when "Decidim::Debates::Debate"
-          "debate"
-        when "Decidim::Consultation"
-          "consultation"
-        end
+        __getobj__.class.name.demodulize.underscore
+      end
+
+      def color
+        EVENT_TYPE_COLORS[type.to_s]
       end
 
       def full_id
-        case __getobj__.class.name
-        when "Decidim::ParticipatoryProcessStep"
+        case type
+        when "participatory_process_step"
           "#{participatory_process.id}-#{id}"
         else
           id
@@ -39,8 +29,8 @@ module Decidim
       end
 
       def parent
-        case __getobj__.class.name
-        when "Decidim::ParticipatoryProcessStep"
+        case type
+        when "participatory_process_step"
           "#{participatory_process.id}-#{participatory_process.steps.find_by(position: position - 1).id}" if position.positive?
         end
       end
@@ -48,8 +38,8 @@ module Decidim
       def link
         return url if respond_to?(:url)
 
-        @link ||= case __getobj__.class.name
-                  when "Decidim::ParticipatoryProcessStep"
+        @link ||= case type
+                  when "participatory_process_step"
                     Decidim::ResourceLocatorPresenter.new(participatory_process).url
                   else
                     Decidim::ResourceLocatorPresenter.new(__getobj__).url
@@ -61,6 +51,8 @@ module Decidim
                      start_date
                    elsif respond_to?(:start_at)
                      start_at
+                   elsif respond_to?(:starts_at)
+                     starts_at
                    elsif respond_to?(:start_voting_date)
                      start_voting_date
                    else
@@ -73,6 +65,8 @@ module Decidim
                       end_date
                     elsif respond_to?(:end_at)
                       end_at
+                    elsif respond_to?(:ends_at)
+                      ends_at
                     elsif respond_to?(:end_voting_date)
                       end_voting_date
                     else
@@ -82,8 +76,8 @@ module Decidim
       end
 
       def full_title
-        @full_title ||= case __getobj__.class.name
-                        when "Decidim::ParticipatoryProcessStep"
+        @full_title ||= case type
+                        when "participatory_process_step"
                           participatory_process.title
                         else
                           title
@@ -91,8 +85,8 @@ module Decidim
       end
 
       def subtitle
-        @subtitle ||= case __getobj__.class.name
-                      when "Decidim::ParticipatoryProcessStep"
+        @subtitle ||= case type
+                      when "participatory_process_step"
                         title
                       else
                         ""

@@ -14,23 +14,22 @@ module Decidim
           @events
         end
 
-        def resources
-          @resources ||= %w(debate meeting participatory_step)
-          @resources = @resources << "consultation" if defined? Decidim::Consultation
-          @resources
-        end
-
         def models
           @models ||= [
-            Decidim::Meetings::Meeting,
-            Decidim::ParticipatoryProcessStep,
             Decidim::Debates::Debate,
-            (Decidim::Consultation if defined? Decidim::Consultation)
+            Decidim::Meetings::Meeting,
+            Decidim::Surveys::Survey,
+            Decidim::ParticipatoryProcessStep,
+            (Decidim::Elections::Election if defined? Decidim::Elections)
           ].compact
         end
 
+        def resources
+          @resources ||= models.map { |m| m.name.demodulize.underscore }
+        end
+
         def present(obj)
-          Decidim::AlternativeLanding::EventPresenter.new(obj)
+          Decidim::AlternativeLanding::CalendarEventPresenter.new(obj)
         end
 
         def render_events

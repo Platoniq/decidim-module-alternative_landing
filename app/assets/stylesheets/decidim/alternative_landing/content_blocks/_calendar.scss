@@ -1,10 +1,11 @@
 @import "variables";
 @import "foundation";
 
-$meeting: var(--success) !default;
 $debate: var(--primary) !default;
-$consultation: var(--warning) !default;
-$participatory_step: var(--secondary) !default;
+$election: var(--warning) !default;
+$meeting: var(--success) !default;
+$participatory_process_step: var(--secondary) !default;
+$survey: var(--alert) !default;
 
 $calendar-today-color: rgb(255, 255, 128);
 
@@ -104,17 +105,19 @@ $calendar-button-color: $dark-gray;
   .button.cal-filter {
     margin-right: 0.5rem;
   }
-
-  .meeting {
-    @include calendar-filter-button-style($meeting);
-  }
   .debate {
     @include calendar-filter-button-style($debate);
   }
-  .consultation {
-    @include calendar-filter-button-style($consultation);
+  .election {
+    @include calendar-filter-button-style($election);
   }
-  .participatory_step {
-    @include calendar-filter-button-style($participatory_step);
+  .meeting {
+    @include calendar-filter-button-style($meeting);
+  }
+  .participatory_process_step {
+    @include calendar-filter-button-style($participatory_process_step);
+  }
+  .survey {
+    @include calendar-filter-button-style($survey);
   }
 }
