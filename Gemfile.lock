@@ -3,7 +3,6 @@ PATH
   specs:
     decidim-alternative_landing (0.1.0)
       decidim-admin (= 0.24.3)
-      decidim-calendar
       decidim-core (= 0.24.3)
       redcarpet (~> 3.4)
 
@@ -196,9 +195,6 @@ GEM
       decidim-core (= 0.24.3)
       kaminari (~> 1.2, >= 1.2.1)
       searchlight (~> 4.1)
-    decidim-calendar (0.19.0)
-      decidim-admin (>= 0.19.0)
-      decidim-core (>= 0.19.0)
     decidim-comments (0.24.3)
       decidim-core (= 0.24.3)
       jquery-rails (~> 4.4)
