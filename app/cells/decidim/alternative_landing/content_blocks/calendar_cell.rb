@@ -29,19 +29,21 @@ module Decidim
 
         private
 
-        def participatory_processes
-          Decidim::ParticipatoryProcess.where(participatory_process_group: participatory_process_group)
-        end
-
         def components
-          Decidim::Component.where(participatory_space: participatory_processes)
+          Decidim::Component.where(participatory_space: participatory_process_group.participatory_processes)
         end
 
         def events
           @events = []
           models.map do |model|
+            query = if model.attribute_names.include?("decidim_component_id")
+                      { component: components }
+                    else
+                      { decidim_participatory_process_id: participatory_process_group.participatory_processes.pluck(:id) }
+                    end
+
             model
-              .where(model.attribute_names.include?("decidim_component_id") ? { component: components } : { decidim_participatory_process_id: participatory_processes.pluck(:id) })
+              .where(query)
               .map { |obj| @events << present(obj) if obj.organization == current_organization && present(obj).start }
           end
           @events

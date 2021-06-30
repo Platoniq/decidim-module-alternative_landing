@@ -154,4 +154,9 @@ FactoryBot.define do
       }
     end
   end
+
+  factory :calendar_block, parent: :content_block do
+    manifest_name { :calendar }
+    scope_name { :participatory_process_group_homepage }
+  end
 end
