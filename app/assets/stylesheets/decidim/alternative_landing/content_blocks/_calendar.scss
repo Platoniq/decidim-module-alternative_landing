@@ -6,8 +6,12 @@ $debate: var(--primary) !default;
 $consultation: var(--warning) !default;
 $participatory_step: var(--secondary) !default;
 
-.fc-button-primary {
-  @include button-style(var(--secondary), var(--secondary), white);
+$calendar-today-color: rgb(255, 255, 128);
+
+$calendar-button-color: $dark-gray;
+
+@mixin calendar-button-style($color) {
+  @include button-style($color, $color, white);
   border-color: transparent;
   text-transform: uppercase;
   font-size: 90%;
@@ -26,18 +30,60 @@ $participatory_step: var(--secondary) !default;
   }
 }
 
-.fc-button-primary.disabled,
-.fc-button-primary.disabled:hover,
-.fc-button-primary[disabled]:hover,
-.fc-button-primary.disabled:focus,
-.fc-button-primary[disabled]:focus {
-  border-color: var(--secondary);
-  color: var(--secondary);
+@mixin calendar-filter-button-style($color) {
+  @include button-style($color, $color, white);
+  &.hollow {
+    color: $color;
+    border-color: $color;
+    @include button-hollow;
+  }
 }
 
 #calendar {
-  .fc-title {
-    margin-left: 5px;
+  table {
+    margin-bottom: 0;
+  }
+
+  td {
+    border-color: $light-gray !important;
+  }
+
+  .fc-button-primary {
+    @include calendar-button-style($calendar-button-color);
+
+    &.disabled,
+    &.disabled:hover,
+    &[disabled]:hover,
+    &.disabled:focus,
+    &[disabled]:focus {
+      border-color: $calendar-button-color;
+      color: $calendar-button-color;
+    }
+
+    &.fc-button-active {
+      filter: brightness(85%);
+    }
+  }
+
+  .fc-content-skeleton td {
+    background-color: white;
+  }
+
+  .fc-day {
+    &-number {
+      display: block;
+      float: none;
+      text-align: center;
+    }
+
+    &-top {
+      background-color: $calendar-button-color;
+    }
+  }
+
+  .fc-event-container a:focus {
+    color: white;
+    filter: brightness(85%);
   }
 
   .fc-scroller {
@@ -45,64 +91,30 @@ $participatory_step: var(--secondary) !default;
     overflow-y: hidden !important;
   }
 
-  .fc-day-number {
-    display: block;
-    float: none;
-    text-align: center;
-  }
-
-  .fc-day-top {
-    background-color: #ededed;
+  .fc-title {
+    margin-left: 5px;
   }
 
   .fc-today {
-    background-color: #fcf8e3 !important;
-  }
-
-  td {
-    border-color: #ccc !important;
-  }
-
-  .fc-today {
-    background-color: #f0f3b6;
-  }
-
-  .fc-content-skeleton td {
-    background-color: #fff;
+    background-color: $calendar-today-color;
   }
 }
 
 .calendar-filters {
+  .button.cal-filter {
+    margin-right: 0.5rem;
+  }
+
   .meeting {
-    @include button-style($meeting, $meeting, white);
-    &.hollow {
-      color: $meeting;
-      border-color: $meeting;
-      @include button-hollow;
-    }
+    @include calendar-filter-button-style($meeting);
   }
   .debate {
-    @include button-style($debate, $debate, white);
-    &.hollow {
-      color: $debate;
-      border-color: $debate;
-      @include button-hollow;
-    }
+    @include calendar-filter-button-style($debate);
   }
   .consultation {
-    @include button-style($consultation, $consultation, white);
-    &.hollow {
-      color: $consultation;
-      border-color: $consultation;
-      @include button-hollow;
-    }
+    @include calendar-filter-button-style($consultation);
   }
   .participatory_step {
-    @include button-style($participatory_step, $participatory_step, white);
-    &.hollow {
-      color: $participatory_step;
-      border-color: $participatory_step;
-      @include button-hollow;
-    }
+    @include calendar-filter-button-style($participatory_step);
   }
 }
