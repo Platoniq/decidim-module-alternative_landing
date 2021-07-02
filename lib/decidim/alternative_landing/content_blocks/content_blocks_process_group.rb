@@ -31,19 +31,5 @@ def initialize_process_group_content_blocks
       content_block.cell = "decidim/alternative_landing/content_blocks/calendar"
       content_block.public_name_key = "decidim.alternative_landing.content_blocks.calendar.name"
     end
-
-    if defined? Decidim::Consultations
-      Decidim.content_blocks.register(:participatory_process_group_homepage, :highlighted_consultations) do |content_block|
-        content_block.cell = "decidim/alternative_landing/content_blocks/highlighted_consultations"
-        content_block.settings_form_cell = "decidim/alternative_landing/content_blocks/highlighted_consultations_settings_form"
-        content_block.public_name_key = "decidim.alternative_landing.content_blocks.highlighted_consultations.name"
-
-        content_block.settings do |settings|
-          settings.attribute :consultations, type: :array
-          settings.attribute :button_text, type: :text, translated: true
-          settings.attribute :title, type: :text, translated: true
-        end
-      end
-    end
   end
 end

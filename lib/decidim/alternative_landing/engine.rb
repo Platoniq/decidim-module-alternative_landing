@@ -5,6 +5,7 @@ require "decidim/core"
 
 require_relative "content_blocks/content_blocks_homepage"
 require_relative "content_blocks/content_blocks_process_group"
+require_relative "content_blocks/content_blocks_shared"
 
 module Decidim
   module AlternativeLanding
