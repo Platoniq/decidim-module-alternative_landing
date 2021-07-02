@@ -38,14 +38,6 @@ en:
           link_icon_name: 'Link icon for item #%{item_number}'
           link_text: 'Link text for item #%{item_number}'
           link_url: 'Link url for item #%{item_number}'
-        highlighted_consultations:
-          name: Highlighted consultations
-          see_all: See all consultations
-          title: Highlighted consultations
-        highlighted_consultations_settings_form:
-          button_text: Button text
-          consultations: Consultations
-          title: Title
         latest_blog_posts:
           name: Latest blog posts
           title: Latest blog posts
@@ -56,6 +48,14 @@ en:
           info: Only posts from '%{component}' in '%{space}' will be shown. You can change it with the selector below.
           link_text: Link text
           link_url: Link URL
+          title: Title
+        selected_consultations:
+          name: Highlighted consultations
+          see_all: See all consultations
+          title: Highlighted consultations
+        selected_consultations_settings_form:
+          button_text: Button text
+          consultations: Consultations
           title: Title
         stack_horizontal:
           name: Stack 3 (Horizontal)

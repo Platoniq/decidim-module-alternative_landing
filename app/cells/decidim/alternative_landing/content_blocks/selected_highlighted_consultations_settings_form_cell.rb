@@ -3,7 +3,7 @@
 module Decidim
   module AlternativeLanding
     module ContentBlocks
-      class HighlightedConsultationsSettingsFormCell < BaseCell
+      class SelectedConsultationsSettingsFormCell < BaseCell
         alias form model
 
         def available_consultations

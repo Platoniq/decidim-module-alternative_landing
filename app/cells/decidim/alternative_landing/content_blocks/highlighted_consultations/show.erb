@@ -1,4 +1,4 @@
-<section id="participatory-process-group-homepage-highlighted-consultations" class="alternative-landing highlighted-consultations">
+<section id="participatory-process-group-homepage-selected-consultations" class="alternative-landing selected-consultations">
   <div class="row">
     <h2 class="section-heading">
       <%= section_title %>
@@ -6,7 +6,7 @@
     <div class="row collapse">
       <div class="row small-up-1 smallmedium-up-2 mediumlarge-up-3
         large-up-3 card-grid">
-        <% highlighted_consultations.each do |consultation| %>
+        <% selected_consultations.each do |consultation| %>
           <div class="column">
             <%= link_to decidim_consultations.consultation_path(consultation), class: "card card--consultation card--mini" do %>
               <div aria-hidden="true" class="card__image-top"

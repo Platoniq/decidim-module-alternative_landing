@@ -98,10 +98,10 @@
 
   next unless defined? Decidim::Consultations
 
-  Decidim.content_blocks.register(scope_name, :highlighted_consultations) do |content_block|
-    content_block.cell = "decidim/alternative_landing/content_blocks/highlighted_consultations"
-    content_block.settings_form_cell = "decidim/alternative_landing/content_blocks/highlighted_consultations_settings_form"
-    content_block.public_name_key = "decidim.alternative_landing.content_blocks.highlighted_consultations.name"
+  Decidim.content_blocks.register(scope_name, :selected_consultations) do |content_block|
+    content_block.cell = "decidim/alternative_landing/content_blocks/selected_consultations"
+    content_block.settings_form_cell = "decidim/alternative_landing/content_blocks/selected_consultations_settings_form"
+    content_block.public_name_key = "decidim.alternative_landing.content_blocks.selected_consultations.name"
 
     content_block.settings do |settings|
       settings.attribute :consultations, type: :array
