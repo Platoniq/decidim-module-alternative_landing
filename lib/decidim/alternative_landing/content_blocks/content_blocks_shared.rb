@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 [:homepage, :participatory_process_group_homepage].each do |scope_name|
   Decidim.content_blocks.register(scope_name, :cover_full) do |content_block|
     content_block.cell = "decidim/alternative_landing/content_blocks/cover_full"
