@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    decidim-alternative_landing (0.1.0)
+    decidim-alternative_landing (0.2.0)
       decidim-admin (= 0.24.3)
       decidim-core (= 0.24.3)
       redcarpet (~> 3.4)
