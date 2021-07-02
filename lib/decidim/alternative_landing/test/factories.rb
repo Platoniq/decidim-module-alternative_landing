@@ -154,4 +154,33 @@ FactoryBot.define do
       }
     end
   end
+
+  factory :calendar_block, parent: :content_block do
+    manifest_name { :calendar }
+    scope_name { :participatory_process_group_homepage }
+  end
+
+  factory :extra_title_block, parent: :content_block do
+    manifest_name { :extra_title }
+    scope_name { :participatory_process_group_homepage }
+
+    settings do
+      {
+        link_text_1: Decidim::Faker::Localized.word,
+        link_url_1: "https://decidim.org",
+        link_icon_name_1: "instagram"
+      }
+    end
+  end
+
+  factory :extra_information_block, parent: :content_block do
+    manifest_name { :extra_information }
+    scope_name { :participatory_process_group_homepage }
+
+    settings do
+      {
+        body: Decidim::Faker::Localized.paragraph
+      }
+    end
+  end
 end

@@ -1,0 +1,33 @@
+<section id="participatory-process-group-homepage-selected-consultations" class="alternative-landing selected-consultations">
+  <div class="row">
+    <h2 class="section-heading">
+      <%= section_title %>
+    </h2>
+    <div class="row collapse">
+      <div class="row small-up-1 smallmedium-up-2 mediumlarge-up-3
+        large-up-3 card-grid">
+        <% selected_consultations.each do |consultation| %>
+          <div class="column">
+            <%= link_to decidim_consultations.consultation_path(consultation), class: "card card--consultation card--mini" do %>
+              <div aria-hidden="true" class="card__image-top"
+                style="background-image:url(<%= consultation.banner_image.url %>)"></div>
+              <div class="card__content">
+                <span class="card__title card__link"><%= translated_attribute consultation.title %></span>
+                <span><%= translated_attribute consultation.subtitle %></span>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row" id="see-all-consultations">
+    <div class="columns small-centered small-12
+      smallmedium-8 medium-6 large-4">
+      <%= link_to button_text,
+                  decidim_consultations.consultations_path,
+                  class: "button expanded hollow button--sc home-section__cta",
+                  title: button_text %>
+    </div>
+  </div>
+</section>

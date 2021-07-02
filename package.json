@@ -1,7 +1,7 @@
 {
   "name": "decidim-module-alternative_landing",
   "version": "0.6.5",
-  "description": "Mods and tweaks for Decidim",
+  "description": "Alternative and Additional content blocks for Decidim's Homepage and Process Group Landing pages",
   "main": "index.js",
   "directories": {
     "example": "examples",
@@ -17,7 +17,7 @@
   "keywords": [
     "decidim"
   ],
-  "author": "ivan@platoniq.net",
+  "author": "vera@platoniq.net",
   "license": "AGPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/Platoniq/decidim-module-alternative_landing/issues"

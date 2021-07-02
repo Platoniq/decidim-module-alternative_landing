@@ -1,0 +1,63 @@
+<section id="participatory-process-group-homepage-calendar" class="section alternative-landing calendar">
+  <div class="row">
+    <div class="columns large-12">
+      <div class="calendar-filters button-group">
+        <% resources.each do |t| %>
+          <button class="button tiny cal-filter <%= t %>" id="<%= t %>"><%= t(".filters.#{t}") %></button>
+        <% end %>
+      </div>
+      <div id="calendar"></div>
+    </div>
+  </div>
+</section>
+
+<%= javascript_include_tag "decidim/alternative_landing/calendar" %>
+
+<script>
+  let filters = <%= resources.to_json.html_safe %>;
+
+  function removeFilter(filters, filter){
+    return filters.filter((element) => element !== filter)
+  }
+
+  const calendarEl = document.getElementById('calendar');
+  const calendar = new FullCalendar.Calendar(calendarEl, {
+    plugins: ["timeGrid", "dayGrid"],
+    defaultView: "dayGridMonth",
+    locale: "es",
+    header: {
+      left: "prev,next today",
+      center: "title",
+      right: "dayGridMonth,dayGridWeek,dayGridDay"
+    },
+    height: "auto",
+    eventTimeFormat: {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+      omitZeroMinute: false
+    },
+    events: <%= render_events.html_safe %>,
+    eventRender: function(info) {
+      if ("subtitle" in info.event.extendedProps) {
+        title = "<span class=\"fc-title\"><b>" + info.event.title + "</b> - " + info.event.extendedProps.subtitle + "</span>"
+        info.el.firstChild.innerHTML = title
+      }
+      return filters.includes(info.event.extendedProps.resourceId);
+    }
+  });
+  $(function() {
+    calendar.setOption('locale', "<%= I18n.locale %>");
+    calendar.render();
+    $(".cal-filter").on("click", function() {
+      $(this).toggleClass("hollow");
+      let filter = $(this).attr("id");
+      if (filters.includes(filter)) {
+        filters = removeFilter(filters, filter)
+      } else {
+        filters.push(filter)
+      }
+      calendar.rerenderEvents()
+    });
+  });
+</script>

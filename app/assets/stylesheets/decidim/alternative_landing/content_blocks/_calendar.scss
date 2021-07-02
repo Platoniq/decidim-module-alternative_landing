@@ -1,0 +1,123 @@
+@import "variables";
+@import "foundation";
+
+$debate: var(--primary) !default;
+$election: var(--warning) !default;
+$meeting: var(--success) !default;
+$participatory_process_step: var(--secondary) !default;
+$survey: var(--alert) !default;
+
+$calendar-today-color: rgb(255, 255, 128);
+
+$calendar-button-color: $dark-gray;
+
+@mixin calendar-button-style($color) {
+  @include button-style($color, $color, white);
+  border-color: transparent;
+  text-transform: uppercase;
+  font-size: 90%;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+
+  &:disabled {
+    @include button-hollow;
+    color: $body-font-color;
+    border-color: $body-font-color;
+  }
+
+  &:hover {
+    filter: brightness(95%);
+    border-color: transparent;
+  }
+}
+
+@mixin calendar-filter-button-style($color) {
+  @include button-style($color, $color, white);
+  &.hollow {
+    color: $color;
+    border-color: $color;
+    @include button-hollow;
+  }
+}
+
+#calendar {
+  table {
+    margin-bottom: 0;
+  }
+
+  td {
+    border-color: $light-gray !important;
+  }
+
+  .fc-button-primary {
+    @include calendar-button-style($calendar-button-color);
+
+    &.disabled,
+    &.disabled:hover,
+    &[disabled]:hover,
+    &.disabled:focus,
+    &[disabled]:focus {
+      border-color: $calendar-button-color;
+      color: $calendar-button-color;
+    }
+
+    &.fc-button-active {
+      filter: brightness(85%);
+    }
+  }
+
+  .fc-content-skeleton td {
+    background-color: white;
+  }
+
+  .fc-day {
+    &-number {
+      display: block;
+      float: none;
+      text-align: center;
+    }
+
+    &-top {
+      background-color: $calendar-button-color;
+    }
+  }
+
+  .fc-event-container a:focus {
+    color: white;
+    filter: brightness(85%);
+  }
+
+  .fc-scroller {
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+  }
+
+  .fc-title {
+    margin-left: 5px;
+  }
+
+  .fc-today {
+    background-color: $calendar-today-color;
+  }
+}
+
+.calendar-filters {
+  .button.cal-filter {
+    margin-right: 0.5rem;
+  }
+  .debate {
+    @include calendar-filter-button-style($debate);
+  }
+  .election {
+    @include calendar-filter-button-style($election);
+  }
+  .meeting {
+    @include calendar-filter-button-style($meeting);
+  }
+  .participatory_process_step {
+    @include calendar-filter-button-style($participatory_process_step);
+  }
+  .survey {
+    @include calendar-filter-button-style($survey);
+  }
+}

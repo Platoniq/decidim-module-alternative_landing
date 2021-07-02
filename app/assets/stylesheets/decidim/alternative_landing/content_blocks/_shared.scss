@@ -1,7 +1,13 @@
 @import "variables";
 
 .alternative-landing {
-  padding: 5em;
+  &.cover-full,
+  &.cover-half,
+  &.tiles,
+  &.stack-horizontal,
+  &.stack-vertical {
+    padding: 5em;
+  }
 
   .heading1 {
     font-size: 4em;
