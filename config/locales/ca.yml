@@ -1,0 +1,95 @@
+---
+ca:
+  decidim:
+    alternative_landing:
+      content_blocks:
+        calendar:
+          filters:
+            debate: Debat
+            election: Elecció
+            meeting: Trobada
+            participatory_process_step: Procés Participatiu
+            survey: Enquesta
+          name: Calendari
+        cover_full:
+          name: Portada (Pantalla sencera)
+        cover_full_settings_form:
+          background_image: Imatge de fons
+          body: Text
+          title: Títol
+        cover_half:
+          name: Portada (Mitja pantalla)
+        cover_half_settings_form:
+          background_image: Imatge de fons
+          body: Text
+          link_text: Text de l'enllaç
+          link_url: URL de l'enllaç
+          title: Títol
+        extra_information:
+          name: Informació del grup de processos
+        extra_information_settings_form:
+          body: Text
+          columns: Columnes
+          columns_help: Número de columnes (de 1 a 12) que ocupa el text
+        extra_title:
+          name: Títol, descripció i enllaços (Extra)
+        extra_title_settings_form:
+          help: Pots consultar les icones disponibles <a target="_blank" href="https://decidim-design.herokuapp.com/public/library/pattern-library#patternIcons">aquí</a>
+          link_icon_name: 'Icona de l''enllaç per l''item #%{item_number}'
+          link_text: 'Text de l''enllaç per l''item'' #%{item_number}'
+          link_url: 'URL de l''enllaç per l''item'' #%{item_number}'
+        latest_blog_posts:
+          name: Últimes entrades de blog
+          title: Últimes entrades de blog
+        latest_blog_posts_settings_form:
+          all: Mostra entrades de qualsevol blog
+          component_id: Component de blog
+          count: Número d'items
+          info: Només es mostraran les entrades de '%{component}' a '%{space}'. Pots canviar-ho amb el selector següent.
+          link_text: Text de l'enllaç
+          link_url: URL de l'enllaç
+          title: Títol
+        selected_consultations:
+          name: Consultes seleccionades
+          see_all: Veure totes les consultes
+          title: Consultes seleccionades
+        selected_consultations_settings_form:
+          button_text: Text del botó
+          consultations: Consultes
+          title: Títol
+        stack_horizontal:
+          name: 3 Items configurables (Horitzontal)
+        stack_horizontal_settings_form:
+          body_n: 'Text per l''item #%{item_number}'
+          image_n: 'Imatge per l''item #%{item_number}'
+          link_text_n: 'Text de l''enllaç per l''item #%{item_number}'
+          link_url_n: 'URL de l''enllaç per l''item #%{item_number}'
+          title: Títol
+        stack_vertical:
+          name: 3 Items configurables (Vertical)
+        stack_vertical_settings_form:
+          body_n: 'Text per l''item #%{item_number}'
+          image_n: 'Imatge per l''item #%{item_number}'
+          link_text_n: 'Text de l''enllaç per l''item #%{item_number}'
+          link_url_n: 'URL de l''enllaç per l''item #%{item_number}'
+          tag_text_n: 'Text de l''etiqueta per l''item #%{item_number}'
+          tag_url_n: 'URL de l''etiqueta per l''item #%{item_number}'
+          title: Títol
+        tiles:
+          name: Mosaic
+        tiles_settings_form:
+          background_image_n: 'Imatge de fons per l''item #%{item_number}'
+          body_n: 'Text #%{item_number}'
+          title: Títol
+          title_n: 'Títol #%{item_number}'
+        upcoming_meetings:
+          name: Properes trobades
+          title: Properes trobades
+        upcoming_meetings_settings_form:
+          all: Mostra trobades de qualsevol espai de participació
+          component_id: Component de trobades
+          count: Número d'items
+          info: Només es mostraran les trobades de '%{component}' a '%{space}'. Pots canviar-ho amb el selector següent.
+          link_text: Text de l'enllaç
+          link_url: URL de l'enllaç
+          title: Títol

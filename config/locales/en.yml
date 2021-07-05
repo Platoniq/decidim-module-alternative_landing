@@ -12,13 +12,13 @@ en:
             survey: Survey
           name: Calendar
         cover_full:
-          name: Cover (Full)
+          name: Cover (Full screen)
         cover_full_settings_form:
           background_image: Background Image
           body: Body
           title: Title
         cover_half:
-          name: Cover (Half)
+          name: Cover (Half screen)
         cover_half_settings_form:
           background_image: Background Image
           body: Body
@@ -37,7 +37,7 @@ en:
           help: You can check the available icons <a target="_blank" href="https://decidim-design.herokuapp.com/public/library/pattern-library#patternIcons">here</a>
           link_icon_name: 'Link icon for item #%{item_number}'
           link_text: 'Link text for item #%{item_number}'
-          link_url: 'Link url for item #%{item_number}'
+          link_url: 'Link URL for item #%{item_number}'
         latest_blog_posts:
           name: Latest blog posts
           title: Latest blog posts
@@ -50,15 +50,15 @@ en:
           link_url: Link URL
           title: Title
         selected_consultations:
-          name: Highlighted consultations
+          name: Selected consultations
           see_all: See all consultations
-          title: Highlighted consultations
+          title: Selected consultations
         selected_consultations_settings_form:
           button_text: Button text
           consultations: Consultations
           title: Title
         stack_horizontal:
-          name: Stack 3 (Horizontal)
+          name: Stack of 3 custom items (Horizontal)
         stack_horizontal_settings_form:
           body_n: 'Body for item #%{item_number}'
           image_n: 'Image for item #%{item_number}'
@@ -66,7 +66,7 @@ en:
           link_url_n: 'Link URL for item #%{item_number}'
           title: Title
         stack_vertical:
-          name: Stack 3 (Vertical)
+          name: Stack of 3 custom items (Vertical)
         stack_vertical_settings_form:
           body_n: 'Body for item #%{item_number}'
           image_n: 'Image for item #%{item_number}'
