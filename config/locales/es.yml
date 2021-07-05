@@ -1,0 +1,95 @@
+---
+es:
+  decidim:
+    alternative_landing:
+      content_blocks:
+        calendar:
+          filters:
+            debate: Debate
+            election: Elección
+            meeting: Encuentro
+            participatory_process_step: Proceso Participativo
+            survey: Encuesta
+          name: Calendario
+        cover_full:
+          name: Portada (Pantalla completa)
+        cover_full_settings_form:
+          background_image: Imagen de fondo
+          body: Texto
+          title: Título
+        cover_half:
+          name: Portada (Media pantalla)
+        cover_half_settings_form:
+          background_image: Imagen de fondo
+          body: Texto
+          link_text: Texto del enlace
+          link_url: URL del enlace
+          title: Título
+        extra_information:
+          name: Información del grupo de procesos
+        extra_information_settings_form:
+          body: Texto
+          columns: Columnas
+          columns_help: Número de columnas (de 1 a 12) que ocupa el texto
+        extra_title:
+          name: Título, descripción y enlaces (Extra)
+        extra_title_settings_form:
+          help: Puedes consultar los iconos disponibles <a target="_blank" href="https://decidim-design.herokuapp.com/public/library/pattern-library#patternIcons">aquí</a>
+          link_icon_name: 'Icona del enlace para el item #%{item_number}'
+          link_text: 'Texto del enlace para el item #%{item_number}'
+          link_url: 'URL del enlace para el item'' #%{item_number}'
+        latest_blog_posts:
+          name: Últimas entradas de blog
+          title: Últimas entradas de blog
+        latest_blog_posts_settings_form:
+          all: Muestra entradas de cualquier blog
+          component_id: Componente de blog
+          count: Número de items
+          info: Sólo se mostrarán las entradas de '%{component}' en '%{space}'. Puedes cambiarlo con el selector siguiente.
+          link_text: Texto del enlace
+          link_url: URL del enlace
+          title: Título
+        selected_consultations:
+          name: Consultas seleccionades
+          see_all: Veure totes les consultas
+          title: Consultas seleccionades
+        selected_consultations_settings_form:
+          button_text: Texto del botón
+          consultations: Consultas
+          title: Título
+        stack_horizontal:
+          name: 3 Items configurables (Horizontal)
+        stack_horizontal_settings_form:
+          body_n: 'Texto para el item #%{item_number}'
+          image_n: 'Imagen para el item #%{item_number}'
+          link_text_n: 'Texto del enlace para el item #%{item_number}'
+          link_url_n: 'URL del enlace para el item #%{item_number}'
+          title: Título
+        stack_vertical:
+          name: 3 Items configurables (Vertical)
+        stack_vertical_settings_form:
+          body_n: 'Texto para el item #%{item_number}'
+          image_n: 'Imagen para el item #%{item_number}'
+          link_text_n: 'Texto del enlace para el item #%{item_number}'
+          link_url_n: 'URL del enlace para el item #%{item_number}'
+          tag_text_n: 'Texto de la etiqueta para el item #%{item_number}'
+          tag_url_n: 'URL de la etiqueta para el item #%{item_number}'
+          title: Título
+        tiles:
+          name: Mosaico
+        tiles_settings_form:
+          background_image_n: 'Imagen de fondo para el item #%{item_number}'
+          body_n: 'Texto #%{item_number}'
+          title: Título
+          title_n: 'Título #%{item_number}'
+        upcoming_meetings:
+          name: Próximos encuentros
+          title: Próximos encuentros
+        upcoming_meetings_settings_form:
+          all: Muestra encuentros de cualquier espacio participativo
+          component_id: Componente de encuentros
+          count: Número de items
+          info: Sólo se mostrarán los encuentros de '%{component}' en '%{space}'. Puedes cambiarlo con el selector siguiente.
+          link_text: Texto del enlace
+          link_url: URL del enlace
+          title: Título
