@@ -8,6 +8,7 @@ DECIDIM_VERSION = "0.24.3"
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-alternative_landing", path: "."
+gem "decidim-calendar"
 
 gem "bootsnap", "~> 1.4"
 
