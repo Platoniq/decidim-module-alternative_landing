@@ -5,7 +5,7 @@ data:
     write:
       # do not wrap lines at 80 characters
       line_width: -1
-locales: [en]
+locales: [en, es, ca]
 search:
   paths:
     - "./app/cells"
