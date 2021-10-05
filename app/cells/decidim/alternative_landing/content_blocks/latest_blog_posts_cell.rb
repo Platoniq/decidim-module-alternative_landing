@@ -39,7 +39,7 @@ module Decidim
         end
 
         def blog_components
-          @blog_components ||= Component.published.where(manifest_name: "blogs")
+          @blog_components ||= components.where(manifest_name: "blogs")
         end
 
         def posts_to_show

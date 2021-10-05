@@ -25,7 +25,11 @@ module Decidim
         end
 
         def component
-          @component ||= Decidim::Component.find_by(id: form.object.settings.try(:component_id))
+          components.find_by(id: form.object.settings.try(:component_id))
+        end
+        
+        def components
+          @components ||= Decidim::Component.where(participatory_space: participatory_spaces)
         end
       end
     end
