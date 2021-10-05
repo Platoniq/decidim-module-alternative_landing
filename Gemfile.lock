@@ -4,7 +4,6 @@ PATH
     decidim-alternative_landing (0.2.1)
       decidim-admin (= 0.24.3)
       decidim-core (= 0.24.3)
-      redcarpet (~> 3.4)
 
 GEM
   remote: https://rubygems.org/

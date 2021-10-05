@@ -20,7 +20,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-admin", Decidim::AlternativeLanding::DECIDIM_VERSION
   s.add_dependency "decidim-core", Decidim::AlternativeLanding::DECIDIM_VERSION
-  s.add_dependency "redcarpet", "~> 3.4"
 
   s.add_development_dependency "decidim-dev", Decidim::AlternativeLanding::DECIDIM_VERSION
 end
