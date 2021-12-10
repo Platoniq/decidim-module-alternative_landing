@@ -41,6 +41,9 @@ module Decidim
         @link ||= case type
                   when "participatory_process_step"
                     Decidim::ResourceLocatorPresenter.new(participatory_process).url
+                  when "survey"
+                    # surveys aren't registered as resources, probably a bug in Decidim?
+                    Decidim::EngineRouter.main_proxy(__getobj__.component).root_path
                   else
                     Decidim::ResourceLocatorPresenter.new(__getobj__).url
                   end
@@ -79,6 +82,8 @@ module Decidim
         @full_title ||= case type
                         when "participatory_process_step"
                           participatory_process.title
+                        when "survey"
+                          questionnaire.title
                         else
                           title
                         end

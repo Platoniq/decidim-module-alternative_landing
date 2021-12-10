@@ -33,6 +33,7 @@ module Decidim
           hash = []
           hash << "decidim/content_blocks/latest_blog_posts"
           hash << Digest::MD5.hexdigest(posts.map(&:cache_key_with_version).to_s)
+          hash << "#{section_title}/#{section_link}"
           hash << I18n.locale.to_s
 
           hash.join("/")

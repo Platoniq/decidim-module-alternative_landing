@@ -13,6 +13,11 @@ module Decidim
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::AlternativeLanding
 
+      config.to_prepare do
+        Decidim::HomepageController.include(Decidim::AlternativeLanding::NeedsContentBlocksSnippets)
+        Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupsController.include(Decidim::AlternativeLanding::NeedsContentBlocksSnippets)
+      end
+
       initializer "decidim_alternative_landing.snippets" do |app|
         app.config.enable_html_header_snippets = true
       end
