@@ -24,7 +24,7 @@ We welcome PR with additional content blocks that can expand similar functionali
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "decidim-alternative_landing", git: "https://github.com/Platoniq/decidim-module-alternative_landing",
+gem "decidim-alternative_landing", git: "https://github.com/Platoniq/decidim-module-alternative_landing"
 ```
 
 And then execute:
