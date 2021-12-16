@@ -1,4 +1,3 @@
----
 ca:
   decidim:
     alternative_landing:
@@ -34,10 +33,10 @@ ca:
         extra_title:
           name: Títol, descripció i enllaços (Extra)
         extra_title_settings_form:
-          help: Pots consultar les icones disponibles <a target="_blank" href="https://decidim-design.herokuapp.com/public/library/pattern-library#patternIcons">aquí</a>
+          help: 'Pots consultar les icones disponibles <a target="_blank" href="https://decidim-design.herokuapp.com/public/library/pattern-library#patternIcons">aquí</a>'
           link_icon_name: 'Icona de l''enllaç per l''item #%{item_number}'
-          link_text: 'Text de l''enllaç per l''item'' #%{item_number}'
-          link_url: 'URL de l''enllaç per l''item'' #%{item_number}'
+          link_text: 'Text de l''enllaç per l''item'' link_url: ''URL de l''enllaç per l''item'' #%{item_number}'
+          link_url: 'Link URL for item #%{item_number}'
         latest_blog_posts:
           name: Últimes entrades de blog
           title: Últimes entrades de blog
