@@ -21,11 +21,15 @@ module Decidim
 
         def posts
           @posts ||= Blogs::Post.where(
-            component: blog_components.find_by(id: model.settings.component_id) || blog_components
+            component: component || components
           ).limit(posts_to_show).order(created_at: :desc)
         end
 
         private
+
+        def manifest_name
+          "blogs"
+        end
 
         # A MD5 hash of model attributes because is needed because
         # it ensures the cache version value will always be the same size
@@ -37,10 +41,6 @@ module Decidim
           hash << I18n.locale.to_s
 
           hash.join("/")
-        end
-
-        def blog_components
-          @blog_components ||= components.where(manifest_name: "blogs")
         end
 
         def posts_to_show

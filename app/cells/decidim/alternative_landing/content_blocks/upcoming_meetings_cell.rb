@@ -23,7 +23,7 @@ module Decidim
 
         def meetings
           @meetings ||= Meetings::Meeting.upcoming.where(
-            component: meeting_components.find_by(id: model.settings.component_id) || meeting_components
+            component: component || components
           ).limit(meetings_to_show).order(start_time: :asc)
         end
 
@@ -38,10 +38,6 @@ module Decidim
           hash << I18n.locale.to_s
 
           hash.join("/")
-        end
-
-        def meeting_components
-          @meeting_components ||= components.where(manifest_name: "meetings")
         end
 
         def meetings_to_show
