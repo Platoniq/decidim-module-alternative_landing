@@ -8,6 +8,12 @@ task test_app: "decidim:generate_external_test_app" do
   ENV["RAILS_ENV"] = "test"
 end
 
+def seed_db(path)
+  Dir.chdir(path) do
+    system("bundle exec rake db:seed")
+  end
+end
+
 desc "Generates a development app."
 task :development_app do
   Bundler.with_original_env do
@@ -21,4 +27,6 @@ task :development_app do
       "--demo"
     )
   end
+
+  seed_db("development_app")
 end

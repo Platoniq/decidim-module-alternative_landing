@@ -16,8 +16,8 @@ module Decidim
           events.map do |event|
             {
               title: translated_attribute(event.full_title),
-              start: (event.start.strftime("%FT%R") unless event.start.nil?),
-              end: (event.finish.strftime("%FT%R") unless event.finish.nil?),
+              start: (event.start.strftime("%FT%R") if event.start.present?),
+              end: (event.finish.strftime("%FT%R") if event.finish.present?),
               color: event.color,
               url: event.link,
               resourceId: event.type,
@@ -30,7 +30,7 @@ module Decidim
         private
 
         def components
-          Decidim::Component.where(participatory_space: participatory_process_group.participatory_processes)
+          Decidim::Component.where(participatory_space: participatory_process_group.participatory_processes).published
         end
 
         def events
@@ -39,7 +39,7 @@ module Decidim
             query = if model.attribute_names.include?("decidim_component_id")
                       { component: components }
                     else
-                      { decidim_participatory_process_id: participatory_process_group.participatory_processes.pluck(:id) }
+                      { decidim_participatory_process_id: participatory_process_group.participatory_processes.published.pluck(:id) }
                     end
 
             model
