@@ -101,7 +101,7 @@
   Decidim.content_blocks.register(scope_name, :highlighted_content_banner_alternative) do |content_block|
     content_block.cell = "decidim/content_blocks/highlighted_content_banner_alternative"
     content_block.settings_form_cell = "decidim/content_blocks/highlighted_content_banner_alternative"
-    content_block.public_name_key = "decidim.content_blocks.highlighted_content_banner_alternative.name"
+    content_block.public_name_key = "decidim.alternative_landing.content_blocks.highlighted_content_banner_alternative.name"
 
     content_block.settings do |settings|
       settings.attribute :body, type: :text, translated: true, editor: true

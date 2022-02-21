@@ -38,6 +38,10 @@ en:
           link_icon_name: 'Link icon for item #%{item_number}'
           link_text: 'Link text for item #%{item_number}'
           link_url: 'Link URL for item #%{item_number}'
+        highlighted_content_banner_alternative:
+          name: Highlighted Content Banner (Alternative)
+        highlighted_content_banner_alternative_settings_form:
+          name:  Highlighted Content Banner (Alternative)
         latest_blog_posts:
           name: Latest blog posts
           title: Latest blog posts

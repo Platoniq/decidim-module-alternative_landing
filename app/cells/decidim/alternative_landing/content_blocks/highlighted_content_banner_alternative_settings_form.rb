@@ -3,7 +3,7 @@
 module Decidim
   module AlternativeLanding
     module ContentBlocks
-      class HiglightedContentBannerAlternativeSettingsFormCell < BaseCell
+      class HighlightedContentBannerAlternativeSettingsFormCell < BaseCell
         alias form model
       end
     end
