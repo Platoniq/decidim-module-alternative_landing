@@ -6,7 +6,7 @@ module Decidim
       class CoverHalfCell < BaseCell
         def translated_title
           translated_attribute(model.settings.title)
-        end
+         end
 
         def translated_body
           translated_attribute(model.settings.body)

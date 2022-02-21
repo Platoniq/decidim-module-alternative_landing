@@ -27,6 +27,41 @@ module Decidim
         def component
           @component ||= Decidim::Component.find_by(id: form.object.settings.try(:component_id))
         end
+
+        def colors
+          model.settings.to_h.select { |k, _v| k.match?(/color_/) }
+        end
+
+        def color_keys
+          form.object.settings.to_h.keys.select { |k| k.match?(/color_/) }
+        end
+
+        # Renders a view with the customizable CSS variables in two flavours:
+        # 1. as a hexadecimal valid CSS color (ie: #ff0000)
+        # 2. as a disassembled RGB components (ie: 255,0,0)
+        #
+        # Example:
+        #
+        # --primary: #ff0000;
+        # --primary-rgb: 255,0,0
+        #
+        # Hexadecimal variables can be used as a normal CSS color:
+        #
+        # color: var(--primary)
+        #
+        # While the disassembled variant can be used where you need to manipulate
+        # the color somehow (ie: adding a background transparency):
+        #
+        # background-color: rgba(var(--primary-rgb), 0.5)
+        def css
+          colors.each.map do |k, v|
+            if v.match?(/^#[0-9a-fA-F]{6}$/)
+              "--#{k}: #{v};--#{k}-rgb: #{v[1..2].hex},#{v[3..4].hex},#{v[5..6].hex};"
+            else
+              "--#{k}: #{v};"
+            end
+          end.join
+        end
       end
     end
   end
