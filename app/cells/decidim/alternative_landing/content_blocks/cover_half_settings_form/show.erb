@@ -3,9 +3,13 @@
   <%= settings_fields.translated :editor, :body, label: t(".body") %>
   <%= settings_fields.translated :text_field, :link_text, label: t(".link_text") %>
   <%= settings_fields.translated :text_field, :link_url, label: t(".link_url") %>
-  <% color_keys.each do |color_key| %>
-    <%= settings_fields.color_field color_key, label: t(".#{color_key}") %>
-  <% end %>
+  <div style="display: flex; gap: 1rem;" >
+    <% color_keys.each do |color_key| %>
+      <div style="flex: auto;">
+        <%= settings_fields.color_field color_key, label: t(".#{color_key}") %>
+      </div>
+    <% end %>
+  </div>
 <% end %>
 <% form.fields_for :images, form.object.images do |images_fields| %>
   <%= images_fields.upload :background_image, label: t(".background_image") %>
