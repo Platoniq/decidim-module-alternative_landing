@@ -19,7 +19,7 @@ module Decidim
         end
 
         def available_components(manifest_name)
-          Decidim::Component.published.where(participatory_space: participatory_spaces, manifest_name: manifest_name).map do |component|
+          components.where(manifest_name: manifest_name).map do |component|
             ["#{translated_attribute(component.name)} (#{translated_attribute(component.participatory_space.title)})", component.id]
           end.unshift [t(".all"), nil]
         end
@@ -27,7 +27,7 @@ module Decidim
         def component
           components.find_by(id: form.object.settings.try(:component_id))
         end
-        
+
         def components
           @components ||= Decidim::Component.where(participatory_space: participatory_spaces)
         end
