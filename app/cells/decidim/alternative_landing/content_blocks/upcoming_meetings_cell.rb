@@ -23,7 +23,7 @@ module Decidim
 
         def meetings
           @meetings ||= Meetings::Meeting.upcoming.where(
-            component: meeting_components.find_by(model.settings.component_id) || meeting_components
+            component: meeting_components.find_by(id: model.settings.component_id) || meeting_components
           ).limit(meetings_to_show).order(start_time: :asc)
         end
 
@@ -41,7 +41,7 @@ module Decidim
         end
 
         def meeting_components
-          @meeting_component ||= components.where(manifest_name: "meetings")
+          @meeting_components ||= components.where(manifest_name: "meetings")
         end
 
         def meetings_to_show
