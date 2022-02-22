@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/alternative_landing"
+
 [:homepage, :participatory_process_group_homepage].each do |scope_name|
   Decidim.content_blocks.register(scope_name, :cover_full) do |content_block|
     content_block.cell = "decidim/alternative_landing/content_blocks/cover_full"
@@ -9,6 +11,10 @@
     content_block.settings do |settings|
       settings.attribute :title, type: :text, translated: true
       settings.attribute :body, type: :text, translated: true, editor: true
+
+      Decidim::AlternativeLanding::DefaultColors.cover_full.each do |k, v|
+        settings.attribute :"color_#{k}", type: :text, default: v
+      end
     end
 
     content_block.images = [{ name: :background_image, uploader: "Decidim::AlternativeLanding::CoverImageUploader" }]
@@ -24,6 +30,10 @@
       settings.attribute :body, type: :text, translated: true, editor: true
       settings.attribute :link_text, type: :text, translated: true
       settings.attribute :link_url, type: :text, translated: true
+
+      Decidim::AlternativeLanding::DefaultColors.cover_half.each do |k, v|
+        settings.attribute :"color_#{k}", type: :text, default: v
+      end
     end
 
     content_block.images = [{ name: :background_image, uploader: "Decidim::AlternativeLanding::CoverImageUploader" }]
