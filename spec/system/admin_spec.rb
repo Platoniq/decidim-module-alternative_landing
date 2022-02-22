@@ -73,8 +73,10 @@ describe "Admin manages organization homepage", type: :system do
     let!(:latest_blog_posts_block) { create(:latest_blog_posts_block, organization: organization) }
     let!(:blogs_component) { create(:component, manifest_name: "blogs", organization: organization) }
     let!(:other_blogs_component) { create(:component, manifest_name: "blogs", organization: organization) }
+    let!(:other_organization_blogs_component) { create(:component, manifest_name: "blogs") }
     let!(:blog_posts) { create_list(:post, 2, component: blogs_component) }
     let!(:other_blog_posts) { create_list(:post, 2, component: other_blogs_component) }
+    let!(:other_organization_blog_posts) { create_list(:post, 2, component: other_organization_blogs_component) }
 
     before do
       visit decidim_admin.edit_organization_homepage_content_block_path(:latest_blog_posts)
@@ -100,6 +102,10 @@ describe "Admin manages organization homepage", type: :system do
         other_blog_posts.each do |blog_post|
           expect(page).to have_i18n_content(blog_post.title)
         end
+
+        other_organization_blog_posts.each do |blog_post|
+          expect(page).not_to have_i18n_content(blog_post.title)
+        end
       end
 
       visit decidim_admin.edit_organization_homepage_content_block_path(:latest_blog_posts)
@@ -116,6 +122,10 @@ describe "Admin manages organization homepage", type: :system do
         other_blog_posts.each do |blog_post|
           expect(page).not_to have_i18n_content(blog_post.title)
         end
+
+        other_organization_blog_posts.each do |blog_post|
+          expect(page).not_to have_i18n_content(blog_post.title)
+        end
       end
     end
   end
@@ -124,8 +134,10 @@ describe "Admin manages organization homepage", type: :system do
     let!(:upcoming_meetings_block) { create(:upcoming_meetings_block, organization: organization) }
     let!(:meetings_component) { create(:component, manifest_name: "meetings", organization: organization) }
     let!(:other_meetings_component) { create(:component, manifest_name: "meetings", organization: organization) }
-    let!(:meetings) { create_list(:meeting, 2, component: meetings_component) }
-    let!(:other_meetings) { create_list(:meeting, 2, component: other_meetings_component) }
+    let!(:other_organization_meetings_component) { create(:component, manifest_name: "meetings") }
+    let!(:meetings) { create_list(:meeting, 2, :upcoming, component: meetings_component) }
+    let!(:other_meetings) { create_list(:meeting, 2, :upcoming, component: other_meetings_component) }
+    let!(:other_organization_meetings) { create_list(:meeting, 2, :upcoming, component: other_organization_meetings_component) }
 
     before do
       visit decidim_admin.edit_organization_homepage_content_block_path(:upcoming_meetings)
@@ -151,6 +163,10 @@ describe "Admin manages organization homepage", type: :system do
         other_meetings.each do |meeting|
           expect(page).to have_i18n_content(meeting.title)
         end
+
+        other_organization_meetings.each do |meeting|
+          expect(page).not_to have_i18n_content(meeting.title)
+        end
       end
 
       visit decidim_admin.edit_organization_homepage_content_block_path(:upcoming_meetings)
@@ -165,6 +181,10 @@ describe "Admin manages organization homepage", type: :system do
         end
 
         other_meetings.each do |meeting|
+          expect(page).not_to have_i18n_content(meeting.title)
+        end
+
+        other_organization_meetings.each do |meeting|
           expect(page).not_to have_i18n_content(meeting.title)
         end
       end
