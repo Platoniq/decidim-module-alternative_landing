@@ -3,7 +3,7 @@
   <%= settings_fields.translated :editor, :body, label: t(".body") %>
   <%= settings_fields.translated :text_field, :link_text, label: t(".link_text") %>
   <%= settings_fields.translated :text_field, :link_url, label: t(".link_url") %>
-  <div style="display: flex; gap: 1rem;" >
+  <div style="display: flex; gap: 1rem;">
     <% color_keys.each do |color_key| %>
       <div style="flex: auto;">
         <%= settings_fields.color_field color_key, label: t(".#{color_key}") %>

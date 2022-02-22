@@ -1,7 +1,7 @@
 <% form.fields_for :settings, form.object.settings do |settings_fields| %>
   <%= settings_fields.translated :text_field, :title, label: t(".title") %>
   <%= settings_fields.translated :editor, :body, label: t(".body") %>
-  <div style="display: flex; gap: 1rem;" >
+  <div style="display: flex; gap: 1rem;">
     <% color_keys.each do |color_key| %>
       <div style="flex: auto;">
         <%= settings_fields.color_field color_key, label: t(".#{color_key}") %>
