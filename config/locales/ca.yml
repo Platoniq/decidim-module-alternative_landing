@@ -15,12 +15,20 @@ ca:
         cover_full_settings_form:
           background_image: Imatge de fons
           body: Text
+          color_background_image: Image tint color
+          color_background_text: Text background color
+          color_navbar: Navbar color
+          color_text: Text color
           title: Títol
         cover_half:
           name: Portada (Mitja pantalla)
         cover_half_settings_form:
           background_image: Imatge de fons
           body: Text
+          color_background_image: Image tint color
+          color_background_text: Text background color
+          color_navbar: Navbar color
+          color_text: Text color
           link_text: Text de l'enllaç
           link_url: URL de l'enllaç
           title: Títol
