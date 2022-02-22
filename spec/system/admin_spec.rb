@@ -27,7 +27,7 @@ describe "Admin manages organization homepage", type: :system do
       )
       click_button "Update"
       visit decidim.root_path
-      expect(page).to have_content("Custom welcome text!"
+      expect(page).to have_content("Custom welcome text!")
     end
 
     it "updates the images of the content block" do
