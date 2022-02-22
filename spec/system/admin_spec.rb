@@ -119,4 +119,55 @@ describe "Admin manages organization homepage", type: :system do
       end
     end
   end
+
+  context "when editing a upcoming_meetings content block" do
+    let!(:upcoming_meetings_block) { create(:upcoming_meetings_block, organization: organization) }
+    let!(:meetings_component) { create(:component, manifest_name: "meetings", organization: organization) }
+    let!(:other_meetings_component) { create(:component, manifest_name: "meetings", organization: organization) }
+    let!(:meetings) { create_list(:meeting, 2, component: meetings_component) }
+    let!(:other_meetings) { create_list(:meeting, 2, component: other_meetings_component) }
+
+    before do
+      visit decidim_admin.edit_organization_homepage_content_block_path(:upcoming_meetings)
+    end
+
+    it "updates the settings of the content block" do
+      fill_in :content_block_settings_title_en, with: "Upcoming meetings"
+      fill_in :content_block_settings_link_text_en, with: "See all"
+      fill_in :content_block_settings_link_url_en, with: "example.org/example-path"
+      fill_in :content_block_settings_count, with: 4
+
+      click_button "Update"
+      visit decidim.root_path
+
+      within ".alternative-landing.upcoming-meetings" do
+        expect(page).to have_content "UPCOMING MEETINGS"
+        expect(page).to have_link "See all", href: "example.org/example-path"
+
+        meetings.each do |meeting|
+          expect(page).to have_i18n_content(meeting.title)
+        end
+
+        other_meetings.each do |meeting|
+          expect(page).to have_i18n_content(meeting.title)
+        end
+      end
+
+      visit decidim_admin.edit_organization_homepage_content_block_path(:upcoming_meetings)
+      select meetings_component.name["en"], from: "Component"
+
+      click_button "Update"
+      visit decidim.root_path
+
+      within ".alternative-landing.upcoming-meetings" do
+        meetings.each do |meeting|
+          expect(page).to have_i18n_content(meeting.title)
+        end
+
+        other_meetings.each do |meeting|
+          expect(page).not_to have_i18n_content(meeting.title)
+        end
+      end
+    end
+  end
 end
