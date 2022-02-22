@@ -22,14 +22,14 @@ en:
           color_text: Text color
           title: Title
         cover_half:
-          color_background_image: Image tint color
-          color_background_text: Text background color
-          color_navbar: Navbar color
-          color_text: Text color
           name: Cover (Half screen)
         cover_half_settings_form:
           background_image: Background Image
           body: Body
+          color_background_image: Image tint color
+          color_background_text: Text background color
+          color_navbar: Navbar color
+          color_text: Text color
           link_text: Link text
           link_url: Link url
           title: Title
