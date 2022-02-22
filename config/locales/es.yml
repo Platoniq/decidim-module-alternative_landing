@@ -15,12 +15,20 @@ es:
         cover_full_settings_form:
           background_image: Imagen de fondo
           body: Texto
+          color_background_image: Image tint color
+          color_background_text: Text background color
+          color_navbar: Navbar color
+          color_text: Text color
           title: Título
         cover_half:
           name: Portada (Media pantalla)
         cover_half_settings_form:
           background_image: Imagen de fondo
           body: Texto
+          color_background_image: Image tint color
+          color_background_text: Text background color
+          color_navbar: Navbar color
+          color_text: Text color
           link_text: Texto del enlace
           link_url: URL del enlace
           title: Título
