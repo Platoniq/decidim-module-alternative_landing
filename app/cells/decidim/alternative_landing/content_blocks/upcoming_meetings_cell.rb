@@ -29,6 +29,10 @@ module Decidim
 
         private
 
+        def manifest_name
+          "meetings"
+        end
+
         # A MD5 hash of model attributes because is needed because
         # it ensures the cache version value will always be the same size
         def cache_hash
