@@ -4,7 +4,6 @@
   <%= settings_fields.translated :text_field, :link_text, label: t(".link_text") %>
   <%= settings_fields.translated :text_field, :link_url, label: t(".link_url") %>
 <% end %>
-
 <% form.fields_for :images, form.object.images do |images_fields| %>
   <%= images_fields.upload :background_image, label: t(".background_image") %>
 <% end %>
