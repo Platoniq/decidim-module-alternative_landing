@@ -25,7 +25,7 @@ module Decidim
         end
 
         def component
-          components.find_by(id: (defined?(form) ? form.object : model).settings.try(:component_id))
+          @component ||= components.find_by(id: (defined?(form) ? form.object : model).settings.try(:component_id))
         end
 
         def components
