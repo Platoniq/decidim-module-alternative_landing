@@ -19,7 +19,7 @@ module Decidim
         end
 
         def available_components
-          components.where(manifest_name: manifest_name).map do |component|
+          @available_components ||= components.where(manifest_name: manifest_name).map do |component|
             ["#{translated_attribute(component.name)} (#{translated_attribute(component.participatory_space.title)})", component.id]
           end.unshift [t(".all"), nil]
         end
