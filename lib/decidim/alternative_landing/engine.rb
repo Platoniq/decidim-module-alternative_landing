@@ -22,13 +22,13 @@ module Decidim
         app.config.enable_html_header_snippets = true
       end
 
-      initializer "decidim_alternative_landing.assets" do |app|
-        app.config.assets.precompile += %w(decidim_alternative_landing_manifest.js decidim_alternative_landing_manifest.css)
-      end
-
       initializer "decidim_alternative_landing.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::AlternativeLanding::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::AlternativeLanding::Engine.root}/app/views")
+      end
+
+      initializer "decidim_alternative_landing.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 
       initialize_homepage_content_blocks

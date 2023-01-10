@@ -189,6 +189,10 @@
     "eslint-plugin-import": "^2.22.0"
   },
   "dependencies": {
-    "codemirror": "^5.60.0"
+    "@fullcalendar/core": "^6.0.2",
+    "@fullcalendar/daygrid": "^6.0.2",
+    "@fullcalendar/timegrid": "^6.0.2",
+    "codemirror": "^5.60.0",
+    "foundation-sites": "^6.7.5"
   }
 }

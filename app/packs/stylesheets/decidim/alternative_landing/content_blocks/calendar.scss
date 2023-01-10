@@ -1,5 +1,5 @@
-@import "variables";
-@import "foundation";
+@import "stylesheets/decidim/alternative_landing/content_blocks/variables";
+@import "foundation-sites/scss/foundation";
 
 $debate: var(--primary) !default;
 $election: var(--warning) !default;
