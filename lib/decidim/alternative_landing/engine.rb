@@ -13,9 +13,11 @@ module Decidim
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::AlternativeLanding
 
-      config.to_prepare do
-        Decidim::HomepageController.include(Decidim::AlternativeLanding::NeedsContentBlocksSnippets)
-        Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupsController.include(Decidim::AlternativeLanding::NeedsContentBlocksSnippets)
+      initializer "decidim_alternative_landing.overrides", after: "decidim.action_controller" do
+        config.to_prepare do
+          Decidim::HomepageController.include(Decidim::AlternativeLanding::NeedsContentBlocksSnippets)
+          Decidim::ParticipatoryProcesses::ParticipatoryProcessGroupsController.include(Decidim::AlternativeLanding::NeedsContentBlocksSnippets)
+        end
       end
 
       initializer "decidim_alternative_landing.snippets" do |app|
