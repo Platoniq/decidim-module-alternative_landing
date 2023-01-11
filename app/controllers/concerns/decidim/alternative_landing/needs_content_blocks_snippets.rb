@@ -7,8 +7,6 @@ module Decidim
     module NeedsContentBlocksSnippets
       extend ActiveSupport::Concern
 
-      include Decidim::LayoutHelper
-
       included do
         helper_method :snippets
       end
