@@ -3,9 +3,9 @@
 def initialize_homepage_content_blocks
   initializer "decidim_alternative_landing.content_blocks" do
     Decidim.content_blocks.register(:homepage, :alternative_upcoming_meetings) do |content_block|
-      content_block.cell = "decidim/alternative_landing/content_blocks/upcoming_meetings"
-      content_block.settings_form_cell = "decidim/alternative_landing/content_blocks/upcoming_meetings_settings_form"
-      content_block.public_name_key = "decidim.alternative_landing.content_blocks.upcoming_meetings.name"
+      content_block.cell = "decidim/alternative_landing/content_blocks/alternative_upcoming_meetings"
+      content_block.settings_form_cell = "decidim/alternative_landing/content_blocks/alternative_upcoming_meetings_settings_form"
+      content_block.public_name_key = "decidim.alternative_landing.content_blocks.alternative_upcoming_meetings.name"
 
       content_block.settings do |settings|
         settings.attribute :title, type: :text, translated: true

@@ -5,7 +5,7 @@ module Decidim
     module ContentBlocks
       # A cell to be rendered as a content block with the upcoming meetings published
       # in a Decidim Organization.
-      class UpcomingMeetingsCell < BaseCell
+      class AlternativeUpcomingMeetingsCell < BaseCell
         include Decidim::Core::Engine.routes.url_helpers
         include Decidim::Meetings::Engine.routes.url_helpers
         include Decidim::ApplicationHelper

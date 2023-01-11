@@ -3,7 +3,7 @@
 module Decidim
   module AlternativeLanding
     module ContentBlocks
-      class UpcomingMeetingsSettingsFormCell < BaseCell
+      class AlternativeUpcomingMeetingsSettingsFormCell < BaseCell
         alias form model
 
         def component
