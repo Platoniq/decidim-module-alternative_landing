@@ -54,10 +54,10 @@ wget https://raw.githubusercontent.com/Platoniq/decidim-module-alternative_landi
 bundle exec rake alternative_landing:rename_upcoming_meetings:up
 ```
 
-If you need to redo the changes made you can run:
+If you need to undo the changes made you can run:
 
 ```bash
-bundle exec rake alternative_landing:rename_upcoming_meetings:up
+bundle exec rake alternative_landing:rename_upcoming_meetings:down
 ```
 
 ## Contributing

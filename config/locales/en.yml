@@ -3,6 +3,17 @@ en:
   decidim:
     alternative_landing:
       content_blocks:
+        alternative_upcoming_meetings:
+          name: Upcoming meetings(Alternative)
+          title: Upcoming meetings(Alternative)
+        alternative_upcoming_meetings_settings_form:
+          all: Show meetings from any space(Alternative)
+          component_id: Meetings component(Alternative)
+          count: Number of items(Alternative)
+          info: Only meetings from '%{component}' in '%{space}' will be shown. You can change it with the selector below.(Alternative)
+          link_text: Link text(Alternative)
+          link_url: Link URL(Alternative)
+          title: Title(Alternative)
         calendar:
           filters:
             debate: Debate
@@ -94,17 +105,6 @@ en:
           name: Upcoming meetings
           title: Upcoming meetings
         upcoming_meetings_settings_form:
-          all: Show meetings from any space
-          component_id: Meetings component
-          count: Number of items
-          info: Only meetings from '%{component}' in '%{space}' will be shown. You can change it with the selector below.
-          link_text: Link text
-          link_url: Link URL
-          title: Title
-        alternative_upcoming_meetings:
-          name: Upcoming meetings
-          title: Upcoming meetings
-        alternative_upcoming_meetings_settings_form:
           all: Show meetings from any space
           component_id: Meetings component
           count: Number of items

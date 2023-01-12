@@ -3,6 +3,17 @@ es:
   decidim:
     alternative_landing:
       content_blocks:
+        alternative_upcoming_meetings:
+          name: Próximos encuentros(Alternative)
+          title: Próximos encuentros(Alternative)
+        alternative_upcoming_meetings_settings_form:
+          all: Muestra encuentros de cualquier espacio participativo(Alternative)
+          component_id: Componente de encuentros(Alternative)
+          count: Número de items(Alternative)
+          info: Sólo se mostrarán los encuentros de '%{component}' en '%{space}'. Puedes cambiarlo con el selector siguiente.(Alternative)
+          link_text: Texto del enlace(Alternative)
+          link_url: URL del enlace(Alternative)
+          title: Título(Alternative)
         calendar:
           filters:
             debate: Debate
