@@ -21,7 +21,7 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
     let!(:stack_vertical_block) { create(:stack_vertical_block, organization: organization) }
     let!(:tiles_block) { create(:tiles_block, organization: organization) }
     let!(:latest_blog_posts_block) { create(:latest_blog_posts_block, organization: organization) }
-    let!(:upcoming_meetings_block) { create(:upcoming_meetings_block, organization: organization) }
+    let!(:alternative_upcoming_meetings_block) { create(:alternative_upcoming_meetings_block, organization: organization) }
     let!(:blogs_component) { create(:component, manifest_name: "blogs", organization: organization) }
     let!(:meetings_component) { create(:component, manifest_name: "meetings", organization: organization) }
     let!(:blog_posts) { create_list(:post, 6, component: blogs_component) }
@@ -45,7 +45,7 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
 
     describe "cover_full block" do
       it "renders all elements" do
-        expect(page.find(".alternative-landing.cover-full")[:style]).to match(/#{cover_full_block.images_container.background_image.big.url}/)
+        expect(page.find(".alternative-landing.cover-full")[:style]).to match(/#{cover_full_block.images_container.attached_uploader(:background_image).path(variant: :big)}/)
 
         within ".alternative-landing.cover-full" do
           within ".cover-text" do
@@ -63,7 +63,7 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
     describe "cover_half block" do
       it "renders all elements" do
         within ".alternative-landing.cover-half" do
-          expect(page.find(".cover-image")[:style]).to match(/#{cover_half_block.images_container.background_image.big.url}/)
+          expect(page.find(".cover-image")[:style]).to match(/#{cover_half_block.images_container.attached_uploader(:background_image).path(variant: :big)}/)
 
           within ".cover-text" do
             within ".cover-title" do
@@ -85,7 +85,7 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
           1.upto(3) do |item_number|
             within ".stack-item:nth-of-type(#{item_number})" do
               within ".stack-image" do
-                expect(page.find("img")[:src]).to match(/#{stack_horizontal_block.images_container.send(:"image_#{item_number}").landscape.url}/)
+                expect(page.find("img")[:src]).to match(/#{stack_horizontal_block.images_container.attached_uploader("image_#{item_number}".to_sym).path(variant: :landscape)}/)
               end
 
               within ".stack-body" do
@@ -112,7 +112,7 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
           1.upto(3) do |item_number|
             within ".stack-item:nth-of-type(#{item_number})" do
               within ".stack-image" do
-                expect(page.find("img")[:src]).to match(/#{stack_vertical_block.images_container.send(:"image_#{item_number}").square.url}/)
+                expect(page.find("img")[:src]).to match(/#{stack_vertical_block.images_container.attached_uploader("image_#{item_number}".to_sym).path(variant: :square)}/)
               end
 
               within ".stack-tags" do
@@ -147,7 +147,7 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
             end
 
             1.upto(4) do |item_number|
-              expect(page.find(".tile-#{item_number}")[:style]).to match(/#{tiles_block.images_container.send(:"background_image_#{item_number}").landscape.url}/)
+              expect(page.find(".tile-#{item_number}")[:style]).to match(/#{tiles_block.images_container.attached_uploader("background_image_#{item_number}".to_sym).path(variant: :landscape)}/)
 
               within ".tile-#{item_number}" do
                 within ".tile-body" do
@@ -176,11 +176,11 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
       end
     end
 
-    describe "upcoming_meetings block" do
+    describe "alternative_upcoming_meetings block" do
       it "renders all elements" do
         within ".alternative-landing.upcoming-meetings" do
-          expect(page).to have_i18n_content(upcoming_meetings_block.settings.title, upcase: true)
-          expect(page).to have_i18n_content(upcoming_meetings_block.settings.link_text, upcase: true)
+          expect(page).to have_i18n_content(alternative_upcoming_meetings_block.settings.title, upcase: true)
+          expect(page).to have_i18n_content(alternative_upcoming_meetings_block.settings.link_text, upcase: true)
           sorted_meetings.last(3).each do |meeting|
             expect(page).to have_i18n_content(meeting.title)
           end
