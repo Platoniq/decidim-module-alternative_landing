@@ -26,13 +26,13 @@ namespace :decidim_alternative_landing do
 
     def decidim_alternative_landing_npm_dependencies
       @decidim_alternative_landing_npm_dependencies ||= begin
-                                                          package_json = JSON.parse(File.read(decidim_alternative_landing_path.join("package.json")))
+        package_json = JSON.parse(File.read(decidim_alternative_landing_path.join("package.json")))
 
-                                                          {
-                                                            prod: package_json["dependencies"].map { |package, version| "#{package}@#{version}" },
-                                                            dev: package_json["devDependencies"].map { |package, version| "#{package}@#{version}" }
-                                                          }.freeze
-                                                        end
+        {
+          prod: package_json["dependencies"].map { |package, version| "#{package}@#{version}" },
+          dev: package_json["devDependencies"].map { |package, version| "#{package}@#{version}" }
+        }.freeze
+      end
     end
 
     def decidim_alternative_landing_path
