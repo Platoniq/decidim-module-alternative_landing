@@ -114,7 +114,7 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
               end
 
               within ".stack-tags" do
-                expect(page).to have_i18n_content(stack_vertical_block.settings.send(:"tag_text_#{item_number}"), upcase: true)
+                expect(page).to have_i18n_content(stack_vertical_block.settings.send(:"tag_text_#{item_number}"))
                 expect(page).to have_selector("a[href='/link?external_url=#{CGI.escape(translated(stack_vertical_block.settings.send(:"tag_url_#{item_number}")))}']")
               end
 

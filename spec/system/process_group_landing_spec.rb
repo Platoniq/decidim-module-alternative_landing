@@ -27,7 +27,7 @@ describe "Visit a process group's landing page", type: :system, perform_enqueued
       it "renders all elements" do
         within "section.alternative-landing.extra-title" do
           expect(page).to have_i18n_content(extra_title_block.settings.link_text_1)
-          expect(page).to have_selector("[href='#{extra_title_block.settings.link_url_1}']")
+          expect(page).to have_selector("[href='/link?external_url=#{CGI.escape(extra_title_block.settings.link_url_1)}']")
           expect(page).to have_selector(".icon--instagram")
         end
       end
