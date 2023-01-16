@@ -9,8 +9,7 @@
         <% selected_consultations.each do |consultation| %>
           <div class="column">
             <%= link_to decidim_consultations.consultation_path(consultation), class: "card card--consultation card--mini" do %>
-              <div aria-hidden="true" class="card__image-top"
-                style="background-image:url(<%= consultation.banner_image.url %>)"></div>
+              <div aria-hidden="true" class="card__image-top" style="background-image:url(<%= consultation.attached_uploader(:banner_image).path %>)"></div>
               <div class="card__content">
                 <span class="card__title card__link"><%= translated_attribute consultation.title %></span>
                 <span><%= translated_attribute consultation.subtitle %></span>
