@@ -143,8 +143,8 @@ FactoryBot.define do
     end
   end
 
-  factory :upcoming_meetings_block, parent: :alternative_landing_content_block do
-    manifest_name { :upcoming_meetings }
+  factory :alternative_upcoming_meetings_block, parent: :alternative_landing_content_block do
+    manifest_name { :alternative_upcoming_meetings }
 
     settings do
       {

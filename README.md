@@ -33,6 +33,33 @@ And then execute:
 bundle
 ```
 
+Depending on your Decidim version, choose the corresponding version to ensure compatibility:
+
+| Alternative Landing version | Compatible Decidim versions |
+|-----------------------------|-----------------------------|
+| 0.3.x                       | 0.25.x, 0.26.x              |
+| 0.2.x                       | 0.24.x                      |
+
+### Upgrade from 0.2.x to 0.3.x
+
+As decidim renamed its `upcoming_meetings` to `upcoming_events` in the 0.25 version, if you are upgrading from an
+alternative landing version prior to 0.3 you need to run a task to change the manifest name of the content blocks with
+this manifest.
+
+You just need to download and run the task below **before deploying your application to 0.25.x and above** by connecting
+to the server you are going to upgrade:
+
+```bash
+wget https://raw.githubusercontent.com/Platoniq/decidim-module-alternative_landing/release/0.26-stable/lib/tasks/alternative_landing_rename_upcoming_meetings.rake -P lib/tasks
+bundle exec rake alternative_landing:rename_upcoming_meetings:up
+```
+
+If you need to undo the changes made you can run:
+
+```bash
+bundle exec rake alternative_landing:rename_upcoming_meetings:down
+```
+
 ## Contributing
 
 See [Decidim](https://github.com/Platoniq/decidim-module-alternative_landing).

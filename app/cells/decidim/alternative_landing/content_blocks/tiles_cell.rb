@@ -15,7 +15,7 @@ module Decidim
         end
 
         def background_image(item_number)
-          model.images_container.send("background_image_#{item_number}").landscape.url
+          model.images_container.attached_uploader("background_image_#{item_number}".to_sym).path(variant: :landscape)
         end
       end
     end
