@@ -25,9 +25,9 @@ describe "Visit a process group's landing page", type: :system, perform_enqueued
 
     describe "extra title block" do
       it "renders all elements" do
-        within ".alternative-landing.extra-title" do
+        within "section.alternative-landing.extra-title" do
           expect(page).to have_i18n_content(extra_title_block.settings.link_text_1)
-          expect(page).to have_selector("[href='#{extra_title_block.settings.link_url_1}']")
+          expect(page).to have_selector("[href='/link?external_url=#{CGI.escape(extra_title_block.settings.link_url_1)}']")
           expect(page).to have_selector(".icon--instagram")
         end
       end
@@ -52,7 +52,7 @@ describe "Visit a process group's landing page", type: :system, perform_enqueued
           end
 
           within "#calendar" do
-            within ".fc-view-container" do
+            within ".fc-view-harness" do
               expect(page).to have_i18n_content(meeting.title)
               expect(page).to have_content(meeting.start_time.strftime("%H:%M"))
             end

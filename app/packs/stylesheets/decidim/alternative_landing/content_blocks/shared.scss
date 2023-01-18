@@ -1,0 +1,23 @@
+@import "stylesheets/decidim/alternative_landing/content_blocks/variables";
+
+.alternative-landing {
+  &.cover-full,
+  &.cover-half,
+  &.tiles,
+  &.stack-horizontal,
+  &.stack-vertical {
+    padding: 5em;
+  }
+
+  .heading1 {
+    font-size: 4em;
+  }
+
+  @include breakpoint(medium down) {
+    padding: $gap;
+
+    .heading1 {
+      font-size: 3em;
+    }
+  }
+}

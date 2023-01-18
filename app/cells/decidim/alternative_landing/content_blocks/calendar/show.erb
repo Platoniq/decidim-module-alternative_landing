@@ -11,53 +11,55 @@
   </div>
 </section>
 
-<%= javascript_include_tag "decidim/alternative_landing/calendar" %>
+<%= javascript_pack_tag "fullcalendar" %>
 
 <script>
-  let filters = <%= resources.to_json.html_safe %>;
+  $(() => {
+    let filters = <%= resources.to_json.html_safe %>;
 
-  function removeFilter(filters, filter){
-    return filters.filter((element) => element !== filter)
-  }
-
-  const calendarEl = document.getElementById('calendar');
-  const calendar = new FullCalendar.Calendar(calendarEl, {
-    plugins: ["timeGrid", "dayGrid"],
-    defaultView: "dayGridMonth",
-    locale: "es",
-    header: {
-      left: "prev,next today",
-      center: "title",
-      right: "dayGridMonth,dayGridWeek,dayGridDay"
-    },
-    height: "auto",
-    eventTimeFormat: {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-      omitZeroMinute: false
-    },
-    events: <%= render_events.html_safe %>,
-    eventRender: function(info) {
-      if ("subtitle" in info.event.extendedProps) {
-        title = "<span class=\"fc-title\"><b>" + info.event.title + "</b> - " + info.event.extendedProps.subtitle + "</span>"
-        info.el.firstChild.innerHTML = title
-      }
-      return filters.includes(info.event.extendedProps.resourceId);
+    function removeFilter(filters, filter){
+      return filters.filter((element) => element !== filter)
     }
-  });
-  $(function() {
-    calendar.setOption('locale', "<%= I18n.locale %>");
-    calendar.render();
-    $(".cal-filter").on("click", function() {
-      $(this).toggleClass("hollow");
-      let filter = $(this).attr("id");
-      if (filters.includes(filter)) {
-        filters = removeFilter(filters, filter)
-      } else {
-        filters.push(filter)
+
+    const calendarEl = document.getElementById('calendar');
+    const calendar = new Calendar(calendarEl, {
+      plugins: [timeGridPlugin, dayGridPlugin],
+      defaultView: "dayGridMonth",
+      locale: "es",
+      header: {
+        left: "prev,next today",
+        center: "title",
+        right: "dayGridMonth,dayGridWeek,dayGridDay"
+      },
+      height: "auto",
+      eventTimeFormat: {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+        omitZeroMinute: false
+      },
+      events: <%= render_events.html_safe %>,
+      eventRender: function(info) {
+        if ("subtitle" in info.event.extendedProps) {
+          title = "<span class=\"fc-title\"><b>" + info.event.title + "</b> - " + info.event.extendedProps.subtitle + "</span>"
+          info.el.firstChild.innerHTML = title
+        }
+        return filters.includes(info.event.extendedProps.resourceId);
       }
-      calendar.rerenderEvents()
+    });
+    $(function() {
+      calendar.setOption('locale', "<%= I18n.locale %>");
+      calendar.render();
+      $(".cal-filter").on("click", function() {
+        $(this).toggleClass("hollow");
+        let filter = $(this).attr("id");
+        if (filters.includes(filter)) {
+          filters = removeFilter(filters, filter)
+        } else {
+          filters.push(filter)
+        }
+        calendar.rerenderEvents()
+      });
     });
   });
 </script>

@@ -3,16 +3,16 @@ ca:
     alternative_landing:
       content_blocks:
         alternative_upcoming_meetings:
-          name: Upcoming meetings (Alternative)
-          title: Upcoming meetings (Alternative)
+          name: Properes trobades (Alternative)
+          title: Properes trobades (Alternative)
         alternative_upcoming_meetings_settings_form:
-          all: Show meetings from any space
-          component_id: Meetings component
-          count: Number of items
-          info: Only meetings from '%{component}' in '%{space}' will be shown. You can change it with the selector below.
-          link_text: Link text
-          link_url: Link URL
-          title: Title
+          all: Mostra trobades de qualsevol espai de participació
+          component_id: Component de trobades
+          count: Número d'items
+          info: Només es mostraran les trobades de '%{component}' a '%{space}'. Pots canviar-ho amb el selector següent.
+          link_text: Text de l'enllaç
+          link_url: URL de l'enllaç
+          title: Títol
         calendar:
           filters:
             debate: Debat

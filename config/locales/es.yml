@@ -3,16 +3,16 @@ es:
     alternative_landing:
       content_blocks:
         alternative_upcoming_meetings:
-          name: Upcoming meetings (Alternative)
-          title: Upcoming meetings (Alternative)
+          name: Próximos encuentros (Alternative)
+          title: Próximos encuentros (Alternative)
         alternative_upcoming_meetings_settings_form:
-          all: Show meetings from any space
-          component_id: Meetings component
-          count: Number of items
-          info: Only meetings from '%{component}' in '%{space}' will be shown. You can change it with the selector below.
-          link_text: Link text
-          link_url: Link URL
-          title: Title
+          all: Muestra encuentros de cualquier espacio participativo
+          component_id: Componente de encuentros
+          count: Número de items
+          info: Sólo se mostrarán los encuentros de '%{component}' en '%{space}'. Puedes cambiarlo con el selector siguiente.
+          link_text: Texto del enlace
+          link_url: URL del enlace
+          title: Título
         calendar:
           filters:
             debate: Debate
