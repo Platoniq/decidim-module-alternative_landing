@@ -166,9 +166,9 @@ FactoryBot.define do
 
     settings do
       {
-        link_text_1: Decidim::Faker::Localized.word,
-        link_url_1: "https://decidim.org",
-        link_icon_name_1: "instagram"
+        link_text1: Decidim::Faker::Localized.word,
+        link_url1: "https://decidim.org",
+        link_icon_name1: "instagram"
       }
     end
   end
