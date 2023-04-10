@@ -1,6 +1,6 @@
 $(() => {
   const target = document.getElementById("participatory-process-group-homepage-calendar");
-  let filters = JSON.parse(target.dataset.resources.replaceAll('&quote;', '"'));
+  let filters = JSON.parse(decodeURIComponent(target.dataset.resources));
 
   function removeFilter(filters, filter){
     return filters.filter((element) => element !== filter)
@@ -23,7 +23,7 @@ $(() => {
       hour12: false,
       omitZeroMinute: false
     },
-    events: JSON.parse(target.dataset.events.replaceAll('&quote;', '"')),
+    events: JSON.parse(decodeURIComponent(target.dataset.events)),
     eventRender: function(info) {
       if ("subtitle" in info.event.extendedProps) {
         title = "<span class=\"fc-title\"><b>" + info.event.title + "</b> - " + info.event.extendedProps.subtitle + "</span>"

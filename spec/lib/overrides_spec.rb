@@ -16,7 +16,7 @@ checksums = [
     package: "decidim-participatory_processes",
     files: {
       "/app/cells/decidim/participatory_process_groups/content_blocks/title_cell.rb" => "65d3f0094c1e57f8ae48e171c1f83b7e",
-      "/app/cells/decidim/participatory_process_groups/content_blocks/title/show.erb" => "de6115a71971e8394b8cb95097c37aa9",
+      "/app/cells/decidim/participatory_process_groups/content_blocks/title/show.erb" => "9739bffc9bbba8017bd8b5b5920065fe",
       "/app/controllers/decidim/participatory_processes/participatory_process_groups_controller.rb" => "dfcb6e08afd32f34b43a5caa93281973"
     }
   }
