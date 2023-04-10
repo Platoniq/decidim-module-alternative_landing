@@ -1,6 +1,6 @@
-# rubocop:disable Style/StringLiterals
+<%# rubocop:disable Style/StringLiterals %>
 <section id="participatory-process-group-homepage-calendar" class="section alternative-landing calendar"
-         data-resources="<%= resources.to_json.gsub('"', '&quote;') %>"
+         data-resources="<%= j(resources.to_json) %>"
          data-events="<%= render_events.html_safe.gsub('"', '&quote;') %>"
          data-locale="<%= I18n.locale %>">
   <div class="row">
@@ -14,6 +14,6 @@
     </div>
   </div>
 </section>
-# rubocop:enable Style/StringLiterals
+<%# rubocop:enable Style/StringLiterals %>
 <%= javascript_pack_tag "fullcalendar" %>
 <%= javascript_pack_tag "decidim_fullcalendar" %>
