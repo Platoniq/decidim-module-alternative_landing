@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-
 shared_examples "render all stack block elements" do |type|
   let!(:content_block) do
     type == "stack-horizontal" ? create(:stack_horizontal_block, organization: organization) : create(:stack_vertical_block, organization: organization)

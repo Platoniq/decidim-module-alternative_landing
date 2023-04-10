@@ -163,7 +163,7 @@ FactoryBot.define do
   factory :extra_title_block, parent: :content_block do
     manifest_name { :extra_title }
     scope_name { :participatory_process_group_homepage }
-
+    # rubocop:disable Naming/VariableNumber
     settings do
       {
         link_text_1: Decidim::Faker::Localized.word,
@@ -171,6 +171,7 @@ FactoryBot.define do
         link_icon_name_1: "instagram"
       }
     end
+    # rubocop:enable Naming/VariableNumber
   end
 
   factory :extra_information_block, parent: :content_block do
