@@ -12,7 +12,7 @@ describe "Visit a process group's landing page", type: :system, perform_enqueued
     let!(:extra_information_block) { create(:extra_information_block, organization: organization, scoped_resource_id: participatory_process_group.id) }
     let!(:calendar_block) { create(:calendar_block, organization: organization, scoped_resource_id: participatory_process_group.id) }
     let!(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: processes.first) }
-    let!(:meeting) { create(:meeting, start_time: Time.zone.now, end_time: Time.zone.now + 1.hour, component: meetings_component) }
+    let!(:meeting) { create(:meeting, start_time: Time.zone.now, end_time: 1.hour.from_now, component: meetings_component) }
 
     before do
       switch_to_host(organization.host)
