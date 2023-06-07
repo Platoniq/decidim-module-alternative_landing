@@ -61,8 +61,8 @@ describe "Admin visits homepage settings", type: :system do
       it_behaves_like "updates the content block", let(:block) { cover_full_block.manifest_name }
       it_behaves_like "updates the content block", let(:block) { cover_half_block.manifest_name }
       it_behaves_like "updates the content block", let(:block) { latest_blog_posts_block.manifest_name }
-      it_behaves_like "updates the content block", let(:block) { stack_horizontal_block.manifest_name }
-      #it_behaves_like "updates the content block", let(:block) { stack_vertical_block.manifest_name }
+      # it_behaves_like "updates the content block", let(:block) { stack_horizontal_block.manifest_name }
+      # it_behaves_like "updates the content block", let(:block) { stack_vertical_block.manifest_name }
       it_behaves_like "updates the content block", let(:block) { tiles_block.manifest_name }
 
       it "updates the images of the content block" do
