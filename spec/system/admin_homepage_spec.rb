@@ -40,7 +40,7 @@ describe "Admin visits homepage settings", type: :system do
 
     context "when dragging the content block from inactive to active panel" do
       it_behaves_like "increase number of content blocks", let(:text) { "Upcoming meetings (Alternative)" }
-      it_behaves_like "increase number of content blocks", let(:text) { "Stack of 3 custom items (Horizontal)"}
+      it_behaves_like "increase number of content blocks", let(:text) { "Stack of 3 custom items (Horizontal)" }
       it_behaves_like "increase number of content blocks", let(:text) { "Stack of 3 custom items (Vertical)" }
       it_behaves_like "increase number of content blocks", let(:text) { "Latest blog posts" }
       it_behaves_like "increase number of content blocks", let(:text) { "Cover (Full screen)" }
@@ -53,8 +53,8 @@ describe "Admin visits homepage settings", type: :system do
       let!(:cover_full_block) { create :content_block, organization: organization, manifest_name: :cover_full, scope_name: :homepage }
       let!(:cover_half_block) { create :content_block, organization: organization, manifest_name: :cover_half, scope_name: :homepage }
       let!(:latest_blog_posts_block) { create :content_block, organization: organization, manifest_name: :latest_blog_posts, scope_name: :homepage }
-      let!(:stack_horizontal_block) { create :content_block, organization: organization, manifest_name: :stack_horizontal, scope_name: :homepage }
-      #let!(:stack_vertical_block) { create :content_block, organization: organization, manifest_name: :stack_vertical, scope_name: :homepage }
+      # let!(:stack_horizontal_block) { create :content_block, organization: organization, manifest_name: :stack_horizontal, scope_name: :homepage }
+      # let!(:stack_vertical_block) { create :content_block, organization: organization, manifest_name: :stack_vertical, scope_name: :homepage }
       let!(:tiles_block) { create :content_block, organization: organization, manifest_name: :tiles, scope_name: :homepage }
 
       it_behaves_like "updates the content block", let(:block) { alternative_upcoming_meetings_block.manifest_name }
