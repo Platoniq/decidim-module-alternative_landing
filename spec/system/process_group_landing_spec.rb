@@ -34,6 +34,7 @@ describe "Visit a process group's landing page", type: :system, perform_enqueued
           expect(page).to have_selector(".icon--instagram")
         end
       end
+
       it_behaves_like "updates the content block extra title", "extra_title"
     end
 
@@ -43,6 +44,7 @@ describe "Visit a process group's landing page", type: :system, perform_enqueued
           expect(page).to have_i18n_content(extra_information_block.settings.body)
         end
       end
+
       it_behaves_like "updates the content block extra information", "extra_information"
     end
 
