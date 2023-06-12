@@ -49,20 +49,20 @@ describe "Admin visits homepage settings", type: :system do
     end
 
     context "when editing a persisted content block" do
-      let!(:alternative_upcoming_meetings_block) { create :content_block, organization: organization, manifest_name: "alternative_upcoming_meetings", scope_name: :homepage }
-      let!(:cover_full_block) { create :content_block, organization: organization, manifest_name: :cover_full, scope_name: :homepage }
-      let!(:cover_half_block) { create :content_block, organization: organization, manifest_name: :cover_half, scope_name: :homepage }
-      let!(:latest_blog_posts_block) { create :content_block, organization: organization, manifest_name: :latest_blog_posts, scope_name: :homepage }
-      # let!(:stack_horizontal_block) { create :content_block, organization: organization, manifest_name: :stack_horizontal, scope_name: :homepage }
-      # let!(:stack_vertical_block) { create :content_block, organization: organization, manifest_name: :stack_vertical, scope_name: :homepage }
-      let!(:tiles_block) { create :content_block, organization: organization, manifest_name: :tiles, scope_name: :homepage }
+      let!(:alternative_upcoming_meetings_block) { create :alternative_upcoming_meetings_block, organization: organization, scope_name: :homepage }
+      let!(:cover_full_block) { create :content_block, organization: organization, manifest_name: "cover_full", scope_name: :homepage }
+      let!(:cover_half_block) { create :cover_half_block, organization: organization, scope_name: :homepage }
+      let!(:latest_blog_posts_block) { create :latest_blog_posts_block, organization: organization, scope_name: :homepage }
+      let!(:stack_horizontal_block) { create :stack_horizontal_block, organization: organization, scope_name: :homepage }
+      let!(:stack_vertical_block) { create :stack_vertical_block, organization: organization, scope_name: :homepage }
+      let!(:tiles_block) { create :tiles_block, organization: organization, scope_name: :homepage }
 
       it_behaves_like "updates the content block", let(:block) { alternative_upcoming_meetings_block.manifest_name }
       it_behaves_like "updates the content block", let(:block) { cover_full_block.manifest_name }
       it_behaves_like "updates the content block", let(:block) { cover_half_block.manifest_name }
       it_behaves_like "updates the content block", let(:block) { latest_blog_posts_block.manifest_name }
-      # it_behaves_like "updates the content block", let(:block) { stack_horizontal_block.manifest_name }
-      # it_behaves_like "updates the content block", let(:block) { stack_vertical_block.manifest_name }
+      it_behaves_like "updates the content block", let(:block) { stack_horizontal_block.manifest_name }
+      it_behaves_like "updates the content block", let(:block) { stack_vertical_block.manifest_name }
       it_behaves_like "updates the content block", let(:block) { tiles_block.manifest_name }
 
       it "updates the images of the content block" do
