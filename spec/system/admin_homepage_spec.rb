@@ -8,6 +8,8 @@ describe "Admin visits homepage settings", type: :system do
 
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let!(:meeting) { create :meeting }
+  let!(:post) { create(:post) }
 
   before do
     switch_to_host(organization.host)
@@ -39,13 +41,13 @@ describe "Admin visits homepage settings", type: :system do
     end
 
     context "when dragging the content block from inactive to active panel" do
-      it_behaves_like "increase number of content blocks", let(:text) { "Upcoming meetings (Alternative)" }
-      it_behaves_like "increase number of content blocks", let(:text) { "Stack of 3 custom items (Horizontal)" }
-      it_behaves_like "increase number of content blocks", let(:text) { "Stack of 3 custom items (Vertical)" }
-      it_behaves_like "increase number of content blocks", let(:text) { "Latest blog posts" }
-      it_behaves_like "increase number of content blocks", let(:text) { "Cover (Full screen)" }
-      it_behaves_like "increase number of content blocks", let(:text) { "Cover (Half screen)" }
-      it_behaves_like "increase number of content blocks", let(:text) { "Tiles" }
+      it_behaves_like "increase number of content blocks", "Upcoming meetings (Alternative)"
+      it_behaves_like "increase number of content blocks", "Stack of 3 custom items (Horizontal)"
+      it_behaves_like "increase number of content blocks", "Stack of 3 custom items (Vertical)"
+      it_behaves_like "increase number of content blocks", "Latest blog posts"
+      it_behaves_like "increase number of content blocks", "Cover (Full screen)"
+      it_behaves_like "increase number of content blocks", "Cover (Half screen)"
+      it_behaves_like "increase number of content blocks", "Tiles"
     end
 
     context "when editing a persisted content block" do
@@ -57,13 +59,13 @@ describe "Admin visits homepage settings", type: :system do
       let!(:stack_vertical_block) { create :stack_vertical_block, organization: organization, scope_name: :homepage }
       let!(:tiles_block) { create :tiles_block, organization: organization, scope_name: :homepage }
 
-      it_behaves_like "updates the content block", let(:block) { alternative_upcoming_meetings_block.manifest_name }
-      it_behaves_like "updates the content block", let(:block) { cover_full_block.manifest_name }
-      it_behaves_like "updates the content block", let(:block) { cover_half_block.manifest_name }
-      it_behaves_like "updates the content block", let(:block) { latest_blog_posts_block.manifest_name }
-      it_behaves_like "updates the content block", let(:block) { stack_horizontal_block.manifest_name }
-      it_behaves_like "updates the content block", let(:block) { stack_vertical_block.manifest_name }
-      it_behaves_like "updates the content block", let(:block) { tiles_block.manifest_name }
+      it_behaves_like "updates the content block", "alternative_upcoming_meetings"
+      it_behaves_like "updates the content block", "cover_full"
+      it_behaves_like "updates the content block", "cover_half"
+      it_behaves_like "updates the content block", "latest_blog_posts"
+      it_behaves_like "updates the content block", "stack_horizontal"
+      it_behaves_like "updates the content block", "stack_vertical"
+      it_behaves_like "updates the content block", "tiles"
 
       it "updates the images of the content block" do
         visit decidim_admin.edit_organization_homepage_content_block_path(:cover_full)
