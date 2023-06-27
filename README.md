@@ -38,6 +38,7 @@ Depending on your Decidim version, choose the corresponding version to ensure co
 
 | Alternative Landing version | Compatible Decidim versions |
 |-----------------------------|-----------------------------|
+| 0.4.x                       | 0.27.x                      |
 | 0.3.x                       | 0.25.x, 0.26.x              |
 | 0.2.x                       | 0.24.x                      |
 
