@@ -31,6 +31,7 @@ And then execute:
 
 ```bash
 bundle
+bundle exec rails decidim_alternative_landing:webpacker:install
 ```
 
 Depending on your Decidim version, choose the corresponding version to ensure compatibility:
