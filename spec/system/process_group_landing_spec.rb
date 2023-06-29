@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "shared/system_admin_process_group_landing_examples"
 
 describe "Visit a process group's landing page", type: :system, perform_enqueued: true do
   let!(:organization) { create :organization, available_locales: [:en] }
+  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
   let!(:participatory_process_group) { create :participatory_process_group, :with_participatory_processes, organization: organization }
   let!(:processes) { participatory_process_group.participatory_processes }
 
@@ -12,10 +14,11 @@ describe "Visit a process group's landing page", type: :system, perform_enqueued
     let!(:extra_information_block) { create(:extra_information_block, organization: organization, scoped_resource_id: participatory_process_group.id) }
     let!(:calendar_block) { create(:calendar_block, organization: organization, scoped_resource_id: participatory_process_group.id) }
     let!(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: processes.first) }
-    let!(:meeting) { create(:meeting, start_time: Time.zone.now, end_time: Time.zone.now + 1.hour, component: meetings_component) }
+    let!(:meeting) { create(:meeting, start_time: Time.zone.now, end_time: 1.hour.from_now, component: meetings_component) }
 
     before do
       switch_to_host(organization.host)
+      login_as user, scope: :user
       visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
     end
 
@@ -25,12 +28,14 @@ describe "Visit a process group's landing page", type: :system, perform_enqueued
 
     describe "extra title block" do
       it "renders all elements" do
-        within ".alternative-landing.extra-title" do
+        within "section.alternative-landing.extra-title" do
           expect(page).to have_i18n_content(extra_title_block.settings.link_text_1)
-          expect(page).to have_selector("[href='#{extra_title_block.settings.link_url_1}']")
+          expect(page).to have_selector("[href='/link?external_url=#{CGI.escape(extra_title_block.settings.link_url_1)}']")
           expect(page).to have_selector(".icon--instagram")
         end
       end
+
+      it_behaves_like "updates the content block extra title", "extra_title"
     end
 
     describe "extra information block" do
@@ -39,6 +44,8 @@ describe "Visit a process group's landing page", type: :system, perform_enqueued
           expect(page).to have_i18n_content(extra_information_block.settings.body)
         end
       end
+
+      it_behaves_like "updates the content block extra information", "extra_information"
     end
 
     describe "calendar block" do
@@ -52,7 +59,7 @@ describe "Visit a process group's landing page", type: :system, perform_enqueued
           end
 
           within "#calendar" do
-            within ".fc-view-container" do
+            within ".fc-view-harness" do
               expect(page).to have_i18n_content(meeting.title)
               expect(page).to have_content(meeting.start_time.strftime("%H:%M"))
             end

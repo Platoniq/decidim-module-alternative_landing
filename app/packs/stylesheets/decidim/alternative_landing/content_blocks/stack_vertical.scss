@@ -1,0 +1,33 @@
+@import "stylesheets/decidim/alternative_landing/content_blocks/variables";
+
+.stack-vertical {
+  .stack {
+    display: flex;
+    gap: $gap;
+
+    .stack-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: $gap;
+      gap: $gap;
+
+      img {
+        min-height: 15em;
+        object-fit: cover;
+      }
+    }
+
+    .stack-tags {
+      margin: 0;
+
+      li {
+        margin: 0;
+      }
+    }
+
+    @include breakpoint(medium down) {
+      flex-direction: column;
+    }
+  }
+}

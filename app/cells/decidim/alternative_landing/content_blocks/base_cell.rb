@@ -41,7 +41,7 @@ module Decidim
         end
 
         def color_keys
-          form.object.settings.to_h.keys.select { |k| k.match?(/color_/) }
+          form.object.settings.to_h.keys.grep(/color_/)
         end
 
         # Renders a view with the customizable CSS variables in two flavours:

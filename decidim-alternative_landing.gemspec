@@ -16,10 +16,10 @@ Gem::Specification.new do |s|
   s.summary = "Decidim Landing Page"
   s.description = "A module to create better landing pages for Decidim"
 
-  s.files = Dir["{app,config,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "package.json", "package-lock.json", "README.md"]
 
-  s.add_dependency "decidim-admin", Decidim::AlternativeLanding::DECIDIM_VERSION
-  s.add_dependency "decidim-core", Decidim::AlternativeLanding::DECIDIM_VERSION
+  s.add_dependency "decidim-admin", Decidim::AlternativeLanding::COMPAT_DECIDIM_VERSION
+  s.add_dependency "decidim-core", Decidim::AlternativeLanding::COMPAT_DECIDIM_VERSION
   s.add_dependency "redcarpet", "~> 3.4"
 
   s.add_development_dependency "decidim-dev", Decidim::AlternativeLanding::DECIDIM_VERSION

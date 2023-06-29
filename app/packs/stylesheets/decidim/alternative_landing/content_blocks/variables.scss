@@ -1,0 +1,11 @@
+@import "foundation-sites/scss/util/util";
+
+$navbar-transparent-color: rgba(0, 0, 0, 0.3);
+$alternative-color-1: var(--primary);
+$alternative-color-2: var(--secondary);
+$alternative-color-2-transparent: rgba(var(--secondary-rgb), 0.7);
+$alternative-color-3: var(--warning);
+$alternative-color-4: var(--alert);
+$alternative-color-5: var(--highlight);
+
+$gap: 1em;

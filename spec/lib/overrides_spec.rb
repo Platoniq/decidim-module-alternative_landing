@@ -15,9 +15,9 @@ checksums = [
   {
     package: "decidim-participatory_processes",
     files: {
-      "/app/cells/decidim/participatory_process_groups/content_blocks/title_cell.rb" => "2f8ce513dbe5b2d9859a0f572cca1a76",
-      "/app/cells/decidim/participatory_process_groups/content_blocks/title/show.erb" => "60c3ce6c9868ae6d81e88530fca251e0",
-      "/app/controllers/decidim/participatory_processes/participatory_process_groups_controller.rb" => "1e564390ba85cc83aaef2a75b91c3b7f"
+      "/app/cells/decidim/participatory_process_groups/content_blocks/title_cell.rb" => "65d3f0094c1e57f8ae48e171c1f83b7e",
+      "/app/cells/decidim/participatory_process_groups/content_blocks/title/show.erb" => "9739bffc9bbba8017bd8b5b5920065fe",
+      "/app/controllers/decidim/participatory_processes/participatory_process_groups_controller.rb" => "dfcb6e08afd32f34b43a5caa93281973"
     }
   }
 ]

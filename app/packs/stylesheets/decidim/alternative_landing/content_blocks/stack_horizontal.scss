@@ -1,0 +1,52 @@
+@import "stylesheets/decidim/alternative_landing/content_blocks/variables";
+
+.stack-horizontal {
+  .stack-item {
+    border: 1px solid black;
+    padding: $gap;
+    margin: $gap auto;
+
+    display: flex;
+    gap: $gap;
+  }
+
+  .stack-image img {
+    object-fit: cover;
+    min-height: 10em;
+  }
+
+  .stack-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .stack-image {
+    padding: 0;
+    min-width: 25%;
+    width: 25%;
+  }
+
+  .stack-link .button {
+    max-width: 15em;
+    margin: 0;
+    float: right;
+  }
+
+  @include breakpoint(medium down) {
+    .stack-item {
+      flex-direction: column;
+    }
+
+    .stack-image {
+      width: 100%;
+    }
+
+    .stack-link .button {
+      margin: $gap auto 0;
+      max-width: none;
+      float: none;
+    }
+  }
+}
