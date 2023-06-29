@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 shared_examples "render all stack block elements" do |type|
-  let!(:content_block) do
-    type == "stack-horizontal" ? create(:stack_horizontal_block, organization: organization) : create(:stack_vertical_block, organization: organization)
+  let(:manifest_name) { type.gsub("-", "_") }
+  let(:content_block) do
+    Decidim::ContentBlock.find_by(organization: organization, manifest_name: manifest_name)
   end
 
   it "renders all elements" do
@@ -54,8 +55,9 @@ shared_examples "render all stack block elements" do |type|
 end
 
 shared_examples "render all cover block elements" do |type|
-  let!(:content_block) do
-    type == "cover-full" ? create(:cover_full_block, organization: organization) : create(:cover_half_block, organization: organization)
+  let(:manifest_name) { type.gsub("-", "_") }
+  let(:content_block) do
+    Decidim::ContentBlock.find_by(organization: organization, manifest_name: manifest_name)
   end
 
   it "renders all elements" do

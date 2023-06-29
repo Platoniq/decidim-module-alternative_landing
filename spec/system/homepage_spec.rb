@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "shared/system_homepage_examples"
 
 describe "Visit the home page", type: :system, perform_enqueued: true do
   let(:organization) { create :organization, available_locales: [:en] }
@@ -16,8 +15,13 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
   end
 
   context "when there are active alternative landing content blocks" do
+    let!(:cover_full_block) { create(:cover_full_block, organization: organization) }
+    let!(:cover_half_block) { create(:cover_half_block, organization: organization) }
+    let!(:stack_horizontal_block) { create(:stack_horizontal_block, organization: organization) }
+    let!(:stack_vertical_block) { create(:stack_vertical_block, organization: organization) }
+    let!(:tiles_block) { create(:tiles_block, organization: organization) }
     let!(:latest_blog_posts_block) { create(:latest_blog_posts_block, organization: organization) }
-    let!(:alternative_upcoming_meetings_block) { create(:alternative_upcoming_meetings_block, organization: organization) }
+    let!(:alternative_upcoming_meetings_block) { create(:alternative_upcoming_meetings_block, organization: organization, component_id: meetings_component.id) }
     let!(:blogs_component) { create(:component, manifest_name: "blogs", organization: organization) }
     let!(:meetings_component) { create(:component, manifest_name: "meetings", organization: organization) }
     let!(:blog_posts) { create_list(:post, 6, component: blogs_component) }
@@ -30,28 +34,23 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
 
     it "renders them" do
       expect(page).to have_selector(".alternative-landing")
+      expect(page).to have_selector(".alternative-landing.cover-full")
+      expect(page).to have_selector(".alternative-landing.cover-half")
+      expect(page).to have_selector(".alternative-landing.stack-horizontal")
+      expect(page).to have_selector(".alternative-landing.stack-vertical")
+      expect(page).to have_selector(".alternative-landing.tiles-4")
       expect(page).to have_selector(".alternative-landing.latest-blog-posts")
       expect(page).to have_selector(".alternative-landing.upcoming-meetings")
     end
 
     describe "cover blocks" do
-      context "with cover half block" do
-        it_behaves_like "render all cover block elements", "cover-half"
-      end
-
-      context "with cover full block" do
-        it_behaves_like "render all cover block elements", "cover-full"
-      end
+      it_behaves_like "render all cover block elements", "cover-half"
+      it_behaves_like "render all cover block elements", "cover-full"
     end
 
     describe "stack blocks" do
-      context "with stack horizontal block" do
-        it_behaves_like "render all stack block elements", "stack-horizontal"
-      end
-
-      context "with stack vertical block" do
-        it_behaves_like "render all stack block elements", "stack-vertical"
-      end
+      it_behaves_like "render all stack block elements", "stack-horizontal"
+      it_behaves_like "render all stack block elements", "stack-vertical"
     end
 
     describe "tiles block" do

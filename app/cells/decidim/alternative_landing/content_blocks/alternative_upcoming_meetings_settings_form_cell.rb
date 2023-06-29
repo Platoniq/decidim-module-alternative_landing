@@ -6,8 +6,8 @@ module Decidim
       class AlternativeUpcomingMeetingsSettingsFormCell < BaseCell
         alias form model
 
-        def component
-          @component ||= Decidim::Component.find_by(id: form.object.settings.try(:component_id))
+        def manifest_name
+          "meetings"
         end
       end
     end

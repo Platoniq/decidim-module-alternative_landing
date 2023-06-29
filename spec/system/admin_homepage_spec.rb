@@ -8,8 +8,10 @@ describe "Admin visits homepage settings", type: :system do
 
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization: organization) }
-  let!(:meeting) { create :meeting }
-  let!(:post) { create(:post) }
+  let(:blogs_component) { create(:component, manifest_name: "blogs", organization: organization) }
+  let(:meetings_component) { create(:component, manifest_name: "meetings", organization: organization) }
+  let!(:post) { create(:post, component: blogs_component) }
+  let!(:meeting) { create :meeting, component: meetings_component }
 
   before do
     switch_to_host(organization.host)
@@ -51,10 +53,10 @@ describe "Admin visits homepage settings", type: :system do
     end
 
     context "when editing a persisted content block" do
-      let!(:alternative_upcoming_meetings_block) { create :alternative_upcoming_meetings_block, organization: organization, scope_name: :homepage }
+      let!(:alternative_upcoming_meetings_block) { create :alternative_upcoming_meetings_block, organization: organization, scope_name: :homepage, component_id: meetings_component.id }
       let!(:cover_full_block) { create :content_block, organization: organization, manifest_name: "cover_full", scope_name: :homepage }
       let!(:cover_half_block) { create :cover_half_block, organization: organization, scope_name: :homepage }
-      let!(:latest_blog_posts_block) { create :latest_blog_posts_block, organization: organization, scope_name: :homepage }
+      let!(:latest_blog_posts_block) { create :latest_blog_posts_block, organization: organization, scope_name: :homepage, component_id: blogs_component.id }
       let!(:stack_horizontal_block) { create :stack_horizontal_block, organization: organization, scope_name: :homepage }
       let!(:stack_vertical_block) { create :stack_vertical_block, organization: organization, scope_name: :homepage }
       let!(:tiles_block) { create :tiles_block, organization: organization, scope_name: :homepage }

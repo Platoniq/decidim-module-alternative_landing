@@ -23,11 +23,15 @@ module Decidim
 
         def meetings
           @meetings ||= Meetings::Meeting.upcoming.where(
-            component: meeting_component
+            component: component || components
           ).limit(meetings_to_show).order(start_time: :asc)
         end
 
         private
+
+        def manifest_name
+          "meetings"
+        end
 
         # A MD5 hash of model attributes because is needed because
         # it ensures the cache version value will always be the same size
@@ -38,10 +42,6 @@ module Decidim
           hash << I18n.locale.to_s
 
           hash.join("/")
-        end
-
-        def meeting_component
-          @meeting_component ||= (Component.find_by(id: model.settings.component_id) || Component.where(manifest_name: "meetings"))
         end
 
         def meetings_to_show

@@ -134,11 +134,18 @@ FactoryBot.define do
   factory :latest_blog_posts_block, parent: :alternative_landing_content_block do
     manifest_name { :latest_blog_posts }
 
+    transient do
+      component_id { nil }
+      count { 3 }
+    end
+
     settings do
       {
         title: generate_localized_title,
         link_text: Decidim::Faker::Localized.word,
-        link_url: Decidim::Faker::Localized.literal("https://decidim.org")
+        link_url: Decidim::Faker::Localized.literal("https://decidim.org"),
+        component_id: component_id,
+        count: count
       }
     end
   end
@@ -146,11 +153,18 @@ FactoryBot.define do
   factory :alternative_upcoming_meetings_block, parent: :alternative_landing_content_block do
     manifest_name { :alternative_upcoming_meetings }
 
+    transient do
+      component_id { nil }
+      count { 3 }
+    end
+
     settings do
       {
         title: generate_localized_title,
         link_text: Decidim::Faker::Localized.word,
-        link_url: Decidim::Faker::Localized.literal("https://decidim.org")
+        link_url: Decidim::Faker::Localized.literal("https://decidim.org"),
+        component_id: component_id,
+        count: count
       }
     end
   end

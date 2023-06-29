@@ -18,14 +18,22 @@ module Decidim
           ].flatten.compact
         end
 
-        def available_components(manifest_name)
-          Decidim::Component.published.where(participatory_space: participatory_spaces, manifest_name: manifest_name).map do |component|
+        def available_components
+          @available_components ||= components.where(manifest_name: manifest_name).map do |component|
             ["#{translated_attribute(component.name)} (#{translated_attribute(component.participatory_space.title)})", component.id]
           end.unshift [t(".all"), nil]
         end
 
         def component
-          @component ||= Decidim::Component.find_by(id: form.object.settings.try(:component_id))
+          @component ||= components.find_by(id: (defined?(form) ? form.object : model).settings.try(:component_id))
+        end
+
+        def components
+          @components ||= Decidim::Component.where(participatory_space: participatory_spaces)
+        end
+
+        def manifest_name
+          raise NotImplementedError
         end
 
         def colors
