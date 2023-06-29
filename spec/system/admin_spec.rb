@@ -29,10 +29,7 @@ describe "Admin manages organization homepage", type: :system do
     end
 
     it "updates the images of the content block" do
-      attach_file(
-        :content_block_images_background_image,
-        Decidim::Dev.asset("city2.jpeg")
-      )
+      dynamically_attach_file(:content_block_images_background_image, Decidim::Dev.asset("city2.jpeg"), remove_before: true)
 
       click_button "Update"
       visit decidim.root_path
@@ -58,10 +55,7 @@ describe "Admin manages organization homepage", type: :system do
     end
 
     it "updates the images of the content block" do
-      attach_file(
-        :content_block_images_background_image,
-        Decidim::Dev.asset("city3.jpeg")
-      )
+      dynamically_attach_file(:content_block_images_background_image, Decidim::Dev.asset("city3.jpeg"), remove_before: true)
 
       click_button "Update"
       visit decidim.root_path
@@ -131,7 +125,7 @@ describe "Admin manages organization homepage", type: :system do
   end
 
   context "when editing a upcoming_meetings content block" do
-    let!(:upcoming_meetings_block) { create(:upcoming_meetings_block, organization: organization) }
+    let!(:alternative_upcoming_meetings_block) { create(:alternative_upcoming_meetings_block, organization: organization) }
     let!(:meetings_component) { create(:component, manifest_name: "meetings", organization: organization) }
     let!(:other_meetings_component) { create(:component, manifest_name: "meetings", organization: organization) }
     let!(:other_organization_meetings_component) { create(:component, manifest_name: "meetings") }
@@ -140,7 +134,7 @@ describe "Admin manages organization homepage", type: :system do
     let!(:other_organization_meetings) { create_list(:meeting, 2, :upcoming, component: other_organization_meetings_component) }
 
     before do
-      visit decidim_admin.edit_organization_homepage_content_block_path(:upcoming_meetings)
+      visit decidim_admin.edit_organization_homepage_content_block_path(:alternative_upcoming_meetings)
     end
 
     it "updates the settings of the content block" do
@@ -169,7 +163,7 @@ describe "Admin manages organization homepage", type: :system do
         end
       end
 
-      visit decidim_admin.edit_organization_homepage_content_block_path(:upcoming_meetings)
+      visit decidim_admin.edit_organization_homepage_content_block_path(:alternative_upcoming_meetings)
       select meetings_component.name["en"], from: "Component"
 
       click_button "Update"
