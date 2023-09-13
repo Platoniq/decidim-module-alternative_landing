@@ -20,14 +20,16 @@ describe "Custom colors", type: :system, perform_enqueued: true do
         {
           color_background_image: "#ff0000",
           color_background_text: "#00ff00",
-          color_text: "#0000ff"
+          color_text: "#0000ff",
+          color_navbar: "#ffff00"
         }
       end
 
-      it "renders default colors" do
+      it "renders custom colors" do
         expect(get_property_value(selector, "--color_background_image")).to eq("#ff0000")
         expect(get_property_value(selector, "--color_background_text")).to eq("#00ff00")
         expect(get_property_value(selector, "--color_text")).to eq("#0000ff")
+        expect(get_property_value(selector, "--color_navbar")).to eq("#ffff00")
       end
     end
   end
@@ -37,11 +39,13 @@ describe "Custom colors", type: :system, perform_enqueued: true do
     let(:default_image_background_color) { Decidim::AlternativeLanding::DefaultColors.cover_full[:background_image] }
     let(:default_text_background_color) { Decidim::AlternativeLanding::DefaultColors.cover_full[:background_text] }
     let(:default_text_color) { Decidim::AlternativeLanding::DefaultColors.cover_full[:text] }
+    let(:default_navbar_color) { Decidim::AlternativeLanding::DefaultColors.cover_full[:navbar] }
 
     it "renders default colors" do
       expect(get_property_value(selector, "--color_background_image")).to eq(get_property_value(selector, "--secondary"))
       expect(get_property_value(selector, "--color_background_text")).to eq(get_property_value(selector, "--secondary"))
       expect(get_property_value(selector, "--color_text")).to eq(default_text_color)
+      expect(get_property_value(selector, "--color_navbar")).to eq(default_navbar_color)
     end
 
     it_behaves_like "custom colors defined"
@@ -52,11 +56,13 @@ describe "Custom colors", type: :system, perform_enqueued: true do
     let(:default_image_background_color) { Decidim::AlternativeLanding::DefaultColors.cover_half[:background_image] }
     let(:default_text_background_color) { Decidim::AlternativeLanding::DefaultColors.cover_half[:background_text] }
     let(:default_text_color) { Decidim::AlternativeLanding::DefaultColors.cover_half[:text] }
+    let(:default_navbar_color) { Decidim::AlternativeLanding::DefaultColors.cover_full[:navbar] }
 
     it "renders default colors" do
       expect(get_property_value(selector, "--color_background_image")).to eq(get_property_value(selector, "--primary"))
       expect(get_property_value(selector, "--color_background_text")).to eq(get_property_value(selector, "--primary"))
       expect(get_property_value(selector, "--color_text")).to eq(default_text_color)
+      expect(get_property_value(selector, "--color_navbar")).to eq(default_navbar_color)
     end
 
     it_behaves_like "custom colors defined"

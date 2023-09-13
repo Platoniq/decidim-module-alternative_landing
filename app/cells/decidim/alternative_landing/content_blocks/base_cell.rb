@@ -40,8 +40,16 @@ module Decidim
           model.settings.to_h.select { |k, _v| k.match?(/color_/) }
         end
 
+        def opacities
+          model.settings.to_h.select { |k, _v| k.match?(/opacity_/) }
+        end
+
         def color_keys
           form.object.settings.to_h.keys.grep(/color_/)
+        end
+
+        def opacity_keys
+          form.object.settings.to_h.keys.grep(/opacity_/)
         end
 
         # Renders a view with the customizable CSS variables in two flavours:
@@ -62,12 +70,24 @@ module Decidim
         #
         # background-color: rgba(var(--primary-rgb), 0.5)
         def css
+          colors_css + opacities_css
+        end
+
+        private
+
+        def colors_css
           colors.each.map do |k, v|
             if v.match?(/^#[0-9a-fA-F]{6}$/)
               "--#{k}: #{v};--#{k}-rgb: #{v[1..2].hex},#{v[3..4].hex},#{v[5..6].hex};"
             else
               "--#{k}: #{v};"
             end
+          end.join
+        end
+
+        def opacities_css
+          opacities.each.map do |k, v|
+            "--#{k}: #{v};"
           end.join
         end
       end

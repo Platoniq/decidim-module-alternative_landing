@@ -10,6 +10,13 @@
       </div>
     <% end %>
   </div>
+  <div style="display: flex; gap: 1rem;">
+    <% opacity_keys.each do |opacity_key| %>
+      <div style="flex: auto;">
+        <%= settings_fields.number_field opacity_key, label: t(".#{opacity_key}"), step: 0.1, min: 0, max: 1 %>
+      </div>
+    <% end %>
+  </div>
 <% end %>
 <% form.fields_for :images, form.object.images do |images_fields| %>
   <%= images_fields.upload :background_image, label: t(".background_image") %>
