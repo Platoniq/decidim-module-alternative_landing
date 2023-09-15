@@ -3,16 +3,16 @@ ca:
     alternative_landing:
       content_blocks:
         alternative_upcoming_meetings:
-          name: Properes trobades (Alternative)
-          title: Properes trobades (Alternative)
+          name: Upcoming meetings (Alternative)
+          title: Upcoming meetings (Alternative)
         alternative_upcoming_meetings_settings_form:
-          all: Mostra trobades de qualsevol espai de participació
-          component_id: Component de trobades
-          count: Número d'items
-          info: Només es mostraran les trobades de '%{component}' a '%{space}'. Pots canviar-ho amb el selector següent.
-          link_text: Text de l'enllaç
-          link_url: URL de l'enllaç
-          title: Títol
+          all: Show meetings from any space
+          component_id: Meetings component
+          count: Number of items
+          info: Only meetings from '%{component}' in '%{space}' will be shown. You can change it with the selector below.
+          link_text: Link text
+          link_url: Link URL
+          title: Title
         calendar:
           filters:
             debate: Debat
@@ -30,6 +30,10 @@ ca:
           color_background_text: Text background color
           color_navbar: Navbar color
           color_text: Text color
+          opacity_background_image: Image tint opacity
+          opacity_background_text: Text background opacity
+          opacity_navbar: Navbar opacity
+          opacity_text: Text opacity
           title: Títol
         cover_half:
           name: Portada (Mitja pantalla)
@@ -42,6 +46,10 @@ ca:
           color_text: Text color
           link_text: Text de l'enllaç
           link_url: URL de l'enllaç
+          opacity_background_image: Image tint opacity
+          opacity_background_text: Text background opacity
+          opacity_navbar: Navbar opacity
+          opacity_text: Text opacity
           title: Títol
         extra_information:
           name: Informació del grup de processos
