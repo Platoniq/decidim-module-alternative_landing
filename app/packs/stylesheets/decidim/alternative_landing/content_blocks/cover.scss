@@ -1,10 +1,10 @@
 @import "stylesheets/decidim/alternative_landing/content_blocks/variables";
 
-@mixin cover-background-image($color) {
+@mixin cover-background-image($color, $opacity) {
   background-size: cover;
   background-position: center;
   background-blend-mode: luminosity;
-  background-color: $color;
+  background-color: rgba($color, $opacity);
   min-height: 100vh;
 }
 
@@ -16,12 +16,12 @@
 }
 
 .cover-full {
-  color: var(--color_text);
+  color: rgba(var(--color_text-rgb), var(--opacity_text));
 
-  @include cover-background-image(var(--color_background_image));
+  @include cover-background-image(var(--color_background_image-rgb), var(--opacity_background_image));
 
   .cover-text {
-    background-color: rgba(var(--color_background_text-rgb), 0.7);
+    background-color: rgba(var(--color_background_text-rgb), var(--opacity_background_text));
     padding: $gap * 2;
   }
 }
@@ -33,7 +33,7 @@
   .cover-image {
     grid-column: 2;
 
-    @include cover-background-image(var(--color_background_image));
+    @include cover-background-image(var(--color_background_image-rgb), var(--opacity_background_image));
   }
 
   .cover-text {
@@ -54,7 +54,7 @@
 }
 
 .navbar.transparent {
-  background-color: rgba(var(--color_navbar-rgb), 0.3);
+  background-color: rgba(var(--color_navbar-rgb), var(--opacity_navbar));
   position: relative;
   margin-bottom: -50px;
 }
