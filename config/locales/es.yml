@@ -3,16 +3,16 @@ es:
     alternative_landing:
       content_blocks:
         alternative_upcoming_meetings:
-          name: Próximos encuentros (Alternative)
-          title: Próximos encuentros (Alternative)
+          name: Upcoming meetings (Alternative)
+          title: Upcoming meetings (Alternative)
         alternative_upcoming_meetings_settings_form:
-          all: Muestra encuentros de cualquier espacio participativo
-          component_id: Componente de encuentros
-          count: Número de items
-          info: Sólo se mostrarán los encuentros de '%{component}' en '%{space}'. Puedes cambiarlo con el selector siguiente.
-          link_text: Texto del enlace
-          link_url: URL del enlace
-          title: Título
+          all: Show meetings from any space
+          component_id: Meetings component
+          count: Number of items
+          info: Only meetings from '%{component}' in '%{space}' will be shown. You can change it with the selector below.
+          link_text: Link text
+          link_url: Link URL
+          title: Title
         calendar:
           filters:
             debate: Debate
@@ -30,6 +30,10 @@ es:
           color_background_text: Text background color
           color_navbar: Navbar color
           color_text: Text color
+          opacity_background_image: Image tint opacity
+          opacity_background_text: Text background opacity
+          opacity_navbar: Navbar opacity
+          opacity_text: Text opacity
           title: Título
         cover_half:
           name: Portada (Media pantalla)
@@ -42,6 +46,10 @@ es:
           color_text: Text color
           link_text: Texto del enlace
           link_url: URL del enlace
+          opacity_background_image: Image tint opacity
+          opacity_background_text: Text background opacity
+          opacity_navbar: Navbar opacity
+          opacity_text: Text opacity
           title: Título
         extra_information:
           name: Información del grupo de procesos
