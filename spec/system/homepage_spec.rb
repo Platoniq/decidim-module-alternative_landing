@@ -51,6 +51,16 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
     describe "stack blocks" do
       it_behaves_like "render all stack block elements", "stack-horizontal"
       it_behaves_like "render all stack block elements", "stack-vertical"
+
+      context "without images" do
+        before do
+          stack_horizontal_block.attachments.destroy_all
+          stack_vertical_block.attachments.destroy_all
+        end
+
+        it_behaves_like "render all stack block elements", "stack-horizontal"
+        it_behaves_like "render all stack block elements", "stack-vertical"
+      end
     end
 
     describe "tiles block" do

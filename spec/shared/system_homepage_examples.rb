@@ -19,7 +19,7 @@ shared_examples "render all stack block elements" do |type|
             # /rails/active_storage/representation/redirect/same-hash--different-token/same-file-name
             # That's why we are splitting by "--" and comparing the first
             img_path = content_block.images_container.attached_uploader("image_#{item_number}".to_sym).path(variant: :landscape)
-            [img_path.split("--").first, img_path.split("/").last].each do |regex|
+            img_path && [img_path.split("--").first, img_path.split("/").last].each do |regex|
               expect(page.find("img")[:src]).to match(/#{regex}/)
             end
           end
