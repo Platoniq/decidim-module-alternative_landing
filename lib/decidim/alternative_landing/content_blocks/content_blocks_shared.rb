@@ -96,6 +96,7 @@ require "decidim/alternative_landing"
       1.upto(4).map do |item_number|
         settings.attribute :"title_#{item_number}", type: :text, translated: true
         settings.attribute :"body_#{item_number}", type: :text, translated: true
+        settings.attribute :"link_url_#{item_number}", type: :text, translated: true
       end
     end
 

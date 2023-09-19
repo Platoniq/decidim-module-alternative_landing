@@ -55,6 +55,17 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
 
     describe "tiles block" do
       it_behaves_like "render tiles block elements"
+
+      context "with link" do
+        before do
+          settings = tiles_block.settings
+          settings.link_url_1 = Decidim::Faker::Localized.literal(Faker::Internet.url)
+          tiles_block.settings = settings
+          tiles_block.save
+        end
+
+        it_behaves_like "render tiles block elements"
+      end
     end
 
     describe "latest_blog_posts block" do
