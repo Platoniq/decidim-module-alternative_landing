@@ -106,6 +106,7 @@ ca:
         tiles_settings_form:
           background_image_n: 'Imatge de fons per l''item #%{item_number}'
           body_n: 'Text #%{item_number}'
+          link_url_n: 'Link URL for item #%{item_number}'
           title: Títol
           title_n: 'Títol #%{item_number}'
         upcoming_meetings:
