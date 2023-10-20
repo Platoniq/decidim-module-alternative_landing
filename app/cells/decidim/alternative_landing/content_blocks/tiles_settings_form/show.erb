@@ -6,6 +6,7 @@
       <div class="large-3 p-xs">
         <%= settings_fields.translated :text_field, :"title_#{item_number}", label: t(".title_n", item_number: item_number) %>
         <%= settings_fields.translated :text_area, :"body_#{item_number}", rows: 3, label: t(".body_n", item_number: item_number) %>
+        <%= settings_fields.translated :text_field, :"link_url_#{item_number}", label: t(".link_url_n", item_number: item_number) %>
       </div>
     <% end %>
   </div>

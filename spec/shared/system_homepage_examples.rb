@@ -110,6 +110,7 @@ shared_examples "render tiles block elements" do
             within ".tile-body" do
               expect(page).to have_i18n_content(tiles_block.settings.send(:"title_#{item_number}"))
               expect(page).to have_i18n_content(tiles_block.settings.send(:"body_#{item_number}"))
+              expect(page).to have_link(tiles_block.settings.send(:"body_#{item_number}")[I18n.locale]) if tiles_block.settings.send(:"link_url_#{item_number}").present?
             end
           end
         end

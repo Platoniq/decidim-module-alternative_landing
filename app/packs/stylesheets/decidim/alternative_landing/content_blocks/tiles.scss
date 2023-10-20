@@ -23,6 +23,12 @@
       max-width: 20em;
       background: $alternative-color-1;
       padding: $gap;
+
+      h2 {
+        a {
+          color: $header-color;
+        }
+      }
     }
 
     &-heading {
