@@ -106,6 +106,7 @@ es:
         tiles_settings_form:
           background_image_n: 'Imagen de fondo para el item #%{item_number}'
           body_n: 'Texto #%{item_number}'
+          link_url_n: 'Link URL for item #%{item_number}'
           title: Título
           title_n: 'Título #%{item_number}'
         upcoming_meetings:
