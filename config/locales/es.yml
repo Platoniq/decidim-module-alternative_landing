@@ -1,19 +1,18 @@
----
 es:
   decidim:
     alternative_landing:
       content_blocks:
         alternative_upcoming_meetings:
-          name: Próximos encuentros (Alternative)
-          title: Próximos encuentros (Alternative)
+          name: Upcoming meetings (Alternative)
+          title: Upcoming meetings (Alternative)
         alternative_upcoming_meetings_settings_form:
-          all: Muestra encuentros de cualquier espacio participativo
-          component_id: Componente de encuentros
-          count: Número de items
-          info: Sólo se mostrarán los encuentros de '%{component}' en '%{space}'. Puedes cambiarlo con el selector siguiente.
-          link_text: Texto del enlace
-          link_url: URL del enlace
-          title: Título
+          all: Show meetings from any space
+          component_id: Meetings component
+          count: Number of items
+          info: Only meetings from '%{component}' in '%{space}' will be shown. You can change it with the selector below.
+          link_text: Link text
+          link_url: Link URL
+          title: Title
         calendar:
           filters:
             debate: Debate
@@ -27,22 +26,30 @@ es:
         cover_full_settings_form:
           background_image: Imagen de fondo
           body: Texto
-          color_background_image: Color de la imatge
-          color_background_text: Color de fons
-          color_navbar: Color de fons del menú
-          color_text: Color del text
+          color_background_image: Image tint color
+          color_background_text: Text background color
+          color_navbar: Navbar color
+          color_text: Text color
+          opacity_background_image: Image tint opacity
+          opacity_background_text: Text background opacity
+          opacity_navbar: Navbar opacity
+          opacity_text: Text opacity
           title: Título
         cover_half:
           name: Portada (Media pantalla)
         cover_half_settings_form:
           background_image: Imagen de fondo
           body: Texto
-          color_background_image: Color de la imagen
-          color_background_text: Color de fondo del texto
-          color_navbar: Color de fondo del menú
-          color_text: Color del texto
+          color_background_image: Image tint color
+          color_background_text: Text background color
+          color_navbar: Navbar color
+          color_text: Text color
           link_text: Texto del enlace
           link_url: URL del enlace
+          opacity_background_image: Image tint opacity
+          opacity_background_text: Text background opacity
+          opacity_navbar: Navbar opacity
+          opacity_text: Text opacity
           title: Título
         extra_information:
           name: Información del grupo de procesos
@@ -53,21 +60,21 @@ es:
         extra_title:
           name: Título, descripción y enlaces (Extra)
         extra_title_settings_form:
-          help: Puedes consultar los iconos disponibles <a target="_blank" href="https://decidim-design.herokuapp.com/public/library/pattern-library#patternIcons">aquí</a>
+          help: 'Puedes consultar los iconos disponibles <a target="_blank" href="https://decidim-design.herokuapp.com/public/library/pattern-library#patternIcons">aquí</a>'
           link_icon_name: 'Icona del enlace para el item #%{item_number}'
-          link_text: 'Texto del enlace para el item #%{item_number}'
-          link_url: 'URL del enlace para el item'' #%{item_number}'
+          link_text: 'Texto del enlace'
+          link_url: 'URL del enlace'
         latest_blog_posts:
-          name: Últimas entradas de blog
-          title: Últimas entradas de blog
+          name: Latest blog posts
+          title: Latest blog posts
         latest_blog_posts_settings_form:
-          all: Muestra entradas de cualquier blog
-          component_id: Componente de blog
-          count: Número de items
-          info: Sólo se mostrarán las entradas de '%{component}' en '%{space}'. Puedes cambiarlo con el selector siguiente.
-          link_text: Texto del enlace
-          link_url: URL del enlace
-          title: Título
+          all: Show posts from any blog
+          component_id: Blog component
+          count: Number of items
+          info: Only posts from '%{component}' in '%{space}' will be shown. You can change it with the selector below.
+          link_text: Link text
+          link_url: Link URL
+          title: Title
         selected_consultations:
           name: Consultas seleccionades
           see_all: Veure totes les consultas
@@ -99,6 +106,7 @@ es:
         tiles_settings_form:
           background_image_n: 'Imagen de fondo para el item #%{item_number}'
           body_n: 'Texto #%{item_number}'
+          link_url_n: 'Link URL for item #%{item_number}'
           title: Título
           title_n: 'Título #%{item_number}'
         upcoming_meetings:
