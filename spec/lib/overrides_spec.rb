@@ -9,15 +9,13 @@ checksums = [
   {
     package: "decidim-core",
     files: {
-      "/app/controllers/decidim/homepage_controller.rb" => "32b76eccc946735d60a4ae9244137bb2"
+      "/app/controllers/decidim/homepage_controller.rb" => "9fe738a33e271c92071e641be10a2833"
     }
   },
   {
     package: "decidim-participatory_processes",
     files: {
-      "/app/cells/decidim/participatory_process_groups/content_blocks/title_cell.rb" => "65d3f0094c1e57f8ae48e171c1f83b7e",
-      "/app/cells/decidim/participatory_process_groups/content_blocks/title/show.erb" => "9739bffc9bbba8017bd8b5b5920065fe",
-      "/app/controllers/decidim/participatory_processes/participatory_process_groups_controller.rb" => "dfcb6e08afd32f34b43a5caa93281973"
+      "/app/controllers/decidim/participatory_processes/participatory_process_groups_controller.rb" => "ea8695da6fa62b2de904d0413579bf49"
     }
   }
 ]
