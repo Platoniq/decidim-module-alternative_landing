@@ -6,16 +6,15 @@ $(() => {
     return filters.filter((element) => element !== filter)
   }
 
+  const events = JSON.parse(decodeURIComponent(target.dataset.events)).map((event, index) => ({
+    id: index + 1,
+    ...event
+  }));
+
   const calendarEl = document.getElementById('calendar');
   const calendar = new Calendar(calendarEl, {
     plugins: [timeGridPlugin, dayGridPlugin],
-    defaultView: "dayGridMonth",
     locale: "es",
-    header: {
-      left: "prev,next today",
-      center: "title",
-      right: "dayGridMonth,dayGridWeek,dayGridDay"
-    },
     height: "auto",
     eventTimeFormat: {
       hour: "2-digit",
@@ -23,18 +22,13 @@ $(() => {
       hour12: false,
       omitZeroMinute: false
     },
-    events: JSON.parse(decodeURIComponent(target.dataset.events)),
-    eventRender: function(info) {
-      if ("subtitle" in info.event.extendedProps) {
-        title = "<span class=\"fc-title\"><b>" + info.event.title + "</b> - " + info.event.extendedProps.subtitle + "</span>"
-        info.el.firstChild.innerHTML = title
-      }
-      return filters.includes(info.event.extendedProps.resourceId);
-    }
+    events: events
   });
+
   $(function() {
     calendar.setOption('locale', target.dataset.locale);
     calendar.render();
+    const initialEvents = calendar.getEvents()
     $(".cal-filter").on("click", function() {
       $(this).toggleClass("hollow");
       let filter = $(this).attr("id");
@@ -43,7 +37,33 @@ $(() => {
       } else {
         filters.push(filter)
       }
-      calendar.rerenderEvents()
+      filterEvents(initialEvents);
     });
   });
+
+  function getCurrentEventsIds() {
+    return calendar.getEvents().map(event => event.id);
+  }
+
+  function filterEvents(initialEvents) {
+    const currentEventsIds = getCurrentEventsIds();
+    const currentEvents = calendar.getEvents();
+    
+    initialEvents.forEach(event => {
+      if (filters.includes(event._def.extendedProps.resourceId) && !currentEventsIds.includes(event.id)) {
+        calendar.addEvent(event);
+      }
+    });
+
+    const eventsToRemove = currentEvents.filter(event => 
+      !filters.includes(event._def.extendedProps.resourceId)
+    ).map(event => event.id);
+  
+    eventsToRemove.forEach(eventId => {
+      const event = calendar.getEventById(eventId);
+      if (event) {
+        event.remove();
+      }
+    });
+  }
 });
