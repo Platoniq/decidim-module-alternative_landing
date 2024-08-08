@@ -1,18 +1,18 @@
 <section class="alternative-landing cover-half">
   <div class="cover-text">
-    <h1 class="cover-title heading1">
+    <h1 class="cover-title heading1 h1 decorator">
       <%= decidim_sanitize translated_title %>
     </h1>
     <div class="cover-body">
       <%== translated_body %>
     </div>
-    <%== translated_link(classes: "button button--sc primary") %>
+    <%== translated_link(classes: "button button__lg button__primary") %>
   </div>
   <div class="cover-image" style="background-image:url(<%= background_image %>);">
   </div>
 </section>
 <style media="all">
-  .alternative-landing.cover-half {
+  .cover-half {
     <%= css %>
   }
 </style>

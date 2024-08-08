@@ -1,29 +1,25 @@
-<section class="alternative-landing stack-vertical">
-  <div class="row">
-    <h1 class="heading1">
-      <%= decidim_sanitize translated_title %>
-    </h1>
-  </div>
-  <div class="row">
-    <div class="stack">
-      <% 1.upto(3) do |item_number| %>
-        <div class="stack-item">
-          <div class="stack-image">
-            <%= image_tag image(item_number) if image(item_number).present? %>
-          </div>
-          <ul class="stack-tags tags">
-            <li>
-              <%= translated_tag(item_number, classes: "") %>
-            </li>
-          </ul>
-          <div class="stack-body">
-            <%= decidim_sanitize translated_body(item_number) %>
-          </div>
-          <div class="stack-link">
-            <%= translated_link(item_number, classes: "button button--sc expanded") %>
-          </div>
+<section class="stack-vertical layout-2col__main content-block">
+  <h1 class="h1 decorator">
+    <%= decidim_sanitize translated_title %>
+  </h1>
+  <div class="stack">
+    <% 1.upto(3) do |item_number| %>
+      <div class="stack-item">
+        <div class="stack-image">
+          <%= image_tag image(item_number) if image(item_number).present? %>
         </div>
-      <% end %>
-    </div>
+        <ul class="stack-tags tags">
+          <li>
+            <%= translated_tag(item_number, classes: "label success") %>
+          </li>
+        </ul>
+        <div class="stack-body">
+          <%= decidim_sanitize translated_body(item_number) %>
+        </div>
+        <div class="stack-link">
+          <%= translated_link(item_number, classes: "button button__lg button__primary stack-button") %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </section>

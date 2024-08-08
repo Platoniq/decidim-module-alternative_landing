@@ -12,6 +12,13 @@
 .cover-half {
   .cover-body {
     font-size: 1.25em;
+    padding-top: $gap;
+  }
+
+  .cover-body p {
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
   }
 }
 
@@ -22,8 +29,18 @@
 
   .cover-text {
     background-color: rgba(var(--color_background_text-rgb), var(--opacity_background_text));
-    padding: $gap * 2;
+    padding: $gap * 4;
+    width: 50%;
   }
+
+  @include breakpoint(medium down) {
+    .cover-text {
+      width: 100%;
+      padding: 5%;
+      justify-content: center;
+    }
+  }
+
 }
 
 .cover-half {
@@ -49,6 +66,7 @@
 
     .cover-text {
       padding: $gap;
+      width: 100%;
     }
   }
 }
@@ -57,4 +75,8 @@
   background-color: rgba(var(--color_navbar-rgb), var(--opacity_navbar));
   position: relative;
   margin-bottom: -50px;
+}
+
+.heading1 {
+  font-size: 4em;
 }

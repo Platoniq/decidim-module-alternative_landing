@@ -3,7 +3,7 @@
 .tiles-4 {
   .tiles {
     display: grid;
-    grid-template-columns: 30% 30% 40%;
+    grid-template-columns: 28% 28% 40%;
     grid-template-rows: repeat(2, 1fr);
     min-height: 100vh;
     color: white;
@@ -20,7 +20,7 @@
     padding: $gap;
 
     .tile-body {
-      max-width: 20em;
+      max-width: 14em;
       background: $alternative-color-1;
       padding: $gap;
 
@@ -58,6 +58,7 @@
 @include breakpoint(medium down) {
   .tiles {
     display: block;
+    grid-template-columns: 28% 28% 35%;
   }
 
   .tile {
