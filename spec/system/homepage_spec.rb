@@ -2,8 +2,8 @@
 
 require "spec_helper"
 
-describe "Visit the home page", type: :system, perform_enqueued: true do
-  let(:organization) { create :organization, available_locales: [:en] }
+describe "Visit the home page", :perform_enqueued do
+  let(:organization) { create(:organization, available_locales: [:en]) }
 
   before do
     switch_to_host(organization.host)
@@ -33,14 +33,14 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
     end
 
     it "renders them" do
-      expect(page).to have_selector(".alternative-landing")
-      expect(page).to have_selector(".alternative-landing.cover-full")
-      expect(page).to have_selector(".cover-half")
-      expect(page).to have_selector(".stack-horizontal")
-      expect(page).to have_selector(".stack-vertical")
-      expect(page).to have_selector(".alternative-landing.tiles-4")
-      expect(page).to have_selector(".latest-blog-posts")
-      expect(page).to have_selector(".alternative-landing.upcoming-meetings")
+      expect(page).to have_css(".alternative-landing")
+      expect(page).to have_css(".alternative-landing.cover-full")
+      expect(page).to have_css(".cover-half")
+      expect(page).to have_css(".stack-horizontal")
+      expect(page).to have_css(".stack-vertical")
+      expect(page).to have_css(".alternative-landing.tiles-4")
+      expect(page).to have_css(".latest-blog-posts")
+      expect(page).to have_css(".alternative-landing.upcoming-meetings")
     end
 
     describe "cover blocks" do

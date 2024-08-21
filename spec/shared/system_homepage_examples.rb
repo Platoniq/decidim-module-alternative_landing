@@ -8,7 +8,7 @@ shared_examples "render all stack block elements" do |type|
 
   it "renders all elements" do
     visit decidim.root_path
-    expect(page).to have_selector(".#{type}")
+    expect(page).to have_css(".#{type}")
     within ".#{type}" do
       expect(page).to have_i18n_content(content_block.settings.title)
 
@@ -30,13 +30,13 @@ shared_examples "render all stack block elements" do |type|
 
               within ".stack-link" do
                 expect(page).to have_i18n_content(content_block.settings.send(:"link_text_#{item_number}"))
-                expect(page).to have_selector("a[href='#{translated(content_block.settings.send(:"link_url_#{item_number}"))}']")
+                expect(page).to have_css("a[href='#{translated(content_block.settings.send(:"link_url_#{item_number}"))}']")
               end
             end
           else
             within ".stack-tags" do
               expect(page).to have_i18n_content(content_block.settings.send(:"tag_text_#{item_number}"))
-              expect(page).to have_selector("a[href='#{translated(content_block.settings.send(:"tag_url_#{item_number}"))}']")
+              expect(page).to have_css("a[href='#{translated(content_block.settings.send(:"tag_url_#{item_number}"))}']")
             end
 
             within ".stack-body" do
@@ -45,7 +45,7 @@ shared_examples "render all stack block elements" do |type|
 
             within ".stack-link" do
               expect(page).to have_i18n_content(content_block.settings.send(:"link_text_#{item_number}"))
-              expect(page).to have_selector("a[href='#{translated(content_block.settings.send(:"link_url_#{item_number}"))}']")
+              expect(page).to have_css("a[href='#{translated(content_block.settings.send(:"link_url_#{item_number}"))}']")
             end
           end
         end
@@ -62,7 +62,7 @@ shared_examples "render all cover block elements" do |type|
 
   it "renders all elements" do
     visit decidim.root_path
-    expect(page).to have_selector(".#{type}")
+    expect(page).to have_css(".#{type}")
     # ActiveStorage is generating an url with a different token per session, example:
     # /rails/active_storage/representation/redirect/same-hash--different-token/same-file-name
     # That's why we are splitting by "--" and comparing the first
@@ -90,7 +90,7 @@ shared_examples "render tiles block elements" do
 
   it "renders all elements" do
     visit decidim.root_path
-    expect(page).to have_selector(".alternative-landing.tiles-4")
+    expect(page).to have_css(".alternative-landing.tiles-4")
     within ".alternative-landing.tiles-4" do
       within ".tiles" do
         within ".tile-heading" do

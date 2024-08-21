@@ -3,7 +3,7 @@
 require "spec_helper"
 require "shared/system_admin_homepage_examples"
 
-describe "Admin visits homepage settings", type: :system do
+describe "Admin visits homepage settings" do
   include ActionView::Helpers::SanitizeHelper
 
   let(:organization) { create(:organization) }
@@ -11,7 +11,7 @@ describe "Admin visits homepage settings", type: :system do
   let(:blogs_component) { create(:component, manifest_name: "blogs", skip_injection: true, organization: organization) }
   let(:meetings_component) { create(:component, manifest_name: "meetings", skip_injection: true, organization: organization) }
   let!(:post) { create(:post, component: blogs_component) }
-  let!(:meeting) { create :meeting, component: meetings_component }
+  let!(:meeting) { create(:meeting, component: meetings_component) }
 
   before do
     switch_to_host(organization.host)
@@ -29,7 +29,7 @@ describe "Admin visits homepage settings", type: :system do
     end
 
     it "renders all alternative landing content blocks" do
-      click_button "Add content block"
+      click_on "Add content block"
       expect(page).to have_content("Upcoming meetings (Alternative)")
       expect(page).to have_content("Stack of 3 custom items (Horizontal)")
       expect(page).to have_content("Stack of 3 custom items (Vertical)")
@@ -54,13 +54,13 @@ describe "Admin visits homepage settings", type: :system do
     end
 
     context "when editing a persisted content block" do
-      let!(:alternative_upcoming_meetings_block) { create :alternative_upcoming_meetings_block, organization: organization, scope_name: :homepage, component_id: meetings_component.id }
-      let!(:cover_full_block) { create :content_block, organization: organization, manifest_name: "cover_full", scope_name: :homepage }
-      let!(:cover_half_block) { create :cover_half_block, organization: organization, scope_name: :homepage }
-      let!(:latest_blog_posts_block) { create :latest_blog_posts_block, organization: organization, scope_name: :homepage, component_id: blogs_component.id }
-      let!(:stack_horizontal_block) { create :stack_horizontal_block, organization: organization, scope_name: :homepage }
-      let!(:stack_vertical_block) { create :stack_vertical_block, organization: organization, scope_name: :homepage }
-      let!(:tiles_block) { create :tiles_block, organization: organization, scope_name: :homepage }
+      let!(:alternative_upcoming_meetings_block) { create(:alternative_upcoming_meetings_block, organization: organization, scope_name: :homepage, component_id: meetings_component.id) }
+      let!(:cover_full_block) { create(:content_block, organization: organization, manifest_name: "cover_full", scope_name: :homepage) }
+      let!(:cover_half_block) { create(:cover_half_block, organization: organization, scope_name: :homepage) }
+      let!(:latest_blog_posts_block) { create(:latest_blog_posts_block, organization: organization, scope_name: :homepage, component_id: blogs_component.id) }
+      let!(:stack_horizontal_block) { create(:stack_horizontal_block, organization: organization, scope_name: :homepage) }
+      let!(:stack_vertical_block) { create(:stack_vertical_block, organization: organization, scope_name: :homepage) }
+      let!(:tiles_block) { create(:tiles_block, organization: organization, scope_name: :homepage) }
 
       it_behaves_like "updates the content block", "alternative_upcoming_meetings" do
         let!(:id) { alternative_upcoming_meetings_block.id }
@@ -89,7 +89,7 @@ describe "Admin visits homepage settings", type: :system do
 
         dynamically_attach_file(:content_block_images_background_image, Decidim::Dev.asset("city2.jpeg"))
 
-        click_button "Update"
+        click_on "Update"
         visit decidim.root_path
         expect(page.html).to include("city2.jpeg")
       end
