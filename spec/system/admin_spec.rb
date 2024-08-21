@@ -15,7 +15,7 @@ describe "Admin manages organization homepage", type: :system do
     let!(:cover_full_block) { create :cover_full_block, organization: organization }
 
     before do
-      visit decidim_admin.edit_organization_homepage_content_block_path(:cover_full)
+      visit decidim_admin.edit_organization_homepage_content_block_path(cover_full_block.id)
     end
 
     it "updates the settings of the content block" do
@@ -41,7 +41,7 @@ describe "Admin manages organization homepage", type: :system do
     let!(:cover_half_block) { create :cover_half_block, organization: organization }
 
     before do
-      visit decidim_admin.edit_organization_homepage_content_block_path(:cover_half)
+      visit decidim_admin.edit_organization_homepage_content_block_path(cover_half_block.id)
     end
 
     it "updates the settings of the content block" do
@@ -73,7 +73,7 @@ describe "Admin manages organization homepage", type: :system do
     let!(:other_organization_blog_posts) { create_list(:post, 2, component: other_organization_blogs_component) }
 
     before do
-      visit decidim_admin.edit_organization_homepage_content_block_path(:latest_blog_posts)
+      visit decidim_admin.edit_organization_homepage_content_block_path(latest_blog_posts_block.id)
     end
 
     it "updates the settings of the content block" do
@@ -85,8 +85,8 @@ describe "Admin manages organization homepage", type: :system do
       click_button "Update"
       visit decidim.root_path
 
-      within ".alternative-landing.latest-blog-posts" do
-        expect(page).to have_content "LATEST BLOG POSTS"
+      within ".latest-blog-posts" do
+        expect(page).to have_content "Latest blog posts"
         expect(page).to have_link "See all", href: "example.org/example-path"
 
         blog_posts.each do |blog_post|
@@ -102,13 +102,13 @@ describe "Admin manages organization homepage", type: :system do
         end
       end
 
-      visit decidim_admin.edit_organization_homepage_content_block_path(:latest_blog_posts)
+      visit decidim_admin.edit_organization_homepage_content_block_path(latest_blog_posts_block.id)
       select blogs_component.name["en"], from: "Component"
 
       click_button "Update"
       visit decidim.root_path
 
-      within ".alternative-landing.latest-blog-posts" do
+      within ".latest-blog-posts" do
         blog_posts.each do |blog_post|
           expect(page).to have_i18n_content(blog_post.title)
         end
@@ -134,7 +134,7 @@ describe "Admin manages organization homepage", type: :system do
     let!(:other_organization_meetings) { create_list(:meeting, 2, :upcoming, component: other_organization_meetings_component) }
 
     before do
-      visit decidim_admin.edit_organization_homepage_content_block_path(:alternative_upcoming_meetings)
+      visit decidim_admin.edit_organization_homepage_content_block_path(alternative_upcoming_meetings_block.id)
     end
 
     it "updates the settings of the content block" do
@@ -147,7 +147,7 @@ describe "Admin manages organization homepage", type: :system do
       visit decidim.root_path
 
       within ".alternative-landing.upcoming-meetings" do
-        expect(page).to have_content "UPCOMING MEETINGS"
+        expect(page).to have_content "Upcoming meetings"
         expect(page).to have_link "See all", href: "example.org/example-path"
 
         meetings.each do |meeting|
@@ -163,7 +163,7 @@ describe "Admin manages organization homepage", type: :system do
         end
       end
 
-      visit decidim_admin.edit_organization_homepage_content_block_path(:alternative_upcoming_meetings)
+      visit decidim_admin.edit_organization_homepage_content_block_path(alternative_upcoming_meetings_block.id)
       select meetings_component.name["en"], from: "Component"
 
       click_button "Update"

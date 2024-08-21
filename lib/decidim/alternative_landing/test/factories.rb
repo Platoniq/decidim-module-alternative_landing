@@ -182,7 +182,7 @@ FactoryBot.define do
       {
         link_text_1: Decidim::Faker::Localized.word,
         link_url_1: "https://decidim.org",
-        link_icon_name_1: "instagram"
+        link_icon_name_1: "instagram-line"
       }
     end
     # rubocop:enable Naming/VariableNumber
