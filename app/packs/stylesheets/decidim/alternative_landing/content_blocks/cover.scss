@@ -53,10 +53,6 @@
     @include cover-background-image(var(--color_background_image-rgb), var(--opacity_background_image));
   }
 
-  .cover-text {
-    padding: $gap * 3;
-  }
-
   @include breakpoint(medium down) {
     display: block;
 

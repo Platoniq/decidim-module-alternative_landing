@@ -3,7 +3,7 @@
 
   <div class="grid-x">
     <% 1.upto(4) do |item_number| %>
-      <div class="large-3 p-xs">
+      <div class="large">
         <%= settings_fields.translated :text_field, :"title_#{item_number}", label: t(".title_n", item_number: item_number) %>
         <%= settings_fields.translated :text_area, :"body_#{item_number}", rows: 3, label: t(".body_n", item_number: item_number) %>
         <%= settings_fields.translated :text_field, :"link_url_#{item_number}", label: t(".link_url_n", item_number: item_number) %>
@@ -15,7 +15,7 @@
 <% form.fields_for :images, form.object.images do |images_fields| %>
   <div class="grid-x">
     <% 1.upto(4) do |item_number| %>
-      <div class="large-3 p-xs">
+      <div class="large">
         <%= images_fields.upload :"background_image_#{item_number}", label: t(".background_image_n", item_number: item_number) %>
       </div>
     <% end %>
