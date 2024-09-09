@@ -25,6 +25,11 @@ module Decidim
         def background_image(item_number)
           model.images_container.attached_uploader("background_image_#{item_number}".to_sym).path(variant: :landscape)
         end
+
+        def id_type
+          process_group_url = "processes_groups"
+          request.url.include?(process_group_url) ? "hero-1" : ""
+        end
       end
     end
   end
