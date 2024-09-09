@@ -8,7 +8,7 @@
     <% 1.upto(3) do |item_number| %>
       <div class="stack-item">
         <div class="stack-image">
-          <%= image_tag image(item_number) %>
+          <%= image_tag image(item_number) if image(item_number).present? %>
         </div>
         <div class="stack-body">
           <div>

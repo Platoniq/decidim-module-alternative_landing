@@ -31,6 +31,10 @@ en:
           color_background_text: Text background color
           color_navbar: Navbar color
           color_text: Text color
+          opacity_background_image: Image tint opacity
+          opacity_background_text: Text background opacity
+          opacity_navbar: Navbar opacity
+          opacity_text: Text opacity
           title: Title
         cover_half:
           name: Cover (Half screen)
@@ -43,6 +47,10 @@ en:
           color_text: Text color
           link_text: Link text
           link_url: Link url
+          opacity_background_image: Image tint opacity
+          opacity_background_text: Text background opacity
+          opacity_navbar: Navbar opacity
+          opacity_text: Text opacity
           title: Title
         extra_information:
           name: Process Group Information
@@ -99,6 +107,7 @@ en:
         tiles_settings_form:
           background_image_n: 'Background image for item #%{item_number}'
           body_n: 'Body #%{item_number}'
+          link_url_n: 'Link URL for item #%{item_number}'
           title: Title
           title_n: 'Title #%{item_number}'
         upcoming_meetings:

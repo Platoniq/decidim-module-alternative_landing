@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 shared_examples "render all stack block elements" do |type|
-  let!(:content_block) do
-    type == "stack-horizontal" ? create(:stack_horizontal_block, organization: organization) : create(:stack_vertical_block, organization: organization)
+  let(:manifest_name) { type.gsub("-", "_") }
+  let(:content_block) do
+    Decidim::ContentBlock.find_by(organization: organization, manifest_name: manifest_name)
   end
 
   it "renders all elements" do
@@ -18,7 +19,7 @@ shared_examples "render all stack block elements" do |type|
             # /rails/active_storage/representation/redirect/same-hash--different-token/same-file-name
             # That's why we are splitting by "--" and comparing the first
             img_path = content_block.images_container.attached_uploader("image_#{item_number}".to_sym).path(variant: :landscape)
-            [img_path.split("--").first, img_path.split("/").last].each do |regex|
+            img_path && [img_path.split("--").first, img_path.split("/").last].each do |regex|
               expect(page.find("img")[:src]).to match(/#{regex}/)
             end
           end
@@ -54,8 +55,9 @@ shared_examples "render all stack block elements" do |type|
 end
 
 shared_examples "render all cover block elements" do |type|
-  let!(:content_block) do
-    type == "cover-full" ? create(:cover_full_block, organization: organization) : create(:cover_half_block, organization: organization)
+  let(:manifest_name) { type.gsub("-", "_") }
+  let(:content_block) do
+    Decidim::ContentBlock.find_by(organization: organization, manifest_name: manifest_name)
   end
 
   it "renders all elements" do
@@ -108,6 +110,7 @@ shared_examples "render tiles block elements" do
             within ".tile-body" do
               expect(page).to have_i18n_content(tiles_block.settings.send(:"title_#{item_number}"))
               expect(page).to have_i18n_content(tiles_block.settings.send(:"body_#{item_number}"))
+              expect(page).to have_link(tiles_block.settings.send(:"body_#{item_number}")[I18n.locale]) if tiles_block.settings.send(:"link_url_#{item_number}").present?
             end
           end
         end

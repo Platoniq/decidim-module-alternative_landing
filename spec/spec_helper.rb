@@ -3,7 +3,10 @@
 require "decidim/dev"
 
 require "simplecov"
-SimpleCov.start "rails"
+SimpleCov.start "rails" do
+  add_filter "lib/decidim/alternative_landing/version.rb"
+  add_filter "lib/tasks"
+end
 if ENV["CODECOV"]
   require "codecov"
   SimpleCov.formatter = SimpleCov::Formatter::Codecov

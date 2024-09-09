@@ -15,6 +15,10 @@ require "decidim/alternative_landing"
       Decidim::AlternativeLanding::DefaultColors.cover_full.each do |k, v|
         settings.attribute :"color_#{k}", type: :text, default: v
       end
+
+      Decidim::AlternativeLanding::DefaultOpacities.cover_full.each do |k, v|
+        settings.attribute :"opacity_#{k}", type: :text, default: v
+      end
     end
 
     content_block.images = [{ name: :background_image, uploader: "Decidim::AlternativeLanding::CoverImageUploader" }]
@@ -33,6 +37,10 @@ require "decidim/alternative_landing"
 
       Decidim::AlternativeLanding::DefaultColors.cover_half.each do |k, v|
         settings.attribute :"color_#{k}", type: :text, default: v
+      end
+
+      Decidim::AlternativeLanding::DefaultOpacities.cover_half.each do |k, v|
+        settings.attribute :"opacity_#{k}", type: :text, default: v
       end
     end
 
@@ -88,6 +96,7 @@ require "decidim/alternative_landing"
       1.upto(4).map do |item_number|
         settings.attribute :"title_#{item_number}", type: :text, translated: true
         settings.attribute :"body_#{item_number}", type: :text, translated: true
+        settings.attribute :"link_url_#{item_number}", type: :text, translated: true
       end
     end
 
