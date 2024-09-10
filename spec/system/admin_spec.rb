@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages organization homepage", type: :system do
+describe "Admin manages organization homepage" do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization: organization) }
 
@@ -12,10 +12,10 @@ describe "Admin manages organization homepage", type: :system do
   end
 
   context "when editing a cover_full content block" do
-    let!(:cover_full_block) { create :cover_full_block, organization: organization }
+    let!(:cover_full_block) { create(:cover_full_block, organization: organization) }
 
     before do
-      visit decidim_admin.edit_organization_homepage_content_block_path(:cover_full)
+      visit decidim_admin.edit_organization_homepage_content_block_path(cover_full_block.id)
     end
 
     it "updates the settings of the content block" do
@@ -23,7 +23,7 @@ describe "Admin manages organization homepage", type: :system do
         :content_block_settings_title_en,
         with: "Custom welcome text!"
       )
-      click_button "Update"
+      click_on "Update"
       visit decidim.root_path
       expect(page).to have_content("Custom welcome text!")
     end
@@ -31,17 +31,17 @@ describe "Admin manages organization homepage", type: :system do
     it "updates the images of the content block" do
       dynamically_attach_file(:content_block_images_background_image, Decidim::Dev.asset("city2.jpeg"), remove_before: true)
 
-      click_button "Update"
+      click_on "Update"
       visit decidim.root_path
       expect(page.html).to include("city2.jpeg")
     end
   end
 
   context "when editing a cover_half content block" do
-    let!(:cover_half_block) { create :cover_half_block, organization: organization }
+    let!(:cover_half_block) { create(:cover_half_block, organization: organization) }
 
     before do
-      visit decidim_admin.edit_organization_homepage_content_block_path(:cover_half)
+      visit decidim_admin.edit_organization_homepage_content_block_path(cover_half_block.id)
     end
 
     it "updates the settings of the content block" do
@@ -49,7 +49,7 @@ describe "Admin manages organization homepage", type: :system do
         :content_block_settings_title_en,
         with: "Hello there people!"
       )
-      click_button "Update"
+      click_on "Update"
       visit decidim.root_path
       expect(page).to have_content("Hello there people!")
     end
@@ -57,7 +57,7 @@ describe "Admin manages organization homepage", type: :system do
     it "updates the images of the content block" do
       dynamically_attach_file(:content_block_images_background_image, Decidim::Dev.asset("city3.jpeg"), remove_before: true)
 
-      click_button "Update"
+      click_on "Update"
       visit decidim.root_path
       expect(page.html).to include("city3.jpeg")
     end
@@ -73,7 +73,7 @@ describe "Admin manages organization homepage", type: :system do
     let!(:other_organization_blog_posts) { create_list(:post, 2, component: other_organization_blogs_component) }
 
     before do
-      visit decidim_admin.edit_organization_homepage_content_block_path(:latest_blog_posts)
+      visit decidim_admin.edit_organization_homepage_content_block_path(latest_blog_posts_block.id)
     end
 
     it "updates the settings of the content block" do
@@ -82,11 +82,11 @@ describe "Admin manages organization homepage", type: :system do
       fill_in :content_block_settings_link_url_en, with: "example.org/example-path"
       fill_in :content_block_settings_count, with: 4
 
-      click_button "Update"
+      click_on "Update"
       visit decidim.root_path
 
-      within ".alternative-landing.latest-blog-posts" do
-        expect(page).to have_content "LATEST BLOG POSTS"
+      within ".latest-blog-posts" do
+        expect(page).to have_content "Latest blog posts"
         expect(page).to have_link "See all", href: "example.org/example-path"
 
         blog_posts.each do |blog_post|
@@ -102,13 +102,13 @@ describe "Admin manages organization homepage", type: :system do
         end
       end
 
-      visit decidim_admin.edit_organization_homepage_content_block_path(:latest_blog_posts)
+      visit decidim_admin.edit_organization_homepage_content_block_path(latest_blog_posts_block.id)
       select blogs_component.name["en"], from: "Component"
 
-      click_button "Update"
+      click_on "Update"
       visit decidim.root_path
 
-      within ".alternative-landing.latest-blog-posts" do
+      within ".latest-blog-posts" do
         blog_posts.each do |blog_post|
           expect(page).to have_i18n_content(blog_post.title)
         end
@@ -134,7 +134,7 @@ describe "Admin manages organization homepage", type: :system do
     let!(:other_organization_meetings) { create_list(:meeting, 2, :upcoming, component: other_organization_meetings_component) }
 
     before do
-      visit decidim_admin.edit_organization_homepage_content_block_path(:alternative_upcoming_meetings)
+      visit decidim_admin.edit_organization_homepage_content_block_path(alternative_upcoming_meetings_block.id)
     end
 
     it "updates the settings of the content block" do
@@ -143,11 +143,11 @@ describe "Admin manages organization homepage", type: :system do
       fill_in :content_block_settings_link_url_en, with: "example.org/example-path"
       fill_in :content_block_settings_count, with: 4
 
-      click_button "Update"
+      click_on "Update"
       visit decidim.root_path
 
       within ".alternative-landing.upcoming-meetings" do
-        expect(page).to have_content "UPCOMING MEETINGS"
+        expect(page).to have_content "Upcoming meetings"
         expect(page).to have_link "See all", href: "example.org/example-path"
 
         meetings.each do |meeting|
@@ -163,10 +163,10 @@ describe "Admin manages organization homepage", type: :system do
         end
       end
 
-      visit decidim_admin.edit_organization_homepage_content_block_path(:alternative_upcoming_meetings)
+      visit decidim_admin.edit_organization_homepage_content_block_path(alternative_upcoming_meetings_block.id)
       select meetings_component.name["en"], from: "Component"
 
-      click_button "Update"
+      click_on "Update"
       visit decidim.root_path
 
       within ".alternative-landing.upcoming-meetings" do

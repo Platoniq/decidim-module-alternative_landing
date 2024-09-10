@@ -14,3 +14,8 @@ AllCops:
     - "node_modules/**/*"
     - "db/schema.rb"
     - "vendor/**/*"
+
+RSpec/DescribeClass:
+  Exclude:
+  - "spec/*"
+  - "spec/system/*"

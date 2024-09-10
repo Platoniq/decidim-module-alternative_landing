@@ -3,7 +3,6 @@
 .stack-vertical {
   .stack {
     display: flex;
-    gap: $gap;
 
     .stack-item {
       display: flex;
@@ -16,6 +15,10 @@
         min-height: 15em;
         object-fit: cover;
       }
+
+      .stack-body {
+        line-height: 1.3;
+      }
     }
 
     .stack-tags {
@@ -24,6 +27,10 @@
       li {
         margin: 0;
       }
+    }
+
+    .stack-button {
+      width: 100%;
     }
 
     @include breakpoint(medium down) {

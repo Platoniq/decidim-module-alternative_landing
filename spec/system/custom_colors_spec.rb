@@ -2,8 +2,8 @@
 
 require "spec_helper"
 
-describe "Custom colors", type: :system, perform_enqueued: true do
-  let(:organization) { create :organization, available_locales: [:en] }
+describe "Custom colors", :perform_enqueued do
+  let(:organization) { create(:organization, available_locales: [:en]) }
 
   let(:settings) { {} }
   let!(:cover_full_block) { create(:cover_full_block, organization: organization, settings: settings) }

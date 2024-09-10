@@ -2,8 +2,8 @@
 
 require "spec_helper"
 
-describe "Visit the home page", type: :system, perform_enqueued: true do
-  let(:organization) { create :organization, available_locales: [:en] }
+describe "Visit the home page", :perform_enqueued do
+  let(:organization) { create(:organization, available_locales: [:en]) }
 
   before do
     switch_to_host(organization.host)
@@ -33,14 +33,14 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
     end
 
     it "renders them" do
-      expect(page).to have_selector(".alternative-landing")
-      expect(page).to have_selector(".alternative-landing.cover-full")
-      expect(page).to have_selector(".alternative-landing.cover-half")
-      expect(page).to have_selector(".alternative-landing.stack-horizontal")
-      expect(page).to have_selector(".alternative-landing.stack-vertical")
-      expect(page).to have_selector(".alternative-landing.tiles-4")
-      expect(page).to have_selector(".alternative-landing.latest-blog-posts")
-      expect(page).to have_selector(".alternative-landing.upcoming-meetings")
+      expect(page).to have_css(".alternative-landing")
+      expect(page).to have_css(".alternative-landing.cover-full")
+      expect(page).to have_css(".cover-half")
+      expect(page).to have_css(".stack-horizontal")
+      expect(page).to have_css(".stack-vertical")
+      expect(page).to have_css(".alternative-landing.tiles-4")
+      expect(page).to have_css(".latest-blog-posts")
+      expect(page).to have_css(".alternative-landing.upcoming-meetings")
     end
 
     describe "cover blocks" do
@@ -80,9 +80,9 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
 
     describe "latest_blog_posts block" do
       it "renders all elements" do
-        within ".alternative-landing.latest-blog-posts" do
-          expect(page).to have_i18n_content(latest_blog_posts_block.settings.title, upcase: true)
-          expect(page).to have_i18n_content(latest_blog_posts_block.settings.link_text, upcase: true)
+        within ".latest-blog-posts" do
+          expect(page).to have_i18n_content(latest_blog_posts_block.settings.title)
+          expect(page).to have_i18n_content(latest_blog_posts_block.settings.link_text)
           blog_posts.last(3).each do |blog_post|
             expect(page).to have_i18n_content(blog_post.title)
           end
@@ -96,8 +96,8 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
     describe "alternative_upcoming_meetings block" do
       it "renders all elements" do
         within ".alternative-landing.upcoming-meetings" do
-          expect(page).to have_i18n_content(alternative_upcoming_meetings_block.settings.title, upcase: true)
-          expect(page).to have_i18n_content(alternative_upcoming_meetings_block.settings.link_text, upcase: true)
+          expect(page).to have_i18n_content(alternative_upcoming_meetings_block.settings.title)
+          expect(page).to have_i18n_content(alternative_upcoming_meetings_block.settings.link_text)
           sorted_meetings.last(3).each do |meeting|
             expect(page).to have_i18n_content(meeting.title)
           end

@@ -2,17 +2,14 @@
          data-resources="<%= CGI.escapeHTML(resources.to_json) %>"
          data-events="<%= CGI.escapeHTML(render_events.html_safe) %>"
          data-locale="<%= I18n.locale %>">
-  <div class="row">
-    <div class="columns large-12">
-      <div class="calendar-filters button-group">
-        <% resources.each do |t| %>
-          <button class="button tiny cal-filter <%= t %>" id="<%= t %>"><%= t(".filters.#{t}") %></button>
-        <% end %>
-      </div>
-      <div id="calendar"></div>
+  <div class="calendar-container py-8">
+    <div class="calendar-filters button-group">
+      <% resources.each do |t| %>
+        <button class="button button__sm tiny cal-filter <%= t %>" id="<%= t %>"><%= t(".filters.#{t}") %></button>
+      <% end %>
     </div>
+    <div class="py-6" id="calendar"></div>
   </div>
 </section>
 
-<%= javascript_pack_tag "fullcalendar" %>
-<%= javascript_pack_tag "decidim_fullcalendar" %>
+<%= append_javascript_pack_tag "fullcalendar", "decidim_fullcalendar" %>

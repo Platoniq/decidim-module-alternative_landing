@@ -41,12 +41,24 @@ $calendar-button-color: $dark-gray;
 }
 
 #calendar {
+  .fc-icon.fc-icon-chevron-left::before {
+    content: url("images/decidim/alternative_landing/chevron-left.svg");
+  }
+
+  .fc-icon.fc-icon-chevron-right::before {
+    content: url("images/decidim/alternative_landing/chevron-right.svg");
+  }
+
   table {
     margin-bottom: 0;
   }
 
   td {
     border-color: $light-gray !important;
+  }
+
+  .fc-timegrid-slots tr:nth-child(even) {
+    background-color: #F2F2F2;
   }
 
   .fc-button-primary {

@@ -5,6 +5,6 @@ module Decidim
   module AlternativeLanding
     VERSION = "0.4.0"
     DECIDIM_VERSION = "0.27.2"
-    COMPAT_DECIDIM_VERSION = [">= 0.27.0", "< 0.28"].freeze
+    COMPAT_DECIDIM_VERSION = [">= 0.28.0", "< 0.29"].freeze
   end
 end

@@ -1,13 +1,13 @@
-<section class="alternative-landing tiles-4">
+<section id="<%= id_type %>" class="alternative-landing tiles-4">
   <div class="tiles">
-    <h1 class="tile tile-heading heading1">
+    <h1 class="tile tile-heading heading1 h1">
       <%= decidim_sanitize translated_title %>
     </h1>
     <% 1.upto(4) do |item_number| %>
       <div class="tile tile-<%= item_number %>" style="background-image:url(<%= background_image(item_number) %>);">
         <div class="tile-body">
-          <h2><%= decidim_sanitize translated_title(item_number) %></h2>
-          <div><%= decidim_sanitize translated_body(item_number) %></div>
+          <h2 class="h2"><%= decidim_sanitize translated_title(item_number) %></h2>
+          <div class="rich-text-display"><p><br><%= decidim_sanitize translated_body(item_number) %></p></div>
         </div>
       </div>
     <% end %>

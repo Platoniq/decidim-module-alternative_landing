@@ -15,6 +15,11 @@ module Decidim
         def background_image
           model.images_container.attached_uploader(:background_image).path(variant: :big)
         end
+
+        def id_type
+          process_group_url = "processes_groups"
+          request.url.include?(process_group_url) ? "hero-1" : ""
+        end
       end
     end
   end

@@ -3,17 +3,17 @@
 require "spec_helper"
 require "shared/system_admin_process_group_landing_examples"
 
-describe "Visit a process group's landing page", type: :system, perform_enqueued: true do
-  let!(:organization) { create :organization, available_locales: [:en] }
+describe "Visit a process group's landing page", :perform_enqueued do
+  let!(:organization) { create(:organization, available_locales: [:en]) }
   let(:user) { create(:user, :admin, :confirmed, organization: organization) }
-  let!(:participatory_process_group) { create :participatory_process_group, :with_participatory_processes, organization: organization }
+  let!(:participatory_process_group) { create(:participatory_process_group, :with_participatory_processes, skip_injection: true, organization: organization) }
   let!(:processes) { participatory_process_group.participatory_processes }
 
   context "when there are active alternative landing content blocks" do
     let!(:extra_title_block) { create(:extra_title_block, organization: organization, scoped_resource_id: participatory_process_group.id) }
     let!(:extra_information_block) { create(:extra_information_block, organization: organization, scoped_resource_id: participatory_process_group.id) }
     let!(:calendar_block) { create(:calendar_block, organization: organization, scoped_resource_id: participatory_process_group.id) }
-    let!(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: processes.first) }
+    let!(:meetings_component) { create(:component, manifest_name: "meetings", skip_injection: true, participatory_space: processes.first) }
     let!(:meeting) { create(:meeting, start_time: Time.zone.now, end_time: 1.hour.from_now, component: meetings_component) }
 
     before do
@@ -23,19 +23,21 @@ describe "Visit a process group's landing page", type: :system, perform_enqueued
     end
 
     it "renders them" do
-      expect(page).to have_selector(".alternative-landing.calendar")
+      expect(page).to have_css(".calendar")
     end
 
     describe "extra title block" do
       it "renders all elements" do
-        within "section.alternative-landing.extra-title" do
+        within "section.extra-title" do
           expect(page).to have_i18n_content(extra_title_block.settings.link_text_1)
-          expect(page).to have_selector("[href='/link?external_url=#{CGI.escape(extra_title_block.settings.link_url_1)}']")
-          expect(page).to have_selector(".icon--instagram")
+          expect(page).to have_css("[href='#{extra_title_block.settings.link_url_1}']")
+          expect(page).to have_css(".mr-xs")
         end
       end
 
-      it_behaves_like "updates the content block extra title", "extra_title"
+      it_behaves_like "updates the content block extra title" do
+        let!(:id) { extra_title_block.id }
+      end
     end
 
     describe "extra information block" do
@@ -45,12 +47,14 @@ describe "Visit a process group's landing page", type: :system, perform_enqueued
         end
       end
 
-      it_behaves_like "updates the content block extra information", "extra_information"
+      it_behaves_like "updates the content block extra information" do
+        let!(:id) { extra_information_block.id }
+      end
     end
 
     describe "calendar block" do
       it "renders all elements" do
-        within ".alternative-landing.calendar" do
+        within ".calendar" do
           within ".calendar-filters" do
             expect(page).to have_button("Debate")
             expect(page).to have_button("Meeting")

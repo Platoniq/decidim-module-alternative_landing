@@ -2,8 +2,8 @@
 
 require "spec_helper"
 
-describe "Visit the home page", type: :system, perform_enqueued: true do
-  let(:organization) { create :organization, available_locales: [:en] }
+describe "Visit the home page", :perform_enqueued do
+  let(:organization) { create(:organization, available_locales: [:en]) }
 
   before do
     switch_to_host(organization.host)
@@ -27,13 +27,13 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
       end
 
       it "renders it" do
-        expect(page).to have_selector(".alternative-landing.latest-blog-posts")
+        expect(page).to have_css(".latest-blog-posts")
       end
 
       it "renders all elements" do
-        within ".alternative-landing.latest-blog-posts" do
-          expect(page).to have_i18n_content(latest_blog_posts_block.settings.title, upcase: true)
-          expect(page).to have_i18n_content(latest_blog_posts_block.settings.link_text, upcase: true)
+        within ".latest-blog-posts" do
+          expect(page).to have_i18n_content(latest_blog_posts_block.settings.title)
+          expect(page).to have_i18n_content(latest_blog_posts_block.settings.link_text)
           blog_posts.last(3).each do |blog_post|
             expect(page).to have_i18n_content(blog_post.title)
           end
@@ -49,7 +49,7 @@ describe "Visit the home page", type: :system, perform_enqueued: true do
         let!(:other_blog_posts) { create_list(:post, 6, component: other_blogs_component) }
 
         it "renders only posts from that component" do
-          within ".alternative-landing.latest-blog-posts" do
+          within ".latest-blog-posts" do
             other_blog_posts.each do |blog_post|
               expect(page).not_to have_i18n_content(blog_post.title)
             end
