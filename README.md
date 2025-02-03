@@ -1,7 +1,7 @@
 # Decidim::AlternativeLanding - Additional Content Blocks For Decidim
 
 [![[CI] Test](https://github.com/Platoniq/decidim-module-alternative_landing/actions/workflows/test.yml/badge.svg)](https://github.com/Platoniq/decidim-module-alternative_landing/actions/workflows/test.yml)
-[![codecov](https://codecov.io/gh/Platoniq/decidim-module-alternative_landing/branch/main/graph/badge.svg?token=qUp5m7up6M)](https://codecov.io/gh/Platoniq/decidim-module-alternative_landing)
+[![Coverage Status](https://coveralls.io/repos/github/Platoniq/decidim-module-alternative_landing/badge.svg?branch=main)](https://coveralls.io/github/Platoniq/decidim-module-alternative_landing?branch=main)
 [![Maintainability](https://api.codeclimate.com/v1/badges/565a00f5d7d1ed9879e7/maintainability)](https://codeclimate.com/github/Platoniq/decidim-module-alternative_landing/maintainability)
 
 This module provides alternative and additional content blocks for the Decidim Homepage and Process Groups homepages.
