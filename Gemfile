@@ -16,6 +16,8 @@ gem "uglifier", "~> 4.1"
 
 gem "faker"
 
+gem "concurrent-ruby", "1.3.4"
+
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
