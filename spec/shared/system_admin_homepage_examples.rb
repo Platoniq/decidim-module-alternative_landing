@@ -7,7 +7,7 @@ shared_examples "increase number of content blocks" do |text|
   end
 
   it "increases the number of active content blocks" do
-    content_block = find("ul.js-list-availables li", text: text)
+    content_block = find("ul.js-list-available li", text:)
     active_blocks_list = find("ul.js-list-actives")
     content_block.drag_to(active_blocks_list)
     sleep(2)
