@@ -17,8 +17,8 @@ describe "Visit the home page", :perform_enqueued do
         link_url: { en: "https://url-en.org" }
       }
     end
-    let!(:latest_blog_posts_block) { create(:latest_blog_posts_block, organization: organization, settings: settings) }
-    let!(:blogs_component) { create(:component, manifest_name: "blogs", organization: organization) }
+    let!(:latest_blog_posts_block) { create(:latest_blog_posts_block, organization:, settings:) }
+    let!(:blogs_component) { create(:component, manifest_name: "blogs", organization:) }
     let!(:blog_posts) { create_list(:post, 6, component: blogs_component) }
 
     describe "latest_blog_posts block" do
@@ -45,7 +45,7 @@ describe "Visit the home page", :perform_enqueued do
 
       context "when 'component_id' option is set" do
         let(:settings) { { component_id: blogs_component.id } }
-        let!(:other_blogs_component) { create(:component, manifest_name: "blogs", organization: organization) }
+        let!(:other_blogs_component) { create(:component, manifest_name: "blogs", organization:) }
         let!(:other_blog_posts) { create_list(:post, 6, component: other_blogs_component) }
 
         it "renders only posts from that component" do

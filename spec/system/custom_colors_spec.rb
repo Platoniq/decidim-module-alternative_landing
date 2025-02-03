@@ -6,8 +6,8 @@ describe "Custom colors", :perform_enqueued do
   let(:organization) { create(:organization, available_locales: [:en]) }
 
   let(:settings) { {} }
-  let!(:cover_full_block) { create(:cover_full_block, organization: organization, settings: settings) }
-  let!(:cover_half_block) { create(:cover_half_block, organization: organization, settings: settings) }
+  let!(:cover_full_block) { create(:cover_full_block, organization:, settings:) }
+  let!(:cover_half_block) { create(:cover_half_block, organization:, settings:) }
 
   before do
     switch_to_host(organization.host)

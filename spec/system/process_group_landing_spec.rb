@@ -5,14 +5,14 @@ require "shared/system_admin_process_group_landing_examples"
 
 describe "Visit a process group's landing page", :perform_enqueued do
   let!(:organization) { create(:organization, available_locales: [:en]) }
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
-  let!(:participatory_process_group) { create(:participatory_process_group, :with_participatory_processes, skip_injection: true, organization: organization) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
+  let!(:participatory_process_group) { create(:participatory_process_group, :with_participatory_processes, skip_injection: true, organization:) }
   let!(:processes) { participatory_process_group.participatory_processes }
 
   context "when there are active alternative landing content blocks" do
-    let!(:extra_title_block) { create(:extra_title_block, organization: organization, scoped_resource_id: participatory_process_group.id) }
-    let!(:extra_information_block) { create(:extra_information_block, organization: organization, scoped_resource_id: participatory_process_group.id) }
-    let!(:calendar_block) { create(:calendar_block, organization: organization, scoped_resource_id: participatory_process_group.id) }
+    let!(:extra_title_block) { create(:extra_title_block, organization:, scoped_resource_id: participatory_process_group.id) }
+    let!(:extra_information_block) { create(:extra_information_block, organization:, scoped_resource_id: participatory_process_group.id) }
+    let!(:calendar_block) { create(:calendar_block, organization:, scoped_resource_id: participatory_process_group.id) }
     let!(:meetings_component) { create(:component, manifest_name: "meetings", skip_injection: true, participatory_space: processes.first) }
     let!(:meeting) { create(:meeting, start_time: Time.zone.now, end_time: 1.hour.from_now, component: meetings_component) }
 
