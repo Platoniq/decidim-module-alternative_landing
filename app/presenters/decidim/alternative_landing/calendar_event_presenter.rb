@@ -8,7 +8,7 @@ module Decidim
         election: "var(--warning)",
         meeting: "var(--success)",
         participatory_process_step: "var(--secondary)",
-        survey: "var(--alert)"
+        survey: "var(--tertiary)"
       }.freeze
 
       def type
