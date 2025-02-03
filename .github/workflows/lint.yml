@@ -6,10 +6,11 @@ on:
 
 env:
   RUBY_VERSION: 3.2.2
+  NODE_VERSION: 18.17.1
 
 jobs:
   lint-report:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.0.0
         with:
@@ -20,7 +21,17 @@ jobs:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
 
-      - name: Lint and Rubocop
-        run: |
-          bundle exec rubocop -P
-          bundle exec erblint app/**/*.erb
+      - run: npm ci
+        name: Install JS deps
+
+      - run: npm run lint
+        name: Lint JS files
+
+      - run: npm run stylelint
+        name: Lint SCSS files
+
+      - run: bundle exec rubocop -P
+        name: Lint Ruby files
+
+      - run: bundle exec erblint app/**/*.erb
+        name: Lint ERB files
