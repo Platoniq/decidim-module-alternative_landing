@@ -39,6 +39,9 @@ jobs:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
 
+      - name: Install JS dependencies
+        run: npm ci
+
       - name: Setup Database
         run: bundle exec rake test_app
 
