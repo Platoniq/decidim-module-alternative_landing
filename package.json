@@ -11,8 +11,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint -c .eslintrc.json --no-error-on-unmatched-pattern --ext .js,.jsx app/packs",
     "lint-fix": "eslint -c .eslintrc.json --no-error-on-unmatched-pattern --ext .js,.jsx app/packs --fix",
-    "stylelint": "stylelint **/*.scss",
-    "stylelint-fix": "stylelint **/*.scss --fix"
+    "stylelint": "stylelint **/*.scss --ignore-path .stylelintignore",
+    "stylelint-fix": "stylelint **/*.scss --ignore-path .stylelintignore --fix"
   },
   "repository": {
     "type": "git",
