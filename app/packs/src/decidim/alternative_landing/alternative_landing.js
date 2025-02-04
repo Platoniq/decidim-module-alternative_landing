@@ -1,7 +1,9 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const coverFull = $(".alternative-landing.cover-full");
+document.addEventListener("DOMContentLoaded", () => {
+  const coverFull = document.querySelector(".alternative-landing.cover-full");
 
-  if (coverFull.is("#content section:first-of-type")) {
-    $(".navbar").addClass("transparent");
+  if (coverFull && coverFull.matches("#content section:first-of-type")) {
+    document.querySelectorAll(".navbar").forEach((navbar) => {
+      navbar.classList.add("transparent");
+    });
   }
 });

@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Admin manages organization homepage" do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -12,7 +12,7 @@ describe "Admin manages organization homepage" do
   end
 
   context "when editing a cover_full content block" do
-    let!(:cover_full_block) { create(:cover_full_block, organization: organization) }
+    let!(:cover_full_block) { create(:cover_full_block, organization:) }
 
     before do
       visit decidim_admin.edit_organization_homepage_content_block_path(cover_full_block.id)
@@ -38,7 +38,7 @@ describe "Admin manages organization homepage" do
   end
 
   context "when editing a cover_half content block" do
-    let!(:cover_half_block) { create(:cover_half_block, organization: organization) }
+    let!(:cover_half_block) { create(:cover_half_block, organization:) }
 
     before do
       visit decidim_admin.edit_organization_homepage_content_block_path(cover_half_block.id)
@@ -64,9 +64,9 @@ describe "Admin manages organization homepage" do
   end
 
   context "when editing a latest_blog_posts content block" do
-    let!(:latest_blog_posts_block) { create(:latest_blog_posts_block, organization: organization) }
-    let!(:blogs_component) { create(:component, manifest_name: "blogs", organization: organization) }
-    let!(:other_blogs_component) { create(:component, manifest_name: "blogs", organization: organization) }
+    let!(:latest_blog_posts_block) { create(:latest_blog_posts_block, organization:) }
+    let!(:blogs_component) { create(:component, manifest_name: "blogs", organization:) }
+    let!(:other_blogs_component) { create(:component, manifest_name: "blogs", organization:) }
     let!(:other_organization_blogs_component) { create(:component, manifest_name: "blogs") }
     let!(:blog_posts) { create_list(:post, 2, component: blogs_component) }
     let!(:other_blog_posts) { create_list(:post, 2, component: other_blogs_component) }
@@ -125,9 +125,9 @@ describe "Admin manages organization homepage" do
   end
 
   context "when editing a upcoming_meetings content block" do
-    let!(:alternative_upcoming_meetings_block) { create(:alternative_upcoming_meetings_block, organization: organization) }
-    let!(:meetings_component) { create(:component, manifest_name: "meetings", organization: organization) }
-    let!(:other_meetings_component) { create(:component, manifest_name: "meetings", organization: organization) }
+    let!(:alternative_upcoming_meetings_block) { create(:alternative_upcoming_meetings_block, organization:) }
+    let!(:meetings_component) { create(:component, manifest_name: "meetings", organization:) }
+    let!(:other_meetings_component) { create(:component, manifest_name: "meetings", organization:) }
     let!(:other_organization_meetings_component) { create(:component, manifest_name: "meetings") }
     let!(:meetings) { create_list(:meeting, 2, :upcoming, component: meetings_component) }
     let!(:other_meetings) { create_list(:meeting, 2, :upcoming, component: other_meetings_component) }

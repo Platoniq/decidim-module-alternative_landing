@@ -1,25 +1,11 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": [
-        "eslint:recommended"
-    ],
-    "parserOptions": {
-        "ecmaVersion": 12,
-        "sourceType": "module"
+    "extends": "@decidim",
+    "rules": {
+        "no-invalid-this": "off"
     },
     "globals": {
-        "$": false,
-        "jQuery": false,
-        "L": false,
-        "ApiFetcher": false,
-        "FormStorage": false,
-        "Quill": false,
-        "InscrybMDE": false,
-        "inlineAttachment": false
-    },
-    "rules": {
+        "Calendar": "readonly",
+        "timeGridPlugin": "readonly",
+        "dayGridPlugin": "readonly"
     }
 }

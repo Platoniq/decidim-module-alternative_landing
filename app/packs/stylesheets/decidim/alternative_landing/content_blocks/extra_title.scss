@@ -1,38 +1,39 @@
 @import "stylesheets/decidim/alternative_landing/content_blocks/variables";
 
 .extra-title {
-   .links-list {
+  .links-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .links-list span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 16px;
+    line-height: 20px;
+
+    --tw-text-opacity: 1;
+  }
+
+  .link {
+    display: flex;
+  }
+
+  .link svg {
+    height: 0.875rem;
+    width: 0.875rem;
+    fill: currentColor;
+    color: #6b7280cc;
+  }
+
+  @include breakpoint(medium down) {
+    display: flex;
+    flex-direction: column;
+
+    .participatory-space-group__content-block-metadata {
       display: flex;
       flex-direction: column;
-   }
-
-   .links-list span {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-      font-size: 16px;
-      line-height: 20px;
-      --tw-text-opacity: 1;
-   }
-
-   .link {
-      display: flex;
-   }
-
-   .link svg {
-      height: 0.875rem;
-      width: 0.875rem;
-      fill: currentColor;
-      color: #6B7280CC;
-   }
-
-   @include breakpoint(medium down) {
-      display: flex;
-      flex-direction: column;
-
-      .participatory-space-group__content-block-metadata {
-         display: flex;
-         flex-direction: column;
-      }
-   }
+    }
+  }
 }

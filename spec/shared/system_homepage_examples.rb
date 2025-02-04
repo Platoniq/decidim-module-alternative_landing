@@ -3,7 +3,7 @@
 shared_examples "render all stack block elements" do |type|
   let(:manifest_name) { type.gsub("-", "_") }
   let(:content_block) do
-    Decidim::ContentBlock.find_by(organization: organization, manifest_name: manifest_name)
+    Decidim::ContentBlock.find_by(organization:, manifest_name:)
   end
 
   it "renders all elements" do
@@ -57,7 +57,7 @@ end
 shared_examples "render all cover block elements" do |type|
   let(:manifest_name) { type.gsub("-", "_") }
   let(:content_block) do
-    Decidim::ContentBlock.find_by(organization: organization, manifest_name: manifest_name)
+    Decidim::ContentBlock.find_by(organization:, manifest_name:)
   end
 
   it "renders all elements" do
@@ -86,7 +86,7 @@ shared_examples "render all cover block elements" do |type|
 end
 
 shared_examples "render tiles block elements" do
-  let!(:tiles_block) { create(:tiles_block, organization: organization) }
+  let!(:tiles_block) { create(:tiles_block, organization:) }
 
   it "renders all elements" do
     visit decidim.root_path

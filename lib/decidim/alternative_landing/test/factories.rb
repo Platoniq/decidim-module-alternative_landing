@@ -144,8 +144,8 @@ FactoryBot.define do
         title: generate_localized_title,
         link_text: Decidim::Faker::Localized.word,
         link_url: Decidim::Faker::Localized.literal("https://decidim.org"),
-        component_id: component_id,
-        count: count
+        component_id:,
+        count:
       }
     end
   end
@@ -163,8 +163,8 @@ FactoryBot.define do
         title: generate_localized_title,
         link_text: Decidim::Faker::Localized.word,
         link_url: Decidim::Faker::Localized.literal("https://decidim.org"),
-        component_id: component_id,
-        count: count
+        component_id:,
+        count:
       }
     end
   end

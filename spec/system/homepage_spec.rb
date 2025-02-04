@@ -15,15 +15,15 @@ describe "Visit the home page", :perform_enqueued do
   end
 
   context "when there are active alternative landing content blocks" do
-    let!(:cover_full_block) { create(:cover_full_block, organization: organization) }
-    let!(:cover_half_block) { create(:cover_half_block, organization: organization) }
-    let!(:stack_horizontal_block) { create(:stack_horizontal_block, organization: organization) }
-    let!(:stack_vertical_block) { create(:stack_vertical_block, organization: organization) }
-    let!(:tiles_block) { create(:tiles_block, organization: organization) }
-    let!(:latest_blog_posts_block) { create(:latest_blog_posts_block, organization: organization) }
-    let!(:alternative_upcoming_meetings_block) { create(:alternative_upcoming_meetings_block, organization: organization, component_id: meetings_component.id) }
-    let!(:blogs_component) { create(:component, manifest_name: "blogs", organization: organization) }
-    let!(:meetings_component) { create(:component, manifest_name: "meetings", organization: organization) }
+    let!(:cover_full_block) { create(:cover_full_block, organization:) }
+    let!(:cover_half_block) { create(:cover_half_block, organization:) }
+    let!(:stack_horizontal_block) { create(:stack_horizontal_block, organization:) }
+    let!(:stack_vertical_block) { create(:stack_vertical_block, organization:) }
+    let!(:tiles_block) { create(:tiles_block, organization:) }
+    let!(:latest_blog_posts_block) { create(:latest_blog_posts_block, organization:) }
+    let!(:alternative_upcoming_meetings_block) { create(:alternative_upcoming_meetings_block, organization:, component_id: meetings_component.id) }
+    let!(:blogs_component) { create(:component, manifest_name: "blogs", organization:) }
+    let!(:meetings_component) { create(:component, manifest_name: "meetings", organization:) }
     let!(:blog_posts) { create_list(:post, 6, component: blogs_component) }
     let!(:meetings) { create_list(:meeting, 6, :upcoming, component: meetings_component) }
     let!(:sorted_meetings) { meetings.sort_by(&:start_time).reverse }
