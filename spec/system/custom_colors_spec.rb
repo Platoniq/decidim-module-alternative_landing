@@ -69,10 +69,10 @@ describe "Custom colors", :perform_enqueued do
   end
 
   def get_computed_style(selector)
-    page.execute_script("return window.getComputedStyle($('#{selector}')[0])").strip
+    page.execute_script("return window.getComputedStyle(document.querySelector('#{selector}'))").strip
   end
 
   def get_property_value(selector, variable_name)
-    page.execute_script("return window.getComputedStyle($('#{selector}')[0]).getPropertyValue('#{variable_name}')").strip
+    page.execute_script("return window.getComputedStyle(document.querySelector('#{selector}')).getPropertyValue('#{variable_name}')").strip
   end
 end

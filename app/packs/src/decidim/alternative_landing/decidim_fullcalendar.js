@@ -1,4 +1,4 @@
-$(() => {
+document.addEventListener("DOMContentLoaded", () => {
   const target = document.getElementById("participatory-process-group-homepage-calendar");
   let filters = JSON.parse(decodeURIComponent(target.dataset.resources));
 
@@ -50,20 +50,29 @@ $(() => {
       }
     });
   };
-
-  $(function() {
+  
+  const initializeCalendar = () => {
     calendar.setOption("locale", target.dataset.locale);
     calendar.render();
-    const initialEvents = calendar.getEvents()
-    $(".cal-filter").on("click", function() {
-      $(this).toggleClass("hollow");
-      let filter = $(this).attr("id");
-      if (filters.includes(filter)) {
-        filters = removeFilter(filters, filter)
-      } else {
-        filters.push(filter)
-      }
-      filterEvents(initialEvents);
+    const initialEvents = calendar.getEvents();
+
+    document.querySelectorAll(".cal-filter").forEach((filterButton) => {
+      filterButton.addEventListener("click", function() {
+        this.classList.toggle("hollow");
+        let filter = this.id;
+        if (filters.includes(filter)) {
+          filters = removeFilter(filters, filter);
+        } else {
+          filters.push(filter);
+        }
+        filterEvents(initialEvents);
+      });
     });
-  });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeCalendar);
+  } else {
+    initializeCalendar();
+  }
 });
