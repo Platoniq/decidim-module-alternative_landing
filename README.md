@@ -34,14 +34,6 @@ bundle
 bundle exec rails decidim_alternative_landing:webpacker:install
 ```
 
-Depending on your Decidim version, choose the corresponding version to ensure compatibility:
-
-| Alternative Landing version | Compatible Decidim versions |
-|-----------------------------|-----------------------------|
-| 0.4.x                       | 0.27.x                      |
-| 0.3.x                       | 0.25.x, 0.26.x              |
-| 0.2.x                       | 0.24.x                      |
-
 ### Upgrade from 0.2.x to 0.3.x
 
 As decidim renamed its `upcoming_meetings` to `upcoming_events` in the 0.25 version, if you are upgrading from an
