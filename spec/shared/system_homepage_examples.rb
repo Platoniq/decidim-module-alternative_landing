@@ -18,7 +18,7 @@ shared_examples "render all stack block elements" do |type|
             # ActiveStorage is generating an url with a different token per session, example:
             # /rails/active_storage/representation/redirect/same-hash--different-token/same-file-name
             # That's why we are splitting by "--" and comparing the first
-            img_path = content_block.images_container.attached_uploader("image_#{item_number}".to_sym).path(variant: :landscape)
+            img_path = content_block.images_container.attached_uploader(:"image_#{item_number}").path(variant: :landscape)
             img_path && [img_path.split("--").first, img_path.split("/").last].each do |regex|
               expect(page.find("img")[:src]).to match(/#{regex}/)
             end
@@ -101,7 +101,7 @@ shared_examples "render tiles block elements" do
           # ActiveStorage is generating an url with a different token per session, example:
           # /rails/active_storage/representation/redirect/same-hash--different-token/same-file-name
           # That's why we are splitting by "--" and comparing the first
-          img_path = tiles_block.images_container.attached_uploader("background_image_#{item_number}".to_sym).path(variant: :landscape)
+          img_path = tiles_block.images_container.attached_uploader(:"background_image_#{item_number}").path(variant: :landscape)
           [img_path.split("--").first, img_path.split("/").last].each do |regex|
             expect(page.find(".tile-#{item_number}")[:style]).to match(/#{regex}/)
           end

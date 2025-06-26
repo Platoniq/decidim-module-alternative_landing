@@ -21,7 +21,7 @@ module Decidim
         end
 
         def image(item_number)
-          model.images_container.attached_uploader("image_#{item_number}".to_sym).path(variant: :square)
+          model.images_container.attached_uploader(:"image_#{item_number}").path(variant: :square)
         end
       end
     end

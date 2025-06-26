@@ -23,7 +23,7 @@ module Decidim
         end
 
         def background_image(item_number)
-          model.images_container.attached_uploader("background_image_#{item_number}".to_sym).path(variant: :landscape)
+          model.images_container.attached_uploader(:"background_image_#{item_number}").path(variant: :landscape)
         end
 
         def id_type
