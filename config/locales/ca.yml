@@ -1,19 +1,18 @@
----
 ca:
   decidim:
     alternative_landing:
       content_blocks:
         alternative_upcoming_meetings:
-          name: Properes trobades (Alternative)
-          title: Properes trobades (Alternative)
+          name: Upcoming meetings (Alternative)
+          title: Upcoming meetings (Alternative)
         alternative_upcoming_meetings_settings_form:
-          all: Mostra trobades de qualsevol espai de participació
-          component_id: Component de trobades
-          count: Número d'items
-          info: Només es mostraran les trobades de '%{component}' a '%{space}'. Pots canviar-ho amb el selector següent.
-          link_text: Text de l'enllaç
-          link_url: URL de l'enllaç
-          title: Títol
+          all: Show meetings from any space
+          component_id: Meetings component
+          count: Number of items
+          info: Only meetings from '%{component}' in '%{space}' will be shown. You can change it with the selector below.
+          link_text: Link text
+          link_url: Link URL
+          title: Title
         calendar:
           filters:
             debate: Debat
@@ -27,22 +26,30 @@ ca:
         cover_full_settings_form:
           background_image: Imatge de fons
           body: Text
-          color_background_image: Color de la imatge
-          color_background_text: Color de fons
-          color_navbar: Color de fons del menú
-          color_text: Color del text
+          color_background_image: Image tint color
+          color_background_text: Text background color
+          color_navbar: Navbar color
+          color_text: Text color
+          opacity_background_image: Image tint opacity
+          opacity_background_text: Text background opacity
+          opacity_navbar: Navbar opacity
+          opacity_text: Text opacity
           title: Títol
         cover_half:
           name: Portada (Mitja pantalla)
         cover_half_settings_form:
           background_image: Imatge de fons
           body: Text
-          color_background_image: Color de la imatge
-          color_background_text: Color de fons del text
-          color_navbar: Color de fons del menú
-          color_text: Color del text
+          color_background_image: Image tint color
+          color_background_text: Text background color
+          color_navbar: Navbar color
+          color_text: Text color
           link_text: Text de l'enllaç
           link_url: URL de l'enllaç
+          opacity_background_image: Image tint opacity
+          opacity_background_text: Text background opacity
+          opacity_navbar: Navbar opacity
+          opacity_text: Text opacity
           title: Títol
         extra_information:
           name: Informació del grup de processos
@@ -53,10 +60,10 @@ ca:
         extra_title:
           name: Títol, descripció i enllaços (Extra)
         extra_title_settings_form:
-          help: Pots consultar les icones disponibles <a target="_blank" href="https://decidim-design.herokuapp.com/public/library/pattern-library#patternIcons">aquí</a>
+          help: 'Pots consultar les icones disponibles <a target="_blank" href="https://decidim-design.herokuapp.com/public/library/pattern-library#patternIcons">aquí</a>'
           link_icon_name: 'Icona de l''enllaç per l''item #%{item_number}'
-          link_text: 'Text de l''enllaç per l''item'' #%{item_number}'
-          link_url: 'URL de l''enllaç per l''item'' #%{item_number}'
+          link_text: 'Text de l''enllaç per l''item'' link_url: ''URL de l''enllaç per l''item'' #%{item_number}'
+          link_url: 'Link URL for item #%{item_number}'
         latest_blog_posts:
           name: Últimes entrades de blog
           title: Últimes entrades de blog
@@ -99,6 +106,7 @@ ca:
         tiles_settings_form:
           background_image_n: 'Imatge de fons per l''item #%{item_number}'
           body_n: 'Text #%{item_number}'
+          link_url_n: 'Link URL for item #%{item_number}'
           title: Títol
           title_n: 'Títol #%{item_number}'
         upcoming_meetings:
