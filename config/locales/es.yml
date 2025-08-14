@@ -76,6 +76,27 @@ es:
           button_text: Texto del botón
           consultations: Consultas
           title: Título
+        sidebar_right_stack:
+          name: "Sidebar + Right Stack"
+        sidebar_right_stack_settings_form:
+          title_n: 'Título para el item #%{item_number}'
+          body_n: 'Texto para el item #%{item_number}'
+          link_text_n: 'Texto del enlace para el item #%{item_number}'
+          link_url_n: 'URL del enlace para el item #%{item_number}'
+          image: 'Imagen de fondo'
+        sidebar_right_stack:
+          name: "Barra lateral + 2 items verticales (Encuentros, Posts)"
+        sidebar_right_stack_settings_form:
+          settings_sidebar: "Barra lateral"
+          settings_meetings: "Encuentros"
+          settings_posts: "Publicaciones"
+          title_sidebar: "Título para la barra lateral"
+          title_meetings: "Título para los encuentros"
+          title_posts: "Título para los posts"
+          body: "Contenido"
+          link_text: 'Texto del enlace'
+          link_url: 'URL del enlace'
+          image: 'Imagen de fondo'
         stack_horizontal:
           name: 3 Items configurables (Horizontal)
         stack_horizontal_settings_form:

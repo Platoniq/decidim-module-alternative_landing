@@ -21,5 +21,6 @@ Decidim::Webpacker.register_path("#{base_path}/app/packs")
 Decidim::Webpacker.register_entrypoints(
   decidim_alternative_landing: "#{base_path}/app/packs/entrypoints/decidim_alternative_landing.js",
   decidim_fullcalendar: "#{base_path}/app/packs/entrypoints/decidim_fullcalendar.js",
+  decidim_splide: "#{base_path}/app/packs/entrypoints/decidim_splide.js",
   fullcalendar: "#{base_path}/app/packs/entrypoints/fullcalendar.js"
 )

@@ -1,0 +1,39 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+
+  <h3><%= t(".settings_sidebar") %></h2>
+  <div class="grid-x">
+    <%= settings_fields.translated :text_field, :"title_sidebar", label: t(".title_sidebar") %>
+    <div class="large">
+      <%= settings_fields.translated :text_area, :"body", rows: 5, label: t(".body") %>
+    </div>
+    <div class="large">
+      <%= settings_fields.translated :text_field, :"link_text_sidebar", label: t(".link_text") %>
+      <%= settings_fields.translated :text_field, :"link_url_sidebar", label: t(".link_url") %>
+    </div>
+
+    <% form.fields_for :images, form.object.images do |images_fields| %>
+      <%= images_fields.upload :background_image, label: t(".image") %>
+    <% end %>
+  </div>
+
+  <h3><%= t(".settings_meetings") %></h2>
+  <div class="grid-x">
+    <%= settings_fields.translated :text_field, :"title_meetings", label: t(".title_meetings") %>
+    <div class="large">
+      <%= settings_fields.translated :text_field, :"link_text_meetings", label: t(".link_text") %>
+      <%= settings_fields.translated :text_field, :"link_url_meetings", label: t(".link_url") %>
+    </div>
+  </div>
+
+
+  <h3><%= t(".settings_posts") %></h2>
+  <div class="grid-x">
+    <%= settings_fields.translated :text_field, :"title_posts", label: t(".title_posts") %>
+    <div class="large">
+      <%= settings_fields.translated :text_field, :"link_text_posts", label: t(".link_text") %>
+      <%= settings_fields.translated :text_field, :"link_url_posts", label: t(".link_url") %>
+    </div>
+  </div>
+<% end %>
+
+

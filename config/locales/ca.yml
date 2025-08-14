@@ -76,6 +76,19 @@ ca:
           button_text: Text del botó
           consultations: Consultes
           title: Títol
+        sidebar_right_stack:
+          name: "Barra lateral + 2 items verticals (Trobades, Posts)"
+        sidebar_right_stack_settings_form:
+          settings_sidebar: "Barra lateral"
+          settings_meetings: "Trobades"
+          settings_posts: "Posts"
+          title_sidebar: "Títol per la barra lateral"
+          title_meetings: "Títol per les trobades"
+          title_posts: "Títol pels posts"
+          body: 'Text'
+          link_text: 'Text de l''enllaç'
+          link_url: 'URL de l''enllaç'
+          image: 'Imatge de fons'
         stack_horizontal:
           name: 3 Items configurables (Horitzontal)
         stack_horizontal_settings_form:

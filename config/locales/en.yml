@@ -84,6 +84,19 @@ en:
           button_text: Button text
           consultations: Consultations
           title: Title
+        sidebar_right_stack:
+          name: Sidebar + 2 items vertical (Meetings and Posts)
+        sidebar_right_stack_settings_form:
+          body: Content
+          image: Background image
+          link_text: Link text
+          link_url: Link URL
+          settings_meetings: Meetings
+          settings_posts: Posts
+          settings_sidebar: Sidebar
+          title_meetings: Title for the meetings
+          title_posts: Title for the posts
+          title_sidebar: Title for the sidebar
         stack_horizontal:
           name: Stack of 3 custom items (Horizontal)
         stack_horizontal_settings_form:
