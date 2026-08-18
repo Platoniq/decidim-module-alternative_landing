@@ -24,7 +24,7 @@ shared_examples "updates the content block" do |manifest_name|
       with: "Custom #{manifest_name} title text!"
     )
 
-    click_on "Update"
+    update_content_block decidim_admin.edit_organization_homepage_path
     visit decidim.root_path
     expect(page).to have_content(/Custom #{manifest_name} title text!/i)
   end
