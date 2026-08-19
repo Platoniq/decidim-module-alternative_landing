@@ -31,20 +31,20 @@
     "extends": "@decidim/stylelint-config"
   },
   "engines": {
-    "node": "18.17.1",
+    "node": "22.14.0",
     "npm": ">=9.6.7"
   },
   "devDependencies": {
-    "@decidim/dev": "^0.30.0",
-    "@decidim/eslint-config": "^0.30.0",
-    "@decidim/prettier-config": "^0.30.0",
-    "@decidim/stylelint-config": "^0.30.0",
+    "@decidim/dev": "^0.31.0",
+    "@decidim/eslint-config": "^0.31.0",
+    "@decidim/prettier-config": "^0.31.0",
+    "@decidim/stylelint-config": "^0.31.0",
     "esbuild": "^0.19.10",
     "esbuild-loader": "^4.0.2"
   },
   "dependencies": {
-    "@decidim/core": "^0.30.0",
-    "@decidim/webpacker": "^0.30.0",
+    "@decidim/core": "^0.31.0",
+    "@decidim/webpacker": "^0.31.0",
     "@fullcalendar/core": "^6.0.2",
     "@fullcalendar/daygrid": "^6.0.2",
     "@fullcalendar/timegrid": "^6.0.2",

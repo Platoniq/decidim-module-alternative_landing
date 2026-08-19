@@ -89,7 +89,7 @@ describe "Admin visits homepage settings" do
 
         dynamically_attach_file(:content_block_images_background_image, Decidim::Dev.asset("city2.jpeg"))
 
-        click_on "Update"
+        update_content_block decidim_admin.edit_organization_homepage_path
         visit decidim.root_path
         expect(page.html).to include("city2.jpeg")
       end
