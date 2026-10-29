@@ -14,7 +14,7 @@ shared_examples "updates the content block extra title" do
       with: "https://google.es"
     )
     # rubocop:enable Naming/VariableNumber
-    update_content_block "/admin/participatory_process_groups/#{participatory_process_group.id}/landing_page/edit"
+    update_content_block decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_path(participatory_process_group)
     visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
     expect(page).to have_content(/Custom extra title link text!/i)
   end
@@ -27,7 +27,7 @@ shared_examples "updates the content block extra information" do
     editor = find(".editor-input > div:first-child")
     editor.set("Custom extra information body text!")
 
-    update_content_block "/admin/participatory_process_groups/#{participatory_process_group.id}/landing_page/edit"
+    update_content_block decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_path(participatory_process_group)
     visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
     expect(page).to have_content(/Custom extra information body text!/i)
   end

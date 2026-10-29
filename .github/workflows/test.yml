@@ -5,7 +5,7 @@ on:
   pull_request:
 
 env:
-  RUBY_VERSION: 3.3.4
+  RUBY_VERSION: 3.4.7
   DISABLE_SPRING: 1
   NODE_VERSION: 22.14.0
 
@@ -41,7 +41,7 @@ jobs:
           bundler-cache: true
 
       - run: |
-          sudo apt install imagemagick
+          sudo apt-get update && sudo apt-get install -y imagemagick libvips libvips-tools
 
       - name: Install JS dependencies
         run: npm ci
