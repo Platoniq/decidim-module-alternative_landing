@@ -23,7 +23,7 @@ describe "Admin manages organization homepage" do
         :content_block_settings_title_en,
         with: "Custom welcome text!"
       )
-      click_on "Update"
+      update_content_block decidim_admin.edit_organization_homepage_path
       visit decidim.root_path
       expect(page).to have_content("Custom welcome text!")
     end
@@ -31,7 +31,7 @@ describe "Admin manages organization homepage" do
     it "updates the images of the content block" do
       dynamically_attach_file(:content_block_images_background_image, Decidim::Dev.asset("city2.jpeg"), remove_before: true)
 
-      click_on "Update"
+      update_content_block decidim_admin.edit_organization_homepage_path
       visit decidim.root_path
       expect(page.html).to include("city2.jpeg")
     end
@@ -49,7 +49,7 @@ describe "Admin manages organization homepage" do
         :content_block_settings_title_en,
         with: "Hello there people!"
       )
-      click_on "Update"
+      update_content_block decidim_admin.edit_organization_homepage_path
       visit decidim.root_path
       expect(page).to have_content("Hello there people!")
     end
@@ -57,7 +57,7 @@ describe "Admin manages organization homepage" do
     it "updates the images of the content block" do
       dynamically_attach_file(:content_block_images_background_image, Decidim::Dev.asset("city3.jpeg"), remove_before: true)
 
-      click_on "Update"
+      update_content_block decidim_admin.edit_organization_homepage_path
       visit decidim.root_path
       expect(page.html).to include("city3.jpeg")
     end
@@ -82,7 +82,7 @@ describe "Admin manages organization homepage" do
       fill_in :content_block_settings_link_url_en, with: "example.org/example-path"
       fill_in :content_block_settings_count, with: 4
 
-      click_on "Update"
+      update_content_block decidim_admin.edit_organization_homepage_path
       visit decidim.root_path
 
       within ".latest-blog-posts" do
@@ -105,7 +105,7 @@ describe "Admin manages organization homepage" do
       visit decidim_admin.edit_organization_homepage_content_block_path(latest_blog_posts_block.id)
       select blogs_component.name["en"], from: "Component"
 
-      click_on "Update"
+      update_content_block decidim_admin.edit_organization_homepage_path
       visit decidim.root_path
 
       within ".latest-blog-posts" do
@@ -143,7 +143,7 @@ describe "Admin manages organization homepage" do
       fill_in :content_block_settings_link_url_en, with: "example.org/example-path"
       fill_in :content_block_settings_count, with: 4
 
-      click_on "Update"
+      update_content_block decidim_admin.edit_organization_homepage_path
       visit decidim.root_path
 
       within ".alternative-landing.upcoming-meetings" do
@@ -166,7 +166,7 @@ describe "Admin manages organization homepage" do
       visit decidim_admin.edit_organization_homepage_content_block_path(alternative_upcoming_meetings_block.id)
       select meetings_component.name["en"], from: "Component"
 
-      click_on "Update"
+      update_content_block decidim_admin.edit_organization_homepage_path
       visit decidim.root_path
 
       within ".alternative-landing.upcoming-meetings" do

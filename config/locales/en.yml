@@ -1,5 +1,15 @@
 ---
 en:
+  activemodel:
+    attributes:
+      content_block_attachment:
+        background_image_1: Background image 1
+        background_image_2: Background image 2
+        background_image_3: Background image 3
+        background_image_4: Background image 4
+        image_1: Image 1
+        image_2: Image 2
+        image_3: Image 3
   decidim:
     alternative_landing:
       content_blocks:

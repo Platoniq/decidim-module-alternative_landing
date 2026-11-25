@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 def initialize_process_group_content_blocks
-  initializer "decidim_alternative_landing.content_blocks" do
+  initializer "decidim_alternative_landing.process_group_content_blocks" do
     Decidim.content_blocks.register(:participatory_process_group_homepage, :extra_title) do |content_block|
       content_block.cell = "decidim/alternative_landing/content_blocks/extra_title"
       content_block.settings_form_cell = "decidim/alternative_landing/content_blocks/extra_title_settings_form"

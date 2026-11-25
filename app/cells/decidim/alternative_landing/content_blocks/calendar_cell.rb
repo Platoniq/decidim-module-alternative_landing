@@ -16,8 +16,8 @@ module Decidim
           events.map do |event|
             {
               title: translated_attribute(event.full_title),
-              start: (event.start.strftime("%FT%R") if event.start.present?),
-              end: (event.finish.strftime("%FT%R") if event.finish.present?),
+              start: event.start.presence&.strftime("%FT%R"),
+              end: event.finish.presence&.strftime("%FT%R"),
               color: event.color,
               url: event.link,
               resourceId: event.type,
